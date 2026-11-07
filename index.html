@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Bát Tự, Thần số học, Bát Trạch, Cung Hoàng Đạo, Huyền Không.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Mệnh Lý">
+  <meta property="og:title" content="Phân Tích Mệnh Lý Đông Tây">
+  <meta property="og:image" content="icons/logo-512.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Phân Tích Mệnh Lý Đông Tây</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <div id="loadingOverlay" role="status" aria-live="polite"><div class="spinner"></div><div>Đang lập lá số…</div></div>
+  <div id="errorBox" class="error-box" role="alert" style="display:none"></div>
+  <div class="container">
+    <div class="card">
+      <h2>Hệ Thống Phân Tích Bát Tự & Thiên Văn Học Toàn Cầu</h2>
+
+      <h3>1. THÔNG TIN SINH THẦN & HỌ TÊN</h3>
+      <div class="grid-input">
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label>Họ và tên đầy đủ (Không dấu hoặc có dấu tự động lọc)</label>
+          <input type="text" id="hoten" placeholder="Ví dụ: NGUYEN VAN A">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label>Vị trí sinh (Mỗi khu vực sẽ có kết quả khác nhau)</label>
+          <input type="text" id="vitri" list="ds-vitri" placeholder="Nhập tỉnh thành hoặc quốc gia... Ví dụ: Hồ Chí Minh">
+          <datalist id="ds-vitri">
+            <!-- MIỀN BẮC (Xếp từ Đông sang Tây) -->
+            <option value="Quảng Ninh, Việt Nam">
+            <option value="Lạng Sơn, Việt Nam">
+            <option value="Hải Phòng, Việt Nam">
+            <option value="Cao Bằng, Việt Nam">
+            <option value="Hải Dương, Việt Nam">
+            <option value="Nam Định, Việt Nam">
+            <option value="Thái Bình, Việt Nam">
+            <option value="Bắc Giang, Việt Nam">
+            <option value="Bắc Ninh, Việt Nam">
+            <option value="Hà Nam, Việt Nam">
+            <option value="Hưng Yên, Việt Nam">
+            <option value="Hà Nội, Việt Nam">
+            <option value="Bắc Kạn, Việt Nam">
+            <option value="Thái Nguyên, Việt Nam">
+            <option value="Ninh Bình, Việt Nam">
+            <option value="Vĩnh Phúc, Việt Nam">
+            <option value="Tuyên Quang, Việt Nam">
+            <option value="Phú Thọ, Việt Nam">
+            <option value="Hòa Bình, Việt Nam">
+            <option value="Yên Bái, Việt Nam">
+            <option value="Hà Giang, Việt Nam">
+            <option value="Sơn La, Việt Nam">
+            <option value="Lào Cai, Việt Nam">
+            <option value="Lai Châu, Việt Nam">
+            <option value="Điện Biên, Việt Nam">
+
+              <!-- MIỀN TRUNG & TÂY NGUYÊN (Xếp từ Đông sang Tây) -->
+            <option value="Bình Định, Việt Nam">
+            <option value="Phú Yên, Việt Nam">
+            <option value="Khánh Hòa, Việt Nam">
+            <option value="Ninh Thuận, Việt Nam">
+            <option value="Quảng Ngãi, Việt Nam">
+            <option value="Đà Nẵng, Việt Nam">
+            <option value="Quảng Nam, Việt Nam">
+            <option value="Bình Thuận, Việt Nam">
+            <option value="Lâm Đồng, Việt Nam">
+            <option value="Kon Tum, Việt Nam">
+            <option value="Gia Lai, Việt Nam">
+            <option value="Đắk Lắk, Việt Nam">
+            <option value="Thừa Thiên Huế, Việt Nam">
+            <option value="Đắk Nông, Việt Nam">
+            <option value="Quảng Trị, Việt Nam">
+            <option value="Quảng Bình, Việt Nam">
+            <option value="Thanh Hóa, Việt Nam">
+            <option value="Hà Tĩnh, Việt Nam">
+            <option value="Nghệ An, Việt Nam">
+
+              <!-- MIỀN NAM (Xếp từ Đông sang Tây) -->
+            <option value="Bà Rịa - Vũng Tàu, Việt Nam">
+            <option value="Đồng Nai, Việt Nam">
+            <option value="Bình Phước, Việt Nam">
+            <option value="TP. Hồ Chí Minh, Việt Nam">
+            <option value="Bình Dương, Việt Nam">
+            <option value="Long An, Việt Nam">
+            <option value="Bến Tre, Việt Nam">
+            <option value="Tiền Giang, Việt Nam">
+            <option value="Trà Vinh, Việt Nam">
+            <option value="Tây Ninh, Việt Nam">
+            <option value="Vĩnh Long, Việt Nam">
+            <option value="Sóc Trăng, Việt Nam">
+            <option value="Đồng Tháp, Việt Nam">
+            <option value="Bạc Liêu, Việt Nam">
+            <option value="Cần Thơ, Việt Nam">
+            <option value="Hậu Giang, Việt Nam">
+            <option value="An Giang, Việt Nam">
+            <option value="Cà Mau, Việt Nam">
+            <option value="Kiên Giang, Việt Nam">
+          </datalist>
+        </div>
+      </div>
+
+      <div class="grid-input">
+        <div class="form-group">
+          <label>Ngày sinh (Dương)</label>
+          <input type="number" id="ngay" min="1" max="31" placeholder="Ngày" oninput="if(this.value !== '') { let v = parseInt(this.value); if(v < 1) this.value = 1; if(v > 31) this.value = 31;}">
+        </div>
+        <div class="form-group">
+          <label>Tháng sinh (Dương)</label>
+          <input type="number" id="thang" min="1" max="12" placeholder="Tháng" oninput="if(this.value !== '') { let v = parseInt(this.value); if(v < 1) this.value = 1; if(v > 12) this.value = 12;}">
+        </div>
+        <div class="form-group">
+          <label>Năm sinh (Dương)</label>
+          <input type="number" id="nam" min="1900" max="2100" placeholder="Năm" oninput="if(this.value !== '') { let v = parseInt(this.value); if(this.value.length >= 4 && v < 1900) this.value = 1900; if(v > 2100) this.value = 2100;}">
+        </div>
+        <div class="form-group">
+          <label>Giờ sinh</label>
+          <input type="number" id="gio" min="0" max="23" placeholder="Giờ" oninput="if(this.value !== '') { let v = parseInt(this.value); if(v > 23) this.value = 23;}">
+        </div>
+        <div class="form-group">
+          <label>Phút sinh</label>
+          <input type="number" id="phut" min="0" max="59" placeholder="Phút" oninput="if(this.value !== '') { let v = parseInt(this.value); if(v > 59) this.value = 59;}">
+        </div>
+        <div class="form-group">
+          <label>Giới tính</label>
+          <select id="gioitinh">
+            <option value="Nam" selected>Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-group no-print">
+        <button type="button" onclick="xuLyHeThong()" style="flex: 2;">🚀 PHÂN TÍCH MỆNH LÝ</button>
+      </div>
+      <div class="solar-banner" id="bannerSolar">
+        📅 Ngày Dương Lịch Quy Đổi:
+        <span id="solarDate" style="color: #ffffff; text-decoration: underline; font-size: 20px;">--</span>
+      </div>
+    </div>
+
+    <div id="resultSection" class="result-section">
+      <div style="background: #e0f2fe; border: 1px solid #bae6fd; border-left: 5px solid #0284c7; padding: 18px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <h4 style="margin: 0 0 10px 0; color: #0369a1; font-size: 15px;">⏳ 3 Hệ Tọa Độ Không - Thời Gian Ứng Dụng</h4>
+        <p style="font-size: 13.5px; color: #0f172a; margin: 0 0 12px 0;">Dữ liệu của bạn được luân chuyển qua 3 hệ tọa độ để đảm bảo độ chính xác tuyệt đối theo từng bộ môn học thuật:</p>
+        <ul style="font-size: 13.5px; color: #334155; margin: 0; padding-left: 20px; line-height: 1.7;">
+          <li><b>🌍 Hệ Dương Lịch (Lịch Mặt Trời):</b> Phân hệ Thần Số Học (Numerology) & Cung Hoàng Đạo phương Tây (Sun Sign).</li>
+          <li><b>☀️ Hệ Lịch Tiết Khí (True Solar / Lịch Trời thiên văn):</b> Phân hệ Tứ Trụ (Bát Tự Mệnh Lý).</li>
+          <li><b>🌙 Hệ Âm Lịch (Lịch Mặt Trăng):</b> Phân hệ Cung Mặt Trăng (Moon Sign), Bát Trạch (Cung Phi - Hướng nhà), Kim Lâu, Hoang Ốc, Tam Tai. <i>(Các tính toán dân gian Á Đông như xem tuổi cất nhà, hướng nhà, hạn Tam tai luôn tuân theo năm Âm Lịch tính từ mùng 1 Tết).</i></li>
+        </ul>
+      </div>
+
+      <div class="lunar-banner" id="bannerMenh">
+        📅 Ngày Âm Lịch Quy Đổi:
+        <span id="lunarDate" style="color: #ffffff; text-decoration: underline; font-size: 20px;">--</span>
+      </div>
+
+      <div class="tab-container no-print" id="mainTabs">
+        <button class="tab-btn active" onclick=\"openTab('tab-tongquan', this)\">TỔNG QUAN & TÓM TẮT</button>
+        <button class="tab-btn" onclick=\"openTab('tab-thanso', this)\">THẦN SỐ HỌC TÂY PHƯƠNG</button>
+        <button class="tab-btn" onclick=\"openTab('tab-battu', this)\">BÁT TỰ & BIỂU ĐỒ NGŨ HÀNH</button>
+        <button class="tab-btn" onclick=\"openTab('tab-luunien', this)\">CHIẾN LƯỢC & VẬN HẠN</button>
+      </div>
+
+      <div id="tab-tongquan" class="tab-content active">
+        <div class="card" style="background: #ffffff;">
+          <h3 style="margin-top:0; text-align:center; color: #16a34a;">💡 TÓM TẮT VẬN MỆNH DỄ HIỂU</h3>
+          <div class="summary-box" id="boxTomTatDeHieu"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0; text-align:center; color: var(--primary);">⭐ BẢN SẮC THIÊN VĂN ÂU CHÂU</h3>
+          <div class="interpretation-box" id="boxZodiac" style="margin-top:0; border-left-color: #3b82f6;">
+            <h4 style="color: #2563eb;">Cung Hoàng Đạo & Hệ Tứ Đại Nguyên Tố</h4>
+            <p id="txtZodiacInfo" style="font-size:16px; font-weight:bold; color: var(--primary);">Cung Hoàng Đạo: --</p>
+            <div id="txtZodiacGiaoThoa" style="line-height: 1.5; font-size:14px; color:#334155;">--</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0; color: var(--primary);">🧭 ĐỊNH HƯỚNG PHONG THỦY (BÁT TRẠCH)</h3>
+          <p id="txtCungPhiInfo" style="font-weight: 600; margin-bottom: 15px; color: #4a5568;">--</p>
+          <div class="direction-container">
+            <div class="direction-group" style="border-top: 4px solid var(--good-color);">
+              <h5 style="margin: 0 0 10px 0; color: var(--good-color); font-size: 15px;">🟢 CÁC HƯỚNG TỐT (NÊN CHỌN)</h5>
+              <div id="listHuongTot"></div>
+            </div>
+            <div class="direction-group" style="border-top: 4px solid var(--bad-color);">
+              <h5 style="margin: 0 0 10px 0; color: var(--bad-color); font-size: 15px;">🔴 CÁC HƯỚNG XẤU (NÊN TRÁNH)</h5>
+              <div id="listHuongXau"></div>
+            </div>
+          </div>
+          <div style="background: #eef2ff; border-left: 4px solid #4f46e5; padding: 12px; margin-bottom: 15px; font-size: 13.5px; border-radius: 4px;">
+            <b>💡 Bát Trạch dùng để làm gì?</b> Định hướng này dùng để tìm phương vị cát hung áp dụng vào không gian sống thực tế của bạn, bao gồm:
+            <ul style="margin: 5px 0 0 0; padding-left: 20px;">
+              <li><b>Hướng Đại Cát (Sinh Khí, Diên Niên):</b> Dùng làm hướng cửa chính của ngôi nhà, hướng ban thờ gia tiên, hoặc hướng nằm ngủ (hướng chân đạp tới).</li>
+              <li><b>Hướng Bình An (Thiên Y, Phục Vị):</b> Dùng làm hướng bàn làm việc, hướng két sắt, hoặc hướng đầu giường ngủ.</li>
+              <li><b>Hướng Treo Hung (Ngũ Quỷ, Tuyệt Mệnh, Lục Sát, Họa Hại):</b> Dùng để <b>tọa</b> (đặt) các khu vực ô uế nhằm "lấy độc trị độc" như: Đặt toilet, hầm tự hoại, hoặc đặt bếp (Bếp tọa hung hướng cát - Lửa của bếp sẽ thiêu rụi hung khí).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" style="background: #ffffff; border: 1px solid #94a3b8; padding: 20px 10px; border-radius: 8px; text-align: center; -webkit-font-smoothing: antialiased; box-sizing: border-box; overflow: hidden; width: 100%;">
+          <h4 style="color: #0d47a1; margin-top: 0; font-weight: bold; text-transform: uppercase; font-size: 15px;">🧭 La Bàn Bát Trạch Số Hóa Phẳng (Quy Chuẩn 360°)</h4>
+          <p style="font-size: 13px; color: #000000; font-weight: bold; margin-bottom: 20px; line-height: 1.5; padding: 0 10px;">
+            Mũi tên đỏ cố định hướng trước mặt. Đĩa chữ tự xoay khớp khít theo góc quay thực tế của điện thoại.
+          </p>
+
+          <!-- ĐÈN LED CHỈ BÁO THÔNG MINH ĐIỀU HƯỚNG TRÁI / PHẢI -->
+          <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 12px; height: 20px; width: 100%;">
+            <div id="arrow-Left" style="font-size: 12px; font-weight: bold; color: #16a34a; display: none; animation: blinkerLaBan 0.8s linear infinite;">◄ NHÍCH SANG TRÁI</div>
+            <div id="arrow-Right" style="font-size: 12px; font-weight: bold; color: #16a34a; display: none; animation: blinkerLaBan 0.8s linear infinite;">NHÍCH SANG PHẢI ►</div>
+          </div>
+
+          <div style="position: relative; width: 100%; max-width: 320px; aspect-ratio: 1 / 1; margin: 0 auto; background: #ffffff; border-radius: 50%; border: 2px solid #000000; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; box-sizing: border-box;">
+            <!-- ĐĨA XOAY SVG (Giữ nguyên cấu trúc hình học chuẩn 360 độ của bạn) -->
+            <svg id="svgLaBan" width="100%" height="100%" viewBox="0 0 320 320" style="position: absolute; top:0; left:0; transform: rotate(0deg); transition: transform 0.1s linear; will-change: transform;">
+              <circle cx="160" cy="160" r="140" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+              <path id="arc-Bac" d="M160,160 L106,30 A140,140 0 0,1 214,30 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-DongBac" d="M160,160 L214,30 A140,140 0 0,1 290,106 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-Dong" d="M160,160 L290,106 A140,140 0 0,1 290,214 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-DongNam" d="M160,160 L290,214 A140,140 0 0,1 214,290 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-Nam" d="M160,160 L214,290 A140,140 0 0,1 106,290 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-TayNam" d="M160,160 L106,290 A140,140 0 0,1 30,214 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-Tay" d="M160,160 L30,214 A140,140 0 0,1 30,106 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <path id="arc-TayBac" d="M160,160 L30,106 A140,140 0 0,1 106,30 Z" fill="#f8fafc" stroke="#000000" stroke-width="1"/>
+              <g transform="translate(160,160)">
+                <g transform="rotate(0)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">BẮC</text><text id="lbl-Bac" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(45)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">ĐÔNG BẮC</text><text id="lbl-DongBac" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(90)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">ĐÔNG</text><text id="lbl-Dong" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(135)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">ĐÔNG NAM</text><text id="lbl-DongNam" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(180)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">NAM</text><text id="lbl-Nam" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(225)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">TÂY NAM</text><text id="lbl-TayNam" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(270)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">TÂY</text><text id="lbl-Tay" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+                <g transform="rotate(315)"><text x="0" y="-115" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">TÂY BẮC</text><text id="lbl-TayBac" x="0" y="-100" font-size="10" font-weight="bold" fill="#000000" text-anchor="middle">--</text></g>
+              </g>
+              <circle cx="160" cy="160" r="18" fill="#0f766e" stroke="#ffffff" stroke-width="2"/>
+            </svg>
+            <div style="position: absolute; top: 5px; left: calc(50% - 2px); width: 4px; height: 35px; background: #dc2626; border-radius: 2px; pointer-events: none; z-index: 30;">
+              <div style="position: absolute; top: -5px; left: -5px; width: 14px; height: 14px; background: #dc2626; transform: rotate(45deg); border-radius: 3px 0 0 0;"></div>
+            </div>
+          </div>
+          
+          <!-- BẢNG ĐIỆN TỬ TÁP LÔ TÍNH GIẢM DIỆN TÍCH: TÍCH HỢP NÚT SIÊU PHẲNG CHO IPHONE -->
+          <div style="margin-top: 15px; font-size: 14px; font-weight: bold; color: #000000; display: flex; justify-content: center; align-items: center; gap: 12px; background: #f8fafc; padding: 8px; border-radius: 6px; border: 1px dashed #cbd5e1; box-sizing: border-box; width: 100%;">
+            <div style="white-space: nowrap;">🧭 HƯỚNG: <span id="txtGocLaBanThuc" style="color: #dc2626; font-size: 16px; font-weight: bold;">0</span>° <span id="txtTenHuongThuc" style="color: #1d4ed8; margin-left: 2px;">(BẮC)</span></div>
+            <div style="border-left: 1px solid #cbd5e1; padding-left: 12px; white-space: nowrap; display: flex; align-items: center; gap: 6px;">
+              📊 TRẠNG THÁI: <span id="txtTrangThaiGocThuc" style="padding: 2px 6px; border-radius: 4px; font-size: 11px; color: #ffffff; font-weight: bold;">--</span>
+              
+              <!-- NÚT KHỞI ĐỘNG SIÊU NHỎ GỌN: Chỉ xuất hiện riêng trên hệ máy iPhone iOS để kích hoạt quyền la bàn -->
+              <button id="btnKichHoatiOS" type="button" onclick="kichHoatCamBienLaBanMobile()" style="display: none; background: #0f766e; color: #ffffff; border: none; padding: 2px 6px; font-size: 10px; font-weight: bold; border-radius: 3px; cursor: pointer; line-height: 1.2; margin: auto">🔄 KÍCH HOẠT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-thanso" class="tab-content">
+      <div class="card">
+        <h3 style="margin-top:0; text-align:center; color: var(--primary); margin-bottom: 20px;">ĐẠI LỘ THẦN SỐ HỌC</h3>
+        <div class="num-layout" style="display: flex; gap: 20px; width: 100%; align-items: stretch; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 320px; display: flex; flex-direction: column;">
+            <div class="matrix-container" style="height: 100%;">
+              <h4 style="font-size:13px; margin: 0 0 12px 0; color:#4a5568; font-weight: 600; text-transform: uppercase;">Biểu đồ ngày sinh & Họ tên</h4>
+              <div class="matrix-wrapper">
+                <svg class="matrix-svg" id="svgLines"></svg>
+                <div class="num-grid">
+                  <div class="num-cell" id="c3">3</div>
+                  <div class="num-cell" id="c6">6</div>
+                  <div class="num-cell" id="c9">9</div>
+                  <div class="num-cell" id="c2">2</div>
+                  <div class="num-cell" id="c5">5</div>
+                  <div class="num-cell" id="c8">8</div>
+                  <div class="num-cell" id="c1">1</div>
+                  <div class="num-cell" id="c4">4</div>
+                  <div class="num-cell" id="c7">7</div>
+                </div>
+              </div>
+              <div id="txtMuiTenGhiChu" style="font-size: 11px; color:#c0392b; margin-top:14px; text-align:center; font-weight:bold;"></div>
+            </div>
+          </div>
+          <div style="flex: 1; min-width: 320px; display: flex; flex-direction: column;">
+            <div class="interpretation-box" id="boxNumeBasic" style="margin-top:0; height: 100%; display: flex; flex-direction: column; background: #fff5f5; border-left: 4px solid var(--bad-color); padding: 16px; border-radius: 4px;">
+              <h4 style="color: #dc2626; margin-top: 0; font-size:14px; text-transform: uppercase; border-bottom: 1px solid #fee2e2; padding-bottom: 6px;">Chỉ Số Đường Đời & Số Chủ Đạo</h4>
+              <p id="txtSoChuDao" style="font-size:16px; font-weight:bold; color: var(--primary); margin: 10px 0 6px 0;">Số Chủ Đạo: --</p>
+              <div id="txtYNghiaChuDao" style="font-size: 13.5px; line-height: 1.6; color: #475569; flex: 1;">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0; text-align:center; color: #16a34a; margin-bottom: 24px;">🔍 PHÂN TÍCH CHI TIẾT BIỂU ĐỒ</h3>
+        <div style="margin-bottom: 25px;">
+          <h4 style="color: var(--primary); border-bottom: 2px dashed #e2e8f0; padding-bottom: 6px; margin-bottom: 14px; font-size: 14px; text-transform: uppercase;">1. Ý Nghĩa Các Con Số Trong Biểu Đồ Của Bạn:</h4>
+          <div id="listYnghiaCacSo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;"></div>
+        </div>
+        <div>
+          <h4 style="color: var(--primary); border-bottom: 2px dashed #e2e8f0; padding-bottom: 6px; margin-bottom: 14px; font-size: 14px; text-transform: uppercase;">2. Luận Giải Các Trục Mũi Tên:</h4>
+          <div id="txtYnghiaMuiTen" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0; text-align:center; color: var(--primary);">🏔️ SƠ ĐỒ 4 ĐỈNH CAO CUỘC ĐỜI</h3>
+        <p style="text-align: center; font-size: 13px; color: #64748b;">4 cột mốc chuyển giao năng lượng mạnh mẽ nhất.</p>
+        <div class="pyramid-container" id="pyramidVisual"></div>
+        <div id="pyramidDetails" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;"></div>
+      </div>
+    </div>
+
+    <div id="tab-battu" class="tab-content">
+      <div class="card">
+        <h3 style="margin-top:0; color: var(--primary); font-size: 18px; text-align:center; margin-bottom:20px;">BẢNG ĐỐI CHIẾU TỨ TRỤ</h3>
+        <div class="battu-grid">
+          <div class="battu-card" id="cardGio">
+            <div>
+              <div class="battu-title">Trụ Giờ</div>
+              <div class="battu-value" id="valGio">--</div>
+              <div class="battu-detail" id="detGio">--</div>
+              <div class="battu-element" id="eleGio">--</div>
+            </div>
+            <div class="battu-relation-box" id="relGio">--</div>
+          </div>
+          <div class="battu-card" id="cardNgay">
+            <div>
+              <div class="battu-title">Trụ Ngày</div>
+              <div class="battu-value" id="valNgay">--</div>
+              <div class="battu-detail" id="detNgay">--</div>
+              <div class="battu-element" id="eleNgay">--</div>
+            </div>
+            <div class="battu-relation-box" id="relNgay">--</div>
+          </div>
+          <div class="battu-card" id="cardThang">
+            <div>
+              <div class="battu-title">Trụ Tháng</div>
+              <div class="battu-value" id="valThang">--</div>
+              <div class="battu-detail" id="detThang">--</div>
+              <div class="battu-element" id="eleThang">--</div>
+            </div>
+            <div class="battu-relation-box" id="relThang">--</div>
+          </div>
+          <div class="battu-card" id="cardNam">
+            <div>
+              <div class="battu-title">Trụ Năm</div>
+              <div class="battu-value" id="valNam">--</div>
+              <div class="battu-detail" id="detNam">--</div>
+              <div class="battu-element" id="eleNam">--</div>
+            </div>
+            <div class="battu-relation-box" id="relNam">--</div>
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+          <h4 style="margin: 0 0 10px 0; color: #334155; font-size: 14px;">💡 Ý nghĩa 4 Trụ đối với cuộc đời bạn:</h4>
+          <div id="txtLuanGiaiTuTruDeHieu" style="font-size: 13.5px; color: #4a5568; line-height: 1.6; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;"></div>
+          <div id="kiemTraTuongTacToanDien" style="font-size: 13.5px; color: #4a5568; line-height: 1.6; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;"></div>
+          <div id="txtTuongTacChungCacTru" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 12px; border-top: 1px dashed #cbd5e1; padding-top: 12px;"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0; color: var(--primary); font-size: 18px; text-align:center; margin-bottom:20px;">CÂN BẰNG NGŨ HÀNH & CẢI VẬN</h3>
+
+        <div style="max-width: 500px; margin: 0 auto 20px auto;">
+          <canvas id="radarChart"></canvas>
+        </div>
+
+        <div class="interpretation-box" id="boxDungThan">
+          <h4 style="color: #dc2626;">⚖️ PHÂN TÍCH CẢI VẬN CHI TIẾT (DỤNG THẦN)</h4>
+          <p id="txtLuanDungThan">--</p>
+          <div id="txtUngDungDungThan"></div>
+          <div style="background: #fffbeb; border-left: 4px solid #d97706; padding: 15px; border-radius: 6px; margin-top: 15px;">
+            <h4 style="margin: 0 0 8px 0; color: #b45309; font-size: 14px;">💡 Tại sao không chọn màu theo Mệnh Năm Sinh?</h4>
+            <p style="margin: 0; font-size: 13.5px; color: #451a03; line-height: 1.5;">
+              Đa số mọi người chọn màu theo <b>Mệnh Nạp Âm</b> (Ví dụ: 1996 là Giản Hạ Thủy thì mặc màu Đen/Trắng). Tuy nhiên, cách này chỉ xét bề nổi của 1/8 lá số.<br>
+              Hệ thống của chúng tôi sử dụng màu sắc theo <b>DỤNG THẦN CHIẾN LƯỢC</b>. Thuật toán đã "cân đo đong đếm" toàn bộ Năm, Tháng, Ngày, Giờ để tìm ra dòng khí bạn đang thiếu hụt nhất. Việc mặc màu của Dụng thần giống như cung cấp đúng "liều thuốc bổ" mà cơ thể đang thực sự khát, giúp xoay chuyển trường năng lượng mạnh mẽ nhất.
+            </p>
+          </div>
+        </div>
+
+        <div class="interpretation-box" id="boxDacDiemMenh">
+          <h4 id="lblDacDiemTitle" style="color: var(--primary);">Đặc Điểm Ưu & Nhược Điểm Bản Mệnh</h4>
+          <p id="txtDacDiemTongQuan">--</p>
+          <p id="txtUuDiem">--</p>
+          <p id="txtNhuocDiem">--</p>
+          <p id="txtNhanDien">--</p>
+        </div>
+
+        <div class="interpretation-box" id="boxTamDichNhanKhi">
+          <h4 style="color: #2e7d32;">☯️ TÂM DỊCH - YẾU TỐ CON NGƯỜI</h4>
+          <div id="contentTamDichNhanKhi"></div>
+        </div>
+      </div>
+
+      <div class="interpretation-box" style="border-left-color: #3b82f6; background: #f0f9ff; margin-top: 15px;">
+        <h4 style="color: #1e293b;">⚖️ TRẠNG THÁI NHẬT CHỦ (THÂN VƯỢNG / THÂN NHƯỢC)</h4>
+        <p id="txtThanVuongNhuocChiTiet" style="font-size: 14px; line-height: 1.6; color: #334155;"></p>
+      </div>
+    </div>
+
+    <div id="tab-luunien" class="tab-content">
+      <div class="card" style="border: 2px solid #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); padding-bottom: 8px; margin-bottom: 15px;">
+          <h3 style="margin: 0; border: none; padding: 0; color: #1d4ed8;">🔮 VẬN HẠN LƯU NIÊN (THEO NĂM)</h3>
+          <div style="display: flex; align-items: center; gap: 8px; background: #eff6ff; padding: 6px 12px; border-radius: 6px; border: 1px solid #bfdbfe;">
+            <label style="font-size: 13px; font-weight: bold; color: #1e40af;">Chọn năm xem:</label>
+            <select id="selectNamXemHan" style="width: 100px; padding: 6px; border-color: #93c5fd; font-weight: bold; color: #1e3a8a;" onchange="xuLyHeThong(true)"></select>
+          </div>
+        </div>
+
+        <div id="txtVanHanChiTiet"></div>
+
+        <div class="interpretation-box" id="boxHanhDongThucTe" style="margin-top: 15px; border-left-color: #f59e0b; background: #fffbeb;">
+          <h4 style="color: #d97706;">🎯 CHIẾN LƯỢC HÀNH ĐỘNG NĂM NAY</h4>
+          <div id="contentHanhDongThucTe"></div>
+        </div>
+
+        <div id="todoThang" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+        <div style="background:#fff; border:1px solid var(--border); border-radius:8px; padding:15px; margin-top:15px;">
+          <h5 style="margin:0 0 10px 0; font-size:15px; color:#dc2626; text-align:center; text-transform: uppercase;">🧭 PHONG THỦY LƯU NIÊN (HUYỀN KHÔNG PHI TINH)</h5>
+          <p style="text-align: center; font-size: 13px; color: #64748b; margin-top: 0;">Trường khí các phương vị trong năm, ứng dụng để kê bàn làm việc hoặc giường ngủ.</p>
+          <div class="hk-grid" id="gridPhiTinh"></div>
+          <div id="txtLuanPhiTinh" style="font-size:13px; color:#2d3748; margin-top:20px; line-height:1.5;"></div>
+        </div>
+      </div>
+
+      <div class="card" style="background: #f8fafc;">
+        <h3 style="margin-top:0; color: var(--primary); text-align: center;">🏛️ CHIẾN LƯỢC CUỘC ĐỜI (CỐ ĐỊNH)</h3>
+        <p style="text-align: center; font-size: 13px; color: #64748b;">Các lộ trình và nguyên tắc bất biến dựa trên lá số gốc của bạn.</p>
+
+        <div class="interpretation-box" id="boxDongDieuNhanSu" style="border-left-color: #8b5cf6;">
+          <h4 style="color: #6d28d9;">👥 SỰ ĐỒNG ĐIỆU NHÂN SỰ & ĐỐI TÁC</h4>
+          <div id="contentDongDieuNhanSu"></div>
+        </div>
+
+        <div class="interpretation-box" id="boxDaiVan" style="background: #ffffff;">
+          <h4 style="color: var(--primary);">Lộ Trình Đại Vận (Chu Kỳ 10 Năm)</h4>
+          <div class="timeline-container" id="listDaiVan"></div>
+        </div>
+      </div>
+
+    </div>
+      
+  </div>
+  <script src="engine.js"></script>
+  <script>
+    // Data local app
+    const DIEN_GIAI_SO_THAN_SO = {
+      1: { title: "Số 1 (Cái tôi & Bản ngã)", text: "Đại diện cho cái tôi cá nhân, cách thức thể hiện bản thân ra thế giới bên ngoài và năng lực giao tiếp thực tế." },
+      2: { title: "Số 2 (Trực giác & Thấu cảm)", text: "Biểu trưng cho mức độ nhạy cảm, trực giác tâm hồn, lòng thấu cảm và khả năng hợp tác, kết nối hài hòa." },
+      3: { title: "Số 3 (Trí tuệ & Sáng tạo)", text: "Thể hiện tư duy logic, trí nhớ, khả năng phân tích dữ liệu, năng lực học hỏi và đầu óc sáng tạo ngôn từ." },
+      4: { title: "Số 4 (Kỷ luật & Thực tế)", text: "Phản ánh tính thực tiễn, tính tổ chức, kỷ luật gọn gàng, sự vững chãi và năng lực vận hành cấu trúc." },
+      5: { title: "Số 5 (Tự do & Kết nối)", text: "Đại diện cho khao khát tự do, trải nghiệm thế giới, cảm xúc nhạy bén, tính nghệ thuật và lòng yêu thương." },
+      6: { title: "Số 6 (Trách nhiệm & Sáng tạo)", text: "Biểu thị tình yêu thương gia đình, tinh thần trách nhiệm cao, sự cống hiến cho tổ chức và óc sáng tạo yên bình." },
+      7: { title: "Số 7 (Trải nghiệm & Bài học)", text: "Khát vọng tự mình chiêm nghiệm cuộc sống, học hỏi sâu sắc thông qua các trải nghiệm thực tế và thử thách bản thân." },
+      8: { title: "Số 8 (Độc lập & Trí tuệ)", text: "Thể hiện tính độc lập cao, tư duy thực tế nhạy bén, năng lực tài chính, quản trị tổ chức hoặc điều hành kinh doanh." },
+      9: { title: "Số 9 (Hoài bão & Nhân văn)", text: "Đại diện cho lý tưởng sống lớn, ước vọng nhân văn, lòng nhân ái bao la và tinh thần trách nhiệm với cộng đồng." }
+    };
+
+    const DIEN_GIAI_DINH_CAO = {
+      1: "Giai đoạn phát triển năng lực cá nhân, tự lập và khẳng định cái tôi.",
+      2: "Giai đoạn nở rộ về mặt tình cảm, trực giác, kết nối và hợp tác tâm hồn.",
+      3: "Giai đoạn mở mang trí tuệ, đi xa học hỏi, viết lách hoặc mở rộng vòng tròn tri thức.",
+      4: "Giai đoạn tích lũy tài sản vật chất vững chắc, kỷ luật và gặt hái thành quả thực tế.",
+      5: "Giai đoạn tự do trải nghiệm, du lịch tâm linh, đột phá nghệ thuật hoặc đổi mới tư duy.",
+      6: "Giai đoạn đỉnh cao về trách nhiệm, cống hiến vì gia đình, xây dựng tổ ấm hoặc cộng đồng.",
+      7: "Giai đoạn chiêm nghiệm sâu sắc qua các thử thách, tự học và chia sẻ chân lý nhân sinh.",
+      8: "Giai đoạn độc lập tài chính vượt bậc, điều hành doanh nghiệp hoặc nắm giữ quyền lực.",
+      9: "Giai đoạn nhân văn cao cả, cống hiến vì cộng đồng, thiện nguyện hoặc thực hiện hoài bão lớn.",
+      0: "Giai đoạn chuyển giao năng lượng vô định, cần tĩnh tâm tích lũy nội lực."
+    };
+
+    // MA_HEX_MAU dùng bản trong engine.js
+
+    const TRUC_THAN_SO_HOC = [
+      { name: "Trục Thực Tế (1-4-7)", dTot: "Khả năng tháo vát, thực tế, thích hành động và có năng lực trải nghiệm vật chất cao.", dXau: "Thiếu tính thực tế, khó ngăn nắp, dễ xa rời thực tiễn hoặc thiếu tính kiên nhẫn bám đuổi." },
+      { name: "Trục Tình Cảm (2-5-8)", dTot: "Nội tâm phong phú, trực giác nhạy bén, sâu sắc, biết cân bằng cảm xúc cá nhân.", dXau: "Dễ bị tổn thương thầm lặng, khó bộc lộ cảm xúc, nội tâm có xu hướng khép kín hoặc u uất." },
+      { name: "Trục Trí Tuệ (3-6-9)", dTot: "Tư duy sáng suốt, óc phân tích dữ liệu tốt, trí nhớ tốt và nhiều hoài bão lớn.", dXau: "Dễ suy nghĩ tiêu cực, lười vận động tư duy hoặc gặp khó khăn khi hiện thực hóa lý tưởng." },
+      { name: "Trục Kế Hoạch (1-2-3)", dTot: "Phương pháp làm việc khoa học, biết lập kế hoạch ngăn nắp và tổ chức cuộc sống tốt.", dXau: "Làm việc theo bản năng, thiếu quy trình bài bản, dễ bỏ cuộc giữa chừng do thiếu định hướng." },
+      { name: "Trục Ý Chí (4-5-6)", dTot: "Ý chí kiên cường, dũng cảm, có tinh thần gánh vác trách nhiệm cao đối với tập thể.", dXau: "Thiếu đi động lực tự thân, dễ bị hoàn cảnh chi phối, tinh thần gánh vác đôi khi bị trì trệ." },
+      { name: "Trục Hoạt Động (7-8-9)", dTot: "Năng động, thích di chuyển, khát vọng tự mình trải nghiệm để rút ra bài học sâu sắc.", dXau: "Thiếu tính chủ động hành động, dễ an phận thủ thường, ngại dấn thân thử thách hoàn cảnh." },
+      { name: "Trục Quyết Tâm (1-5-9)", dTot: "Sự kiên trì tuyệt vời, quyết tâm vượt qua mọi nghịch cảnh để đi tới đích cuối cùng.", dXau: "Thiếu tính kiên định, hay trì hoãn các quyết định lớn, dễ nản lòng khi gặp trở ngại." },
+      { name: "Trục Nhận Thức (3-5-7)", dTot: "Có đức tin và trực giác tâm linh cao, thấu hiểu sâu sắc các bài học nhân sinh.", dXau: "Dễ nảy sinh tâm lý hoài nghi, đa sầu đa cảm, thiếu niềm tin vững chãi vào bản thân." }
+    ];
+
+    const Y_NGHIA_DINH = {
+      1: "Khẳng định bản thân, khởi đầu mới, độc lập tự chủ.",
+      2: "Hợp tác, hôn nhân, phát triển trực giác và sự kiên nhẫn.",
+      3: "Sáng tạo bùng nổ, vui vẻ, phát triển năng lực truyền đạt.",
+      4: "Xây dựng nền móng vững chắc, làm việc chăm chỉ, tích lũy tài sản.",
+      5: "Sự thay đổi, tự do, du lịch và những bước ngoặt bất ngờ.",
+      6: "Trách nhiệm gia đình, tình yêu thương, chăm sóc người khác.",
+      7: "Phát triển tâm linh, học thuật chuyên sâu, chiêm nghiệm nội tâm.",
+      8: "Thành công tài chính, quyền lực, quản trị kinh doanh.",
+      9: "Sự hoàn thiện, hoạt động nhân đạo, buông bỏ quá khứ để tiến lên."
+    };
+
+    const MAU_NGU_HANH = {
+      "Kim": "#94a3b8",  // Màu xám ghi
+      "Mộc": "#10b981",  // Màu xanh lá
+      "Thủy": "#3b82f6",  // Màu xanh biển
+      "Hỏa": "#ef4444",  // Màu đỏ
+      "Thổ": "#f59e0b"   // Màu vàng đất
+    };
+
+    // MA_CHU_TEXT_COLOR dùng bản trong engine.js
+
+    const LOI_KHUYEN_TAM_DICH = {
+      "Kim": "<b>Hành Kim chủ về 'Nghĩa' (Quyết đoán, kỷ cương).</b><br>• <i>Tâm bệnh:</i> Khi quá vượng sẽ hóa thành sự độc đoán, định kiến khắc nghiệt, và tư duy nhị nguyên (đúng - sai) làm xơ cứng các mối quan hệ.<br>• <i>Chuyển hóa:</i> Cần mượn <b>Hỏa khí</b> (sự thấu cảm, mở lòng) để nung chảy khối băng kiêu ngạo; ứng dụng <b>Thủy khí</b> (sự uyển chuyển) để học cách lắng nghe mà không phán xét. Thay vì đòi hỏi sự hoàn hảo ở người khác, hãy bao dung cho những khiếm khuyết của họ.",
+      
+      "Mộc": "<b>Hành Mộc chủ về 'Nhân' (Nhân ái, sinh trưởng).</b><br>• <i>Tâm bệnh:</i> Khi mất cân bằng, lòng trắc ẩn dễ đặt sai chỗ biến thành sự nhu nhược, dễ mủi lòng dẫn đến tin người mù quáng, hoặc cả thèm chóng chán, ý chí dễ gãy đổ khi gặp bão giông.<br>• <i>Chuyển hóa:</i> Phải dùng <b>Kim khí</b> (sự đoạn tuyệt, tính kỷ luật) để dũng cảm cắt tỉa những mối quan hệ độc hại và rườm rà; nạp thêm <b>Thổ khí</b> (sự định tĩnh) để cắm sâu rễ vào lý tưởng, làm việc có đầu có đuôi chứ không bỏ dở giữa chừng.",
+      
+      "Thủy": "<b>Hành Thủy chủ về 'Trí' (Trí tuệ, linh hoạt).</b><br>• <i>Tâm bệnh:</i> Nhược điểm cố hữu là tâm trí chuyển động quá nhanh dẫn đến suy nghĩ miên man (overthinking), nội tâm đa sầu đa cảm, hành động thiếu kiên định, dễ bị cuốn trôi theo dòng dư luận.<br>• <i>Chuyển hóa:</i> Bắt buộc phải dựng <b>Thổ đê</b> (khuôn thước, nguyên tắc) làm bến bờ giữ cho dòng nước không bị phân tán; mượn <b>Mộc khí</b> (tính mục tiêu) để gom toàn bộ dòng chảy trí tuệ hướng về một cái đích duy nhất. Tập thói quen viết kế hoạch ra giấy để cố định tâm trí.",
+      
+      "Hỏa": "<b>Hành Hỏa chủ về 'Lễ' (Nhiệt huyết, minh bạch).</b><br>• <i>Tâm bệnh:</i> Ngọn lửa khi bùng phát sẽ thiêu rụi lý trí, biến thành sự nóng nảy, bộc trực, ngôn từ sắc nhọn dễ gây tổn thương sâu sắc cho người xung quanh, hậu vận dễ cô độc vì khẩu nghiệp.<br>• <i>Chuyển hóa:</i> Cần đưa <b>Thủy khí</b> (sự tĩnh lặng) vào tâm thức bằng cách thực hành 'khoảng lặng 5 giây' trước khi phát ngôn; nạp thêm <b>Thổ khí</b> (sự điềm đạm, dày dặn) để hạ hỏa, giữ cho nhiệt huyết luôn ấm áp, che chở chứ không thiêu đốt người khác.",
+      
+      "Thổ": "<b>Hành Thổ chủ về 'Tín' (Vững chãi, bao bọc).</b><br>• <i>Tâm bệnh:</i> Mặt tối của sự ổn định là tâm lý trì trệ, chậm chạp, cố chấp, ngại thay đổi và sợ bước ra khỏi vùng an toàn. Đôi khi chịu đựng quá mức dẫn đến tích tụ năng lượng tiêu cực bên trong.<br>• <i>Chuyển hóa:</i> Rất cần <b>Mộc khí</b> (sự phá đất vươn lên) để kích hoạt tư duy đổi mới, dám thử thách cái mới; ứng dụng <b>Kim khí</b> (sự sắc bén) để ra quyết định nhanh chóng, dứt khoát chớp lấy thời cơ. Hãy nhớ, vận động chính là cội nguồn của sinh khí."
+    };
+
+    const MA_TRAN_QUY_TAC_NHAN_SU = {
+      "Thủy": {
+        tot: "Ưu tiên chọn đối tác vượng hành <b>Thủy</b> hoặc <b>Kim</b>. Xét theo tuổi, nhóm <b>Thân, Dậu, Hợi, Tý</b> sở hữu trường khí tương sinh giúp nâng đỡ tối đa tài vận.",
+        ky: "Hạn chế góp vốn sâu với người vượng hành <b>Thổ</b> (khắc Thủy) hoặc vượng <b>Hỏa</b>, dễ dẫn đến tranh chấp tài chính hoặc bế tắc quy trình."
+      },
+      "Mộc": {
+        tot: "Ưu tiên chọn đối tác vượng hành <b>Mộc</b> hoặc <b>Thủy</b>. Xét theo tuổi, nhóm <b>Hợi, Tý, Dần, Mão</b> sẽ mang đến cát khí, giúp sự nghiệp vươn cao bền vững.",
+        ky: "Cẩn trọng khi kết hợp với người vượng hành <b>Kim</b> (khắc Mộc) hoặc vượng <b>Hỏa</b> (tiết khí Mộc), dễ gặp áp lực nặng nề hoặc bị tiêu hao năng lượng."
+      },
+      "Hỏa": {
+        tot: "Ưu tiên chọn đối tác vượng hành <b>Hỏa</b> hoặc <b>Mộc</b>. Xét theo tuổi, nhóm <b>Dần, Mão, Tỵ, Ngọ</b> sở hữu năng lượng tương sinh giúp đại sự hanh thông, phát đạt.",
+        ky: "Tránh chung vốn lớn với người vượng hành <b>Thủy</b> (khắc Hỏa) hoặc vượng <b>Thổ</b>, dễ khiến dự án bị dập tắt giữa chừng hoặc hao tài tốn của."
+      },
+      "Thổ": {
+        tot: "Ưu tiên chọn đối tác vượng hành <b>Thổ</b> hoặc <b>Hỏa</b>. Xét theo tuổi, nhóm <b>Tỵ, Ngọ, Thìn, Tuất, Sửu, Mùi</b> giúp kết cấu nhân khí và nền tảng kinh tế bền vững.",
+        ky: "Hạn chế hợp tác sâu với người vượng hành <b>Mộc</b> (khắc Thổ) hoặc vượng <b>Kim</b>, dễ bị chèn ép, kiểm soát hoặc gánh vác trách nhiệm nặng nề."
+      },
+      "Kim": {
+        tot: "Ưu tiên chọn đối tác vượng hành <b>Kim</b> hoặc <b>Thổ</b>. Xét theo tuổi, nhóm <b>Thìn, Tuất, Sửu, Mùi, Thân, Dậu</b> giúp gia tăng quyền lực, giữ chặt dòng tiền mặt.",
+        ky: "Hạn chế kết giao với người vượng hành <b>Hỏa</b> (khắc Kim) hoặc vượng <b>Thủy</b>, dễ gặp họa thị phi giấy tờ hoặc công sức bị đổ sông đổ biển."
+      }
+    };
+
+    const NOI_DUNG_VAN = [
+      { title: "Khởi Vận Bản Nguyên", desc: "Tích lũy thiếu thời, học hỏi kiến thức nền tảng, chịu ảnh hưởng lớn từ trường khí gia đình." },
+      { title: "Tiền Đại Vận (Học Lập)", desc: "Xác lập tư duy độc lập, tìm kiếm định hướng nghề nghiệp, bước đầu xây dựng các mối quan hệ xã hội." },
+      { title: "Đại Vận Thực Chiến", desc: "Chu kỳ khẳng định vị thế. Dòng khí biến động mạnh mẽ, thúc đẩy hành động bung tỏa mở mang sự nghiệp." },
+      { title: "Trung Vận Tích Lũy", desc: "Giai đoạn chuyển giao năng lượng trọng yếu, đúc kết bài học xương máu, củng cố quy trình bền vững." },
+      { title: "Thịnh Vận Bình Ổn", desc: "Đỉnh cao của sự nghiệp và tài chính bền vững. Uy tín nhân khí vững vàng, thu hoạch quả ngọt trọn đời." },
+      { title: "Hậu Vận Tri Túc", desc: "Trường khí an định, quay về chiều sâu tâm thức, vui vầy gia đạo hưng vượng, an hưởng phúc lộc." }
+    ];
+
+    // QUY_LUAT_SINH dùng bản trong engine.js
+    // QUY_LUAT_KHAC dùng bản trong engine.js
+
+    const HANH_CUA_SAO = { 1: "Thủy", 2: "Thổ", 3: "Mộc", 4: "Mộc", 5: "Thổ", 6: "Kim", 7: "Kim", 8: "Thổ", 9: "Hỏa" };
+    const HANH_CUNG_PHI = { "Khảm": "Thủy", "Ly": "Hỏa", "Chấn": "Mộc", "Tốn": "Mộc", "Càn": "Kim", "Đoài": "Kim", "Cấn": "Thổ", "Khôn": "Thổ" };
+
+    const MA_TRAN_BAT_TRACH_QUY_CHUAN = {
+      "Khảm": { "Bac": "Phục Vị", "DongBac": "Ngũ Quỷ", "Dong": "Thiên Y", "DongNam": "Sinh Khí", "Nam": "Diên Niên", "TayNam": "Tuyệt Mệnh", "Tay": "Họa Hại", "TayBac": "Lục Sát" },
+      "Ly": { "Bac": "Diên Niên", "DongBac": "Họa Hại", "Dong": "Sinh Khí", "DongNam": "Thiên Y", "Nam": "Phục Vị", "TayNam": "Lục Sát", "Tay": "Ngũ Quỷ", "TayBac": "Tuyệt Mệnh" },
+      "Chấn": { "Bac": "Thiên Y", "DongBac": "Lục Sát", "Dong": "Phục Vị", "DongNam": "Diên Niên", "Nam": "Sinh Khí", "TayNam": "Họa Hại", "Tay": "Tuyệt Mệnh", "TayBac": "Ngũ Quỷ" },
+      "Tốn": { "Bac": "Sinh Khí", "DongBac": "Tuyệt Mệnh", "Dong": "Diên Niên", "DongNam": "Phục Vị", "Nam": "Thiên Y", "TayNam": "Ngũ Quỷ", "Tay": "Lục Sát", "TayBac": "Họa Hại" },
+      "Càn": { "Bac": "Lục Sát", "DongBac": "Thiên Y", "Dong": "Ngũ Quỷ", "DongNam": "Họa Hại", "Nam": "Tuyệt Mệnh", "TayNam": "Diên Niên", "Tay": "Sinh Khí", "TayBac": "Phục Vị" },
+      "Khôn": { "Bac": "Tuyệt Mệnh", "DongBac": "Sinh Khí", "Dong": "Họa Hại", "DongNam": "Ngũ Quỷ", "Nam": "Lục Sát", "TayNam": "Phục Vị", "Tay": "Thiên Y", "TayBac": "Diên Niên" },
+      "Cấn": { "Bac": "Ngũ Quỷ", "DongBac": "Phục Vị", "Dong": "Lục Sát", "DongNam": "Tuyệt Mệnh", "Nam": "Họa Hại", "TayNam": "Sinh Khí", "Tay": "Diên Niên", "TayBac": "Thiên Y" },
+      "Đoài": { "Bac": "Họa Hại", "DongBac": "Diên Niên", "Dong": "Tuyệt Mệnh", "DongNam": "Lục Sát", "Nam": "Ngũ Quỷ", "TayNam": "Thiên Y", "Tay": "Phục Vị", "TayBac": "Sinh Khí" }
+    };
+
+    // ---- Tiện ích giao diện ----
+    function luuLocal(key, val) { try { localStorage.setItem(key, val); } catch (e) { /* Safari/iframe có thể chặn */ } }
+    function docLocal(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+    function hienLoading(on) { document.getElementById('loadingOverlay').style.display = on ? 'flex' : 'none'; }
+    function hienLoi(msg) {
+      let box = document.getElementById('errorBox');
+      box.textContent = '⚠️ ' + (msg || 'Có lỗi xảy ra, vui lòng thử lại.');
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      clearTimeout(window.__loiTimer);
+      window.__loiTimer = setTimeout(() => { box.style.display = 'none'; }, 8000);
+    }
+
+    // Khởi tạo: danh sách năm, khôi phục form; chỉ tự chạy khi đã có dữ liệu hợp lệ lưu từ lần trước
+    document.addEventListener("DOMContentLoaded", function() {
+      const currentRealYear = new Date().getFullYear();
+      const selectYear = document.getElementById("selectNamXemHan");
+      if (selectYear) {
+        selectYear.innerHTML = "";
+        for (let y = currentRealYear - 50; y <= currentRealYear + 50; y++) {
+          let opt = document.createElement("option");
+          opt.value = y;
+          opt.text = "Năm " + y;
+          if (y === currentRealYear) opt.selected = true;
+          selectYear.appendChild(opt);
+        }
+      }
+      let fy = document.getElementById('footerYear'); if (fy) fy.textContent = currentRealYear;
+
+      let coDuLieu = false;
+      try {
+        const savedData = docLocal('userBattuData');
+        if (savedData) {
+          const data = JSON.parse(savedData);
+          document.getElementById('hoten').value = data.hoten || '';
+          document.getElementById('ngay').value = data.ngay || '';
+          document.getElementById('thang').value = data.thang || '';
+          document.getElementById('nam').value = data.nam || '';
+          document.getElementById('gio').value = (data.gio === 0 || data.gio) ? data.gio : '';
+          document.getElementById('phut').value = (data.phut === 0 || data.phut) ? data.phut : '';
+          if (data.gioitinh) document.getElementById('gioitinh').value = data.gioitinh;
+          if (data.vitri) document.getElementById('vitri').value = data.vitri;
+          coDuLieu = !!(data.hoten && data.ngay && data.thang && data.nam && (data.gio === 0 || data.gio) && data.vitri);
+        }
+      } catch (e) { coDuLieu = false; }
+      if (coDuLieu) xuLyHeThong(true);   // lần đầu mở app KHÔNG còn bật alert "nhập đầy đủ thông tin"
+    });
+
+    // Xử lý hệ thống. giuViTri = true khi chỉ đổi năm xem hạn / tự khôi phục: không cuộn trang, không alert
+    function xuLyHeThong(giuViTri) {
+      window.__khongCuon = (giuViTri === true);
+      let selectYear = document.getElementById("selectNamXemHan");
+      let namXemHan = selectYear ? parseInt(selectYear.value, 10) : new Date().getFullYear();
+
+      var dataInput = {
+        hoten: document.getElementById('hoten').value.trim(),
+        ngay: document.getElementById('ngay').value,
+        thang: document.getElementById('thang').value,
+        nam: document.getElementById('nam').value,
+        gio: document.getElementById('gio').value,
+        phut: document.getElementById('phut').value || 0,
+        gioitinh: document.getElementById('gioitinh').value,
+        vitri: document.getElementById('vitri').value.trim(),
+        namXemHan: namXemHan
+      };
+      if (!dataInput.hoten || !dataInput.ngay || !dataInput.thang || !dataInput.nam || dataInput.gio === '' || !dataInput.vitri) {
+        if (giuViTri !== true) hienLoi('Vui lòng nhập đầy đủ: họ tên, ngày-tháng-năm, giờ sinh và vị trí sinh.');
+        return;
+      }
+      dataInput.gio = parseInt(dataInput.gio, 10);
+      dataInput.phut = parseInt(dataInput.phut, 10);
+
+      luuLocal('userBattuData', JSON.stringify(dataInput));
+
+      hienLoading(true);
+      // Tính ngay trên máy (không còn máy chủ). setTimeout để overlay "Đang lập lá số…" kịp hiện.
+      setTimeout(function() {
+        try { loadAllData(getAllData(dataInput)); }
+        catch (err) { hienLoading(false); hienLoi('Lỗi hiển thị: ' + (err && err.message ? err.message : err)); console.error(err); }
+      }, 30);
+    }
+
+    // Hàm hiển thị thông tin từ Server (Code.gs)
+    function loadAllData(data) {
+      hienLoading(false);
+      if (!data || data.success === false) { hienLoi(data && data.error); return; }
+      // Hiển thị menu
+      document.getElementById('resultSection').style.setProperty("display", "block", "important");
+      // Khai báo hiển thị dương lịch
+      document.getElementById('solarDate').innerText = data.lichDuong.chuoiHienThi;
+      // Quy đổi âm lịch
+      document.getElementById('lunarDate').innerText = `Ngày ${data.lichAm.ngay} Tháng ${data.lichAm.thang} Năm ${data.lichAm.nam} (${data.lichAm.canChiNam})`;
+
+      let namXemHan = new Date().getFullYear();
+      const selectYear = document.getElementById("selectNamXemHan");
+      if (selectYear && selectYear.value) {
+        namXemHan = parseInt(selectYear.value, 10);
+      }
+
+      // Các thông tin chi tiết lấy từ Data.gs truyền qua object data
+      let namHienTai = namXemHan;   // năm đang xem hạn (trước đây luôn lấy năm hiện tại)
+      // GetAllData
+      let gioiTinhChuan = data.gioiTinhChuan;
+      let namCaNhanChon = data.namCaNhanChon;
+      // CaculateDate.gs
+      let lichDuong = data.lichDuong;
+      let lichAm = data.lichAm;
+      let soChuDao = data.soChuDao;
+      let namCaNhan = data.namCaNhan;
+      let yNghiaNamCaNhan = data.yNghiaNamCaNhan;
+      // OverView.gs
+      let nhatChu = data.nhatChu;
+      let nguHanh = data.nguHanh;
+      let tieuDe = data.tieuDe;
+      let tongQuan = data.tongQuan;
+      let uu = data.uu;
+      let nhuoc = data.nhuoc;
+      let nhanDien = data.nhanDien;
+      // Nghề nghiệp => OverView.gs
+      let dacTinhNgheNghiep = data.dacTinhNgheNghiep;
+      let ngheNghiepGoiY = data.ngheNghiepGoiY;
+      let ngheNghiepTheoHanh = data.ngheNghiepTheoHanh;
+      // Ưu/Nhược theo Nhật Chủ => OverView.gs
+      let tinhChat = data.tinhChat;
+      let hinhTuong = data.hinhTuong;
+      let tinhCachUuDiem = data.tinhCachUuDiem;
+      let tinhCachNhuocDiem = data.tinhCachNhuocDiem;
+      let ngheNghiep = data.ngheNghiep;
+      let loiKhuyenCaiVan = data.loiKhuyenCaiVan;
+      let menhChu = data.menhChu;
+      // Biến Thể Chi theo Nhật Chủ => OverView.gs
+      let napAm = data.napAm;
+      let tuongTac = data.tuongTac;
+      let luanGiai = data.luanGiai;
+      let luanGiaiGioiTinh = data.luanGiaiGioiTinh;
+      // Hợp/Kỵ/Dụng Thần/Hỷ Thần/... theo Nhật Chủ => OverView.gs
+      let ketQuaThanVuongNhuoc = data.ketQuaThanVuongNhuoc;
+      let loiKhuyenNoiLuc = data.loiKhuyenNoiLuc;
+      let dungThan = data.dungThan;
+      let iconHanh = data.iconHanh;
+      let hyThan = data.hyThan;
+      let iconHy = data.iconHy;
+      let mauSacHop = data.mauSacHop;
+      let mauSacKy = data.mauSacKy;
+      // Nội dung theo Nhật Chủ => OverView.gs
+      let tuTruChiTietHTML = data.tuTruChiTietHTML;
+      let tuongTacCacTru = data.tuongTacCacTru;
+      let moTaLuanDungThanChu = data.moTaLuanDungThanChu;
+      let phanTramNguHanhMang = data.phanTramNguHanhMang;
+      let vatPhamBoTroText = data.vatPhamBoTroText;
+      let dacTrungCauTrucText = data.dacTrungCauTrucText;
+      // Đánh giá Vượng/Nhược => OverView.gs
+      let chiTietDanhGia = data.chiTietDanhGia;
+      // TamTai.gs
+      let tuoiMu = data.tuoiMu;
+      let tamTai = data.tamTai.isPham;
+      let kimLau = data.kimLau.resultShort;
+      let hoangOc = data.hoangOc.obj.moTa;
+      let cuuDieu = data.cuuDieu;
+      let sao = cuuDieu.sao;
+      let han = cuuDieu.han;
+      // GiaoThoaDongTay.gs
+      let giaoThoaDongTay = data.giaoThoaDongTay;
+      // HoangDao.gs
+      let zodiacSign = data.zodiacSign;
+      let zodiacElement = data.zodiacElement;
+      let moonSign = data.moonSign;
+      let ascendant = data.ascendant;
+      // BatTrach.gs
+      let batTrach = data.batTrach;
+      // Màu sắc Cung phi Bát trạch => Tính dựa vào BatTrach.gs
+      let mauCungPhiHop = data.mauCungPhiHop;
+      let mauCungPhiKy = data.mauCungPhiKy;
+      // ThanSo.gs
+      let thanSo = data.thanSo;
+      // Huyền Không
+      let cungPhiLaSo = data.batTrach.cungPhi;
+      let huyenKhong = data.huyenKhong;
+      
+      // Chạy
+      let mauSac = MAU_NGU_HANH[dungThan];
+      document.documentElement.style.setProperty('--menh-color', mauSac);
+      
+      // Tab tổng quan
+      if (document.getElementById("boxTomTatDeHieu")) {  
+        document.getElementById("boxTomTatDeHieu").innerHTML = `
+          <div class="summary-item" style="margin-bottom:12px;">
+              <span class="summary-icon">👤</span>
+              <b>Đặc trưng tính cách:</b> Người mang năng lượng số <b>${soChuDao} (phương Tây)</b> và kết hợp Mệnh Chủ <b>${menhChu} (phương Đông)</b>.
+              <h3 style="margin: 0 0 8px 0; font-size: 18px; color: #1e4620; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #a3cfbb; padding-bottom: 4px;">
+                👑 ${tieuDe}
+              </h3>
+              <p style="margin: 0 0 12px 0; font-size: 14px; color: #555; font-style: italic; background-color: #f4f9f4; padding: 8px 12px; border-left: 3px solid #1e4620; border-radius: 0 4px 4px 0;">
+                📝 <b>Tổng quan:</b> ${tongQuan}
+              </p>
+              <div style="margin: 6px 0 0 20px; font-size: 13.5px;">
+                  <p style="margin: 2px 0;">✅ <b>Ưu điểm:</b> ${uu}</p>
+                  <p style="margin: 2px 0;">❌ <b>Nhược điểm:</b> ${nhuoc}</p>
+                  <p style="margin: 2px 0;">👁️ <b>Nhận diện:</b> ${nhanDien}</p>
+              </div>
+          </div>
+          <div class="summary-item" style="margin-bottom:12px;">
+              <span class="summary-icon">💼</span>
+              <b>Định hướng nghề nghiệp:</b>
+              <div style="margin-top: 6px; font-size: 13.5px; line-height: 1.6;">
+                  • <b>Chuyên môn chuyên sâu:</b> ${ngheNghiep} <br>
+                  • <b>Ứng dụng bổ trợ hành ${dungThan}:</b> ${ngheNghiepGoiY}
+              </div>
+          </div>
+          <div class="summary-item" style="margin-bottom:12px;">
+              <span class="summary-icon">🚀</span>
+              <b>Giải pháp cải vận bổ trợ:</b>
+              <div style="margin-top: 6px; font-size: 13.5px; line-height: 1.6; color:#334155;">
+                  • ${loiKhuyenCaiVan}
+              </div>
+          </div>
+          <div class="summary-item" style="margin-bottom:10px; padding: 15px; background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 6px;">
+              <span class="summary-icon" style="font-size: 16px; margin-bottom: 8px;">🎯</span><b style="font-size: 15px;">Lời khuyên và Vận hạn đầy đủ (Năm nay ${namHienTai}) (Tuổi mụ: ${tuoiMu} tuổi):</b> 
+              <div style="color:#334155; margin-top: 10px; line-height: 1.7; font-size: 13.5px;">
+              <b>Vận Niên Thần Số:</b> Năm Số <b>${namCaNhan}</b><br>
+              <div style="margin-left: 12px; margin-bottom: 8px; font-size: 13px;">${yNghiaNamCaNhan}</div>
+                • <b>Hạn Tam Tai:</b> ${tamTai ? '<span style="color:#ef4444; font-weight:bold;">Phạm Tam Tai</span>' : 'An Toàn'}<br>
+                • <b>Hạn Kim Lâu:</b> ${kimLau}<br>
+                • <b>Hạn Hoang Ốc:</b> ${hoangOc}<br>
+                • <b>Sao chiếu mệnh (${gioiTinhChuan}):</b> <span style="color:#b45309; font-weight:bold;">${sao}</span> <br>
+                • <b>Niên hạn gặp phải:</b> <span style="color:#dc2626; font-weight:bold;">${han}</span>
+              </div>
+              <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed #cbd5e1; font-size: 13.5px; line-height: 1.8;">
+                🎯 <b>Trọng tâm định hướng màu sắc phong thủy cải vận:</b> <br>
+
+                <div style="margin-top: 8px; padding: 10px; background: #ffffff; border-radius: 4px; border: 1px solid #e2e8f0;">
+                    <span style="font-weight: bold; color: #1e293b;">
+                        👕 1. Theo Ngũ hành & Dụng thần (Dùng cho Trang phục, Ví tiền, Điện thoại, Xe máy): 
+                        <span style="color: #2563eb; font-size: 14px; margin-left: 2px;"><b>Hành ${dungThan} ${iconHanh}</b></span>
+                    </span>
+                    <div style="margin-top: 6px; padding-left: 8px;">
+                        <span style="color: #16a34a; font-weight: bold; font-size:12.5px;">✓ Nên ưu tiên (Tương sinh/Tương hợp):</span>
+                        <div style="margin-top: 2px; margin-bottom: 6px;">${taoBangMau(mauSacHop)}</div>
+                        
+                        <span style="color: #dc2626; font-weight: bold; font-size:12.5px;">✕ Nên hạn chế (Khắc chế/Kỵ):</span>
+                        <div style="margin-top: 2px;">${taoBangMau(mauSacKy)}</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px; padding: 10px; background: #ffffff; border-radius: 4px; border: 1px solid #e2e8f0;">
+                    <span style="font-weight: bold; color: #1e293b;">
+                        🏡 2. Theo Cung phi Bát trạch (Dùng cho Màu sơn nhà, Rèm cửa, Nội thất phòng ngủ): 
+                        <span style="color: #b45309; font-size: 14px; margin-left: 2px;"><b>Quẻ ${batTrach.cungPhi} (${batTrach.menhCung})</b></span>
+                    </span>
+                    <div style="margin-top: 6px; padding-left: 8px;">
+                        <span style="color: #16a34a; font-weight: bold; font-size:12.5px;">✓ Nên ưu tiên (Tương sinh/Tương hợp):</span>
+                        <div style="margin-top: 2px; margin-bottom: 6px;">${taoBangMau(mauCungPhiHop)}</div>
+                        
+                        <span style="color: #dc2626; font-weight: bold; font-size:12.5px;">✕ Nên hạn chế (Khắc chế/Kỵ):</span>
+                        <div style="margin-top: 2px;">${taoBangMau(mauCungPhiKy)}</div>
+                    </div>
+                </div>
+              </div>
+          </div>
+          </div>
+          
+          <div class="summary-item" style="margin-bottom: 12px; padding: 12px; background: #f8fafc; border-radius: 6px; border-left: 4px solid #64748b;">
+            <span class="summary-icon">⚖️</span>
+            <b>Trạng thái nội lực (Bát Tự):</b> Bạn thuộc mẫu người <b>${ketQuaThanVuongNhuoc}</b>.
+            <div style="margin: 8px 0 0 25px; font-size: 13.5px; color: #334155; line-height: 1.6;">
+                • <b>Trụ Ngày đầy đủ:</b> ${nhatChu} (Nạp âm phối hợp: <span style="color:#0f766e; font-weight:bold;">${napAm}</span>) <br>
+                • <b>Ngũ hành Nhật Chủ:</b> Mệnh ${menhChu} (Hành cốt lõi: ${nguHanh}) <br>
+                • <b>Hình tượng bản mệnh:</b> ${hinhTuong} <br>
+                • <b>Thế đứng Can Chi ngày:</b> <i>${tuongTac}</i> <br>
+                
+                <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; font-size: 13px; color: #475569;">
+                    💍 <b>Luận giải Bản mệnh & Hôn nhân (Cung Phu Thê):</b> ${luanGiai} <br>
+                    Nếu bạn là <b>${gioiTinhChuan}</b> thì ${luanGiaiGioiTinh}
+                </div>
+                
+                <div style="margin-top: 8px; font-size: 13px; color: #64748b;">
+                    <i>💡 ${loiKhuyenNoiLuc}</i>
+                </div>
+            </div>
+          </div>
+      `;
+      }
+      
+      // Thiên văn (tóm tắt)
+      document.getElementById("txtZodiacInfo").innerHTML = `
+        ☀️ Sun Sign (Bản ngã): <b>${zodiacSign}</b> (${zodiacElement})<br>
+        🌙 Moon Sign (Nội tâm): <b>${moonSign}</b><br>
+        🌅 Ascendant - Cung Mọc (Vỏ bọc): <b>${ascendant}</b>
+      `;
+
+      if (giaoThoaDongTay) {
+        let giaoThoa = giaoThoaDongTay;
+        
+        let badgeHTML = giaoThoa.isHop 
+          ? '<span class="badge badge-good" style="background:#dcfce7; color:#16a34a; padding:3px 8px; border-radius:4px; font-weight:bold; font-size:12px; border:1px solid #bbf7d0; display:inline-block; margin-left:5px;">Nhất Quán</span>' 
+          : '<span class="badge badge-bad" style="background:#fee2e2; color:#ef4444; padding:3px 8px; border-radius:4px; font-weight:bold; font-size:12px; border:1px solid #fca5a5; display:inline-block; margin-left:5px;">Đa Chiều</span>';
+
+        if (document.getElementById("txtZodiacGiaoThoa")) {  
+        document.getElementById("txtZodiacGiaoThoa").innerHTML = `
+          <div style="margin-top: 15px; padding: 15px; background: #f8fafc; border-left: 4px solid #8b5cf6; border-radius: 6px; font-size: 13.5px; line-height: 1.7; color:#334155; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+              <span class="summary-icon" style="font-size: 16px; display:inline-block; margin-bottom: 8px;">🔄</span>
+              <b style="font-size: 15px; color:#1e293b;">Giao thoa Năng lượng Đông - Tây:</b>
+              
+              <div style="margin-top: 10px;">
+                  • <b>Định hướng cải vận:</b> ${giaoThoa.doiChieu} <br>
+                  <p style="margin: 6px 0 4px 0;">• <b>Trạng thái tâm lý:</b> ${badgeHTML}</p>
+                  <div style="margin-left: 12px; margin-top: 4px; font-size: 13px; color: #475569; line-height: 1.6;">
+                      <i>${giaoThoa.moTa}</i>
+                  </div>
+              </div>
+          </div>
+        `;
+        }
+      }
+
+      // Bát trạch (tóm tắt)
+      if (batTrach) {
+        // 1. Đổ tiêu đề thông tin tổng quan Cung Phi
+        if (document.getElementById("txtCungPhiInfo").innerHTML) {
+          document.getElementById("txtCungPhiInfo").innerHTML = `
+          Mệnh Cung: <span style="color:#1e293b; font-size:15px;"><b>${batTrach.cungPhi} (${batTrach.menhCung})</b></span> 
+          | Thuộc nhóm: <span style="color:#0284c7;"><b>${batTrach.nhomHuong}</b></span>
+        `;
+        }
+
+        // 2. Map tự động mảng Hướng Tốt ra dạng danh sách list đẹp mắt
+        let htmlTot = batTrach.totArr.map(item => 
+          `<div style="padding: 8px 10px; background: #f0fdf4; color: #16a34a; border-radius: 4px; margin-bottom: 8px; font-size: 13.5px; border: 1px solid #bbf7d0; line-height: 1.5;">
+            <b>✓ ${item.h}</b>
+            <div style="font-size: 12px; color: #475569; padding-left: 12px; margin-top: 2px;"><i>${item.d}</i></div>
+          </div>`
+        ).join("");
+        document.getElementById("listHuongTot").innerHTML = htmlTot;
+
+        // 3. Map tự động mảng Hướng Xấu ra dạng danh sách list đề phòng
+        let htmlXau = batTrach.xauArr.map(item => 
+          `<div style="padding: 8px 10px; background: #fff5f5; color: #ef4444; border-radius: 4px; margin-bottom: 8px; font-size: 13.5px; border: 1px solid #fca5a5; line-height: 1.5;">
+            <b>✕ ${item.h}</b>
+            <div style="font-size: 12px; color: #64748b; padding-left: 12px; margin-top: 2px;"><i>${item.d}</i></div>
+          </div>`
+        ).join("");
+        document.getElementById("listHuongXau").innerHTML = htmlXau;
+      }
+
+
+      // Tab thần số học
+      if (thanSo) {
+        let ts = thanSo;
+
+        // 1. ĐIỀN LƯỚI KHUNG 3X3 TỰ ĐỘNG
+        for (let num = 1; num <= 9; num++) {
+          let cell = document.getElementById(`c${num}`);
+          let cnt = ts.counts[num] || 0;
+          if (cell) {
+            if (cnt > 0) {
+              cell.innerHTML = `<span style="font-size: 16px; font-weight: 700; color: #16a34a; display: block; margin-bottom: 2px;">${num}</span>
+                                <span style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block;">(${cnt} số)</span>`;
+              cell.style.background = "#e8f5e9";
+              cell.style.border = "1px solid #c8e6c9";
+              cell.style.boxShadow = "inset 0 1px 3px rgba(0,0,0,0.05)";
+              cell.style.opacity = "1";
+            } else {
+              cell.innerHTML = `<span style="font-size: 16px; font-weight: 700; color: #334155; display: block; margin-bottom: 2px; opacity: 0.3;">${num}</span>
+                                <span style="font-size: 11px; color: #94a3b8; display: block;">-</span>`;
+              cell.style.background = "#f8fafc";
+              cell.style.border = "1px solid #e2e8f0";
+              cell.style.boxShadow = "none";
+              cell.style.opacity = "1";
+            }
+            cell.style.display = "flex";
+            cell.style.flexDirection = "column";
+            cell.style.alignItems = "center";
+            cell.style.justifyContent = "center";
+            cell.style.padding = "6px 0";
+          }
+        }
+
+        // 2. VẼ ĐƯỜNG KẺ SVG CHO MŨI TÊN
+        const toadoLines = {
+          h1: { x1: "16.6%", y1: "83.3%", x2: "16.6%", y2: "16.6%" },
+          h2: { x1: "50.0%", y1: "83.3%", x2: "50.0%", y2: "16.6%" },
+          h3: { x1: "83.3%", y1: "83.3%", x2: "83.3%", y2: "16.6%" },
+          v1: { x1: "16.6%", y1: "83.3%", x2: "83.3%", y2: "83.3%" },
+          v2: { x1: "16.6%", y1: "50.0%", x2: "83.3%", y2: "50.0%" },
+          v3: { x1: "16.6%", y1: "16.6%", x2: "83.3%", y2: "16.6%" },
+          d1: { x1: "16.6%", y1: "83.3%", x2: "83.3%", y2: "16.6%" },
+          d2: { x1: "16.6%", y1: "16.6%", x2: "83.3%", y2: "83.3%" }
+        };
+        let svgHtml = "";
+        if (ts.lineIds) {
+          ts.lineIds.forEach(id => {
+            let l = toadoLines[id];
+            if (l) svgHtml += `<line x1="${l.x1}" y1="${l.y1}" x2="${l.x2}" y2="${l.y2}" stroke="#16a34a" stroke-width="4" stroke-dasharray="5,5" />`;
+          });
+        }
+        document.getElementById("svgLines").innerHTML = svgHtml;
+
+        document.getElementById("txtSoChuDao").innerHTML = `Con Số Chủ Đạo Của Bạn: Số ${soChuDao}`;
+
+        if(document.getElementById("txtYNghiaChuDao") && data.yNghiaChuDao) {
+          document.getElementById("txtYNghiaChuDao").innerHTML = `
+            <div style="font-weight:bold; color:#1e293b; margin-bottom:8px;">🎯 Luận giải Số Chủ Đạo ${soChuDao}:</div>
+            ${data.yNghiaChuDao}
+          `;
+        }
+
+        // 3. TẠO CHUỖI TEXT GHI CHÚ CHÂN KHUNG BIỂU ĐỒ
+        let muiTenSoHuu = ts.muiTenSoHuu.map(x => x.name).join(", ");
+        let muiTenTrong = ts.muiTenTrong.map(x => x.name).join(", ");
+        document.getElementById("txtMuiTenGhiChu").innerHTML = 
+          (muiTenSoHuu ? `✨ Sở hữu: <span style="color:#16a34a;">${muiTenSoHuu}</span><br>` : "") +
+          (muiTenTrong ? `⚠️ Trống: <span style="color:#dc2626;">${muiTenTrong}</span>` : "");
+
+        let htmlCacSo = "";
+        for (let num = 1; num <= 9; num++) {
+          let cnt = ts.counts[num] || 0;
+          let coSo = cnt > 0;
+
+          // Cấu hình màu sắc phẳng theo logic yêu cầu của bạn
+          let borderColor    = coSo ? "#c8e6c9" : "#d98282";
+          let backgroundBox  = coSo ? "#f0fdf4" : "#f8fafc";
+          let borderLeftColor = coSo ? "#16a34a" : "#ef4444"; 
+          let titleColor     = coSo ? "#4dd17e" : "#d66969";                      
+          let badgeBg        = coSo ? "#dcfce7" : "#fee2e2";
+          let badgeTextColor = coSo ? "#15803d" : "#ef4444";
+
+          if (DIEN_GIAI_SO_THAN_SO[num]) {
+            let item = DIEN_GIAI_SO_THAN_SO[num];
+            htmlCacSo += `
+              <div style="padding: 14px; border: 1px solid ${borderColor}; border-radius: 6px; background: ${backgroundBox}; border-left: 4px solid ${borderLeftColor}; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 2px rgba(0,0,0,0.02); line-height: 1.5; opacity: ${coSo ? '1' : '0.85'};">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                    <span style="font-weight: bold; color: ${titleColor}; font-size: 13.5px;">
+                      ${coSo ? '✓' : '✕'} ${item.title}
+                    </span>
+                    <span style="font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 12px; background: ${badgeBg}; color: ${badgeTextColor}; text-transform: uppercase;">
+                      ${coSo ? `Xuất hiện: ${cnt} lần` : 'Xuất hiện: 0 lần'}
+                    </span>
+                  </div>
+                  <p style="margin: 0; font-size: 13px; color: #475569;">
+                    ${item.text}
+                  </p>
+                </div>
+              </div>`;
+          }
+        }
+        document.getElementById("listYnghiaCacSo").innerHTML = htmlCacSo;
+
+        // 5. CARD PHÂN TÍCH 2: LUẬN GIẢI CHI TIẾT TRỤC MŨI TÊN (CÓ/TRỐNG)
+        let htmlMuiTenChiTiet = "";
+        
+        TRUC_THAN_SO_HOC.forEach(m => {
+          let mangSoHuu = ts.muiTenSoHuu;
+          let mangTrong = ts.muiTenTrong;
+          
+          // Tìm kiếm x.name thay vì là trực tiếp dữ liệu
+          let coMuiTen = mangSoHuu.some(x => x && x.name && (x.name === m.name || x.name.includes(m.name)));
+
+          let loiLuanChiTiet = coMuiTen ? m.dTot : m.dXau;
+
+          let mtBorder     = coMuiTen ? "#c8e6c9" : "#d98282";
+          let mtBg         = coMuiTen ? "#f0fdf4" : "#f8fafc"; 
+          let borderLeftColor = coMuiTen ? "#16a34a" : "#ef4444"; 
+          let mtTitleColor = coMuiTen ? "#4dd17e" : "#d66969";                     
+          let mtBadgeBg    = coMuiTen ? "#dcfce7" : "#fee2e2";
+          let mtBadgeColor = coMuiTen ? "#15803d" : "#ef4444";
+
+          htmlMuiTenChiTiet += `
+            <div style="padding: 14px; border: 1px solid ${mtBorder}; border-radius: 6px; background: ${mtBg}; border-left: 4px solid ${borderLeftColor}; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 2px rgba(0,0,0,0.02); line-height: 1.5;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                  <b style="color: ${mtTitleColor}; font-size: 13.5px;">
+                    ${coMuiTen ? '✓' : '✕'} ${m.name}
+                  </b>
+                  <span style="font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 12px; background: ${mtBadgeBg}; color: ${mtBadgeColor}; text-transform: uppercase;">
+                    ${coMuiTen ? 'Sở Hữu' : 'Trống Vắng'}
+                  </span>
+                </div>
+                <div style="font-size: 12.5px; color: #475569;">
+                  <i>${coMuiTen ? '🟢 Thế mạnh:' : '🔴 Bài học bổ trợ:'} ${loiLuanChiTiet}</i>
+                </div>
+              </div>
+            </div>`;
+        });
+        
+        document.getElementById("txtYnghiaMuiTen").innerHTML = htmlMuiTenChiTiet;
+
+        // 6. VẼ SƠ ĐỒ ĐỈNH CAO
+        if (thanSo && thanSo.pyramid) {
+          let ts = thanSo;
+          let y = parseInt(lichDuong.nam, 10);
+          let globalSoChuDao = soChuDao;
+
+          // Trích xuất 4 số đỉnh cao đã tính toán an toàn từ Backend
+          let p1 = ts.pyramid[0].index;
+          let p2 = ts.pyramid[1].index;
+          let p3 = ts.pyramid[2].index;
+          let p4 = ts.pyramid[3].index;
+
+          // Trích xuất các mốc tuổi đạt đỉnh từ Backend gửi sang
+          let a1 = ts.pyramid[0].tuoi;
+          let a2 = ts.pyramid[1].tuoi;
+          let a3 = ts.pyramid[2].tuoi;
+          let a4 = ts.pyramid[3].tuoi;
+          let a0 = a1 - 9; // Mốc bắt đầu của chu kỳ Đỉnh 1
+
+          // 2. TỰ ĐỘNG TÍNH TOÁN TUỔI HIỆN TẠI THEO THỜI GIAN THỰC
+          let currentYear = new Date().getFullYear();
+          let currentAge = currentYear - y; 
+
+          // 3. HÀM BỔ TRỢ ĐIỀU KIỆN TÔ MÀU VÀ ĐÁNH DẤU ĐỈNH HIỆN TẠI (GIỮ NGUYÊN CHỮ ĐEN - SÁNG NỀN XANH)
+          function getPeakBox(val, name, currentAge, ageStart, ageLimit, indexDinh) {
+              let isActive = (currentAge >= ageStart && currentAge < ageLimit);
+              
+              let boxStyle = isActive 
+                ? "background: #e8f5e9; border: 3px solid #f59e0b; color: #334155; font-weight: bold; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" 
+                : "background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; opacity: 0.85;";
+                
+              let titleColor = isActive ? "#16a34a" : "#475569";
+
+              return `
+                <div class="peak-box" style="${boxStyle} padding: 12px; border-radius: 8px; text-align: center; cursor: pointer; transition: transform 0.2s; display: inline-block; min-width: 140px; margin: 5px;" 
+                    onclick="moModalBieuDo(${indexDinh}, ${ageLimit}, ${val})" 
+                    onmouseover="this.style.transform='scale(1.05)'" 
+                    onmouseout="this.style.transform='scale(1)'">
+                  <div class="peak-num" style="font-size: 22px; font-weight: bold; margin-bottom: 2px;">${val}</div>
+                  <div class="peak-age" style="font-size: 12px; line-height: 1.4; color: ${titleColor};"><b>${name}</b><br>(Tuổi ${ageStart}-${ageLimit})</div>
+                </div>
+              `;
+          }
+
+          function getCurrentStage(age, a0, a1, a2, a3, a4) {
+              if (age < a0) return `Giai đoạn Định Hình (Tuổi 0 đến ${a0 - 1})`;
+              if (age < a1) return `Đang ở Đỉnh 1 (Tuổi ${a0} đến ${a1 - 1})`;
+              if (age < a2) return `Đang ở Đỉnh 2 (Tuổi ${a1} đến ${a2 - 1})`;
+              if (age < a3) return `Đang ở Đỉnh 3 (Tuổi ${a2} đến ${a3 - 1})`;
+              if (age < a4) return `Đang ở Đỉnh 4 (Tuổi ${a3} đến ${a4 - 1})`;
+              return `Giai đoạn Hậu Vận (Từ ${a4} tuổi trở đi)`;
+          }
+
+          // Vẽ 4 khối hộp cấu trúc phân tầng phân lớp ra màn hình pyramidVisual
+          let p1HTML = getPeakBox(p1, "Đỉnh 1", currentAge, a0, a1 - 1, 1);
+          let p2HTML = getPeakBox(p2, "Đỉnh 2", currentAge, a1, a2 - 1, 2);
+          let p3HTML = getPeakBox(p3, "Đỉnh 3", currentAge, a2, a3 - 1, 3);
+          let p4HTML = getPeakBox(p4, "Đỉnh 4", currentAge, a3, a4 - 1, 4);
+
+          document.getElementById('pyramidVisual').innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 15px 0;">
+              <div class="pyramid-tier" style="display:flex; justify-content:center;">${p4HTML}</div>
+              <div class="pyramid-tier" style="display:flex; justify-content:center;">${p3HTML}</div>
+              <div class="pyramid-tier" style="display:flex; justify-content:center; gap:10px;">${p1HTML} ${p2HTML}</div>
+            </div>
+            <div style="margin-top:20px; font-weight:bold; color: #16a34a; text-align:center; font-size:14px; background:#f0fdf4; padding:10px; border-radius:6px; border:1px solid #bbf7d0;">
+              👉 Bạn hiện tại ${currentAge} tuổi — ${getCurrentStage(currentAge, a0, a1, a2, a3, a4)}
+              <br><span style="font-size:12px; color:#64748b; font-weight:normal; display:inline-block; margin-top:4px;">(Click vào từng ô Đỉnh cao ở trên để bật mở biểu đồ sóng dao động chu kỳ năng lượng)</span>
+            </div>
+          `;
+          
+          document.getElementById('pyramidDetails').innerHTML = `
+            <div class="interpretation-box" style="padding:12px; background:#f8fafc; border-radius:6px; border-left:4px solid #3b82f6; font-size:13px; line-height:1.5; margin-bottom:8px;"><b>Đỉnh 1 (Số ${p1} - Tuổi ${a0}-${a1-1}):</b> ${Y_NGHIA_DINH[p1]}</div>
+            <div class="interpretation-box" style="padding:12px; background:#f8fafc; border-radius:6px; border-left:4px solid #3b82f6; font-size:13px; line-height:1.5; margin-bottom:8px;"><b>Đỉnh 2 (Số ${p2} - Tuổi ${a1}-${a2-1}):</b> ${Y_NGHIA_DINH[p2]}</div>
+            <div class="interpretation-box" style="padding:12px; background:#f8fafc; border-radius:6px; border-left:4px solid #3b82f6; font-size:13px; line-height:1.5; margin-bottom:8px;"><b>Đỉnh 3 (Số ${p3} - Tuổi ${a2}-${a3-1}):</b> ${Y_NGHIA_DINH[p3]}</div>
+            <div class="interpretation-box" style="padding:12px; background:#f8fafc; border-radius:6px; border-left:4px solid #3b82f6; font-size:13px; line-height:1.5; margin-bottom:8px;"><b>Đỉnh 4 (Số ${p4} - Tuổi ${a3}-${a4-1}):</b> ${Y_NGHIA_DINH[p4]}</div>
+          `;
+        }
+      }
+
+      // Tab Bát tự & ngũ hành
+      if (tuTruChiTietHTML) {
+        tuTruChiTietHTML.forEach(tru => {
+          const cardEl = document.getElementById(tru.cardId);
+          if (!cardEl) return;
+
+          cardEl.innerHTML = `
+            <div>
+              <div class="battu-title" style="font-weight: bold; background: ${tru.bgTitle}; padding: 6px; text-align: center; border-radius: 4px; color: #475569; font-size: 13px;">
+                ${tru.titleName}
+              </div>
+              
+              <div class="battu-value" id="${tru.valId}" style="font-size: 19px; font-weight: bold; text-align: center; margin: 10px 0; color: #1e293b;">
+                ${tru.valueText}
+              </div>
+              
+              <div class="battu-detail" id="${tru.detId}" style="text-align: left; padding: 4px 6px;">
+                <div style="font-size:12px; color:#b91c1c; font-weight:bold; margin-bottom:2px;">✨ Can: ${tru.thapThanCanDisplay}</div>
+                <div style="font-size:11px; color:#64748b; font-style:italic; margin-bottom:4px;">(${tru.detailText}) - Bản Mệnh: ${tru.napAm}</div>
+                <div style="font-size:12px; color:#15803d; font-weight:bold; margin-top:4px; border-top: 1px dashed #cbd5e1; padding-top: 4px;">🪐 Chi: ${tru.thapThanChiDisplay}</div>
+                <div style="margin-top: 8px; display: grid; gap: 4px;">
+                  ${tru.luanGiaiCan}
+                  ${tru.luanGiaiChi}
+                </div>
+              </div>
+              
+              <div class="battu-element" id="${tru.eleId}">
+                <div style="margin-top: 8px; display: flex; justify-content: center; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; background: #f8fafc; padding: 5px; border-radius: 6px; border: 1px solid #e2e8f0; color: #475569;">
+                    <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${MAU_NGU_HANH[tru.hanhCan]};"></span> Can: ${tru.hanhCan}
+                    <span style="color:#94a3b8; font-size: 10px; font-weight:normal;">✖</span>
+                    <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${MAU_NGU_HANH[tru.hanhChi]};"></span> Chi: ${tru.hanhChi}
+                </div>
+              </div>
+            </div>
+            
+            <div class="battu-relation-box" id="${tru.relId}">
+              <div style="background: ${tru.bgColor}; border: 1px solid ${tru.badgeColor}40; padding: 8px; border-radius: 6px; margin-top: 10px; text-align: left; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+                <div style="font-weight: bold; color: ${tru.badgeColor}; font-size: 12px; margin-bottom: 4px; text-align: center;">${tru.tag}</div>
+                <div style="font-size: 11.5px; color: #334155; line-height: 1.45;">${tru.desc}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        // Điền bài luận diễn giải chung cho 4 trụ thời gian
+        document.getElementById("txtLuanGiaiTuTruDeHieu").innerHTML = `
+          <div><b>Trụ Năm (Gốc rễ 0-16t):</b> ${luanGiai.nam || 'Đại diện cho tiền vận và tổ tiên.'}</div>
+          <div><b>Trụ Tháng (Thành bại 17-32t):</b> ${luanGiai.thang || 'Đại diện cho sự nghiệp và cha mẹ.'}</div>
+        `;
+        document.getElementById("kiemTraTuongTacToanDien").innerHTML = `
+          <div><b>Trụ Ngày (Hôn nhân 33-48t):</b> ${luanGiai.ngay || 'Đại diện cho chính bạn và gia đình nhỏ.'}</div>
+          <div><b>Trụ Giờ (Hậu vận trên 49t):</b> ${luanGiai.gio || 'Đại diện cho hậu vận và con cái.'}</div>
+        `;
+
+        let elTuongTacChung = document.getElementById("txtTuongTacChungCacTru");
+        if (elTuongTacChung) {
+          let danhSachTuongTac = tuongTacCacTru; 
+          if (danhSachTuongTac.length === 0) {
+            elTuongTacChung.innerHTML = `
+              <div style="grid-column: 1 / -1; background: #ffffff; border: 1px dashed #cbd5e1; border-left: 4px solid #94a3b8; border-radius: 6px; padding: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); line-height: 1.5; margin-top: 10px;">
+                <div style="font-weight: bold; color: #475569; font-size: 13.5px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                  🍃 Bốn Trụ Bình Hòa ổn định
+                </div>
+                <div style="font-size: 13px; color: #64748b; font-style: italic;">
+                  Các dòng khí Can Chi trong lá số vận hành bình ổn, không xảy ra các tương tác tương xung hay hình hại đặc biệt nào.
+                </div>
+              </div>`;
+          } else {
+            // Duyệt mảng phẳng đã xử lý sạch từ Server để in ra các Div tách riêng biệt tuyệt đẹp
+            elTuongTacChung.innerHTML = danhSachTuongTac.map(val => {
+              let posHtml = val.positions ? `<span style="background: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 6px; border: 1px solid ${val.border}40; color: #475569; font-weight: normal;">Tại: ${val.positions}</span>` : "";
+              
+              return `
+                <div style="background: ${val.bg}; border-left: 4px solid ${val.border}; border-radius: 6px; padding: 14px; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; line-height: 1.5;">
+                  <div>
+                    <div style="font-weight: bold; color: ${val.border}; font-size: 13.5px; margin-bottom: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: 4px;">
+                      ${val.icon} ${val.title} ${posHtml}
+                    </div>
+                    <div style="font-size: 13px; color: #334155;">
+                      ${val.desc}
+                    </div>
+                  </div>
+                </div>`;
+            }).join("");
+          }
+        }
+      }
+
+      // Phân tích chi tiết dụng thần
+      let elLuanDungThan = document.getElementById("txtLuanDungThan");
+      if (elLuanDungThan && moTaLuanDungThanChu) {
+        elLuanDungThan.innerHTML = moTaLuanDungThanChu;
+      }
+
+      // 2. Dựng bảng cấu trúc ứng dụng cải vận, lồng thẳng hàm tạo ô màu phẳng của bạn
+      let elUngDungDungThan = document.getElementById("txtUngDungDungThan");
+      if (elUngDungDungThan) {
+        elUngDungDungThan.innerHTML = `
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13.5px; border: 1px solid #e2e8f0; line-height: 1.5; box-shadow: 0 1px 2px rgba(0,0,0,0.01); border-radius: 6px; overflow: hidden;">
+            <thead>
+              <tr style="background: #f8fafc; border-bottom: 2px solid #cbd5e1; color: #475569;">
+                <th style="padding: 10px; text-align: left; font-weight: bold; width: 30%;">Phương Diện Ứng Dụng</th>
+                <th style="padding: 10px; text-align: left; font-weight: bold;">Hướng Dẫn Cải Vận Chi Tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 12px 10px; font-weight: 600; color: #334155;">🎨 Màu sắc hỗ trợ</td>
+                <td style="padding: 12px 10px;">
+                  <!-- Gọi trực tiếp hàm tạo ô màu phẳng từ mảng dữ liệu Dụng thần của bạn -->
+                  <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px;">
+                    ${taoBangMau(mauSacHop)}
+                  </div>
+                  <span style="font-size: 12px; color: #64748b; display: block; margin-top: 4px;">Ưu tiên phối dải màu này trong trang phục, phương tiện để gia tăng cát khí bản mệnh.</span>
+                </td>
+              </tr>
+            
+              <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+                <td style="padding: 12px 10px; font-weight: 600; color: #334155;">💎 Vật phẩm bổ trợ</td>
+                <td style="padding: 12px 10px; color: #334155;">
+                  ${vatPhamBoTroText} <br>
+                  <span style="font-size:12px; color:#d97706; font-weight:bold;">📐 Đặc trưng cấu trúc:</span> 
+                  <i style="font-size:12.5px; color:#475569; font-weight: bold;">${dacTrungCauTrucText}</i>
+                </td>
+              </tr>
+              
+              <tr>
+                <td style="padding: 12px 10px; font-weight: 600; color: #334155;">🚫 Màu sắc đại kỵ</td>
+                <td style="padding: 12px 10px;">
+                  <!-- Gọi trực tiếp hàm tạo ô màu phẳng từ mảng dữ liệu màu đại kỵ -->
+                  <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px;">
+                    ${taoBangMau(mauSacKy)}
+                  </div>
+                  <span style="font-size: 12px; color: #64748b; display: block; margin-top: 4px;">Hạn chế dùng các gam màu này để tránh làm mâu thuẫn trường khí lá số.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        `;
+      }
+
+      // Đặc điểm ưu/nhược
+      document.getElementById('lblDacDiemTitle').style.color = dacTinhNgheNghiep;
+      document.getElementById('txtDacDiemTongQuan').innerHTML = `${tieuDe} - ${tongQuan}`;
+      document.getElementById('txtUuDiem').innerHTML = `<span class="tag-title">👍 Ưu điểm:</span> ${uu}`;
+      document.getElementById('txtNhuocDiem').innerHTML = `<span class="tag-title">👎 Nhược điểm:</span> ${nhuoc}`;
+      document.getElementById('txtNhanDien').innerHTML = `<span class="tag-title">🔍 Nhận diện:</span> ${nhanDien}`;
+
+      // Tâm dịch - yếu tốt
+      document.getElementById("contentTamDichNhanKhi").innerHTML = `
+        <p style="font-size:13px; margin:0 0 10px 0;">Hệ thống chuyển vận phương Đông luôn khẳng định vị thế tối cao của sự tương tác: <b>Thiên thời (30%) - Địa lợi (30%) - Nhân khí (40%)</b>...</p>
+        <div style="background-color: #fffbeb; padding: 15px; border-left: 4px solid #f59e0b; font-size:13px; line-height:1.5;">
+          <b>🧘 Lời khuyên chuyển hóa bản tính ứng dụng Ngũ hành:</b><br>
+          ${LOI_KHUYEN_TAM_DICH[nguHanh]}
+          <br><br><span style="font-weight: bold; color: #b91c1c;">"Đức năng thắng số"</span> — Sửa đổi tâm tính, làm chủ hành vi chính là chìa khóa tối thượng.
+        </div>
+      `;
+
+      // Trạng thái Nhật Chủ
+      document.getElementById("txtThanVuongNhuocChiTiet").innerHTML = `
+        Nhật chủ của bạn mang hành <b>${nguHanh}</b>. <br>
+        Qua phân tích tổng trọng số các dòng khí: Bản mệnh thuộc trạng thái <b><span style="color:#d97706; font-size: 16px;">${ketQuaThanVuongNhuoc}</span></b>.
+        <div style="margin-top: 12px; padding: 15px; background: #fff; border-radius: 6px; border: 1px dashed #cbd5e1; font-size: 13.5px; line-height: 1.6;">
+            👉 ${chiTietDanhGia.giaiThich}
+          <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e2e8f0; background: #f8fafc; padding: 15px; border-radius: 6px;">
+            <div style="font-weight: bold; color: #1e293b; margin-bottom: 8px; font-size: 14px;">⚔️ Phân tích sâu cán cân lực lượng:</div>
+            <div style="line-height: 1.7;">
+                ${chiTietDanhGia.phanTichSau}
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Trích xuất an toàn cấu trúc Object từ Tamtai.gs truyền qua Code.gs
+      let oTamTai = data.tamTai;   // object {isPham,...}
+      let oKimLau = data.kimLau;
+      let oHoangOc = data.hoangOc;
+
+      // Loại bỏ thẻ span HTML nếu backend truyền nhầm nút badge, giữ lại chữ trần chuẩn mẫu
+      let txtKimLauStatusPure = oKimLau.statusHTML.replace(/<[^>]*>/g, '').trim();
+      let txtHoangOcStatusPure = oHoangOc.statusHTML.replace(/<[^>]*>/g, '').trim();
+
+      // Phân định màu chữ trạng thái tự động (An toàn = Xanh, Phạm hạn = Đỏ)
+      let bgTamTai = oTamTai.isPham ? "#dc2626" : "#16a34a";
+      let txtTamTaiText = oTamTai.isPham ? "Phạm Tam Tai" : "An Toàn";
+      let bgKimLau = (txtKimLauStatusPure === "An Toàn") ? "#16a34a" : "#dc2626";
+      let bgHoangOc = (txtHoangOcStatusPure.includes("Xấu") || txtHoangOcStatusPure.includes("Sát") || txtHoangOcStatusPure.includes("Tử") || txtHoangOcStatusPure.includes("Hoang")) ? "#dc2626" : "#16a34a";
+
+      let namDuocChon = document.getElementById("selectNamXemHan") ? document.getElementById("selectNamXemHan").value : new Date().getFullYear();
+
+      let htmlVanHan = `<p style="font-size: 14px; color: #000000; margin: 0 0 12px 0; -webkit-font-smoothing: antialiased;">Vào năm được chọn <b>${namDuocChon}</b>, bạn đang ở mốc <b>${tuoiMu} tuổi mụ</b>. Lưu niên vận thế chuyển động:</p>`;
+      
+      htmlVanHan += `<table class="hanh-table" style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.6; background: #fff; border: 1px solid #94a3b8; -webkit-font-smoothing: antialiased;">
+        <tr style="background-color: #f1f5f9; text-align: left; border-bottom: 2px solid #475569;">
+          <th style="padding: 12px; color: #000000; font-weight: bold; width: 20%;">Hệ Thống Phân Tích</th>
+          <th style="padding: 12px; color: #000000; font-weight: bold; width: 15%;">Trạng Thái</th>
+          <th style="padding: 12px; color: #000000; font-weight: bold; width: 65%;">Hệ Quả Dự Báo</th>
+        </tr>
+        <tr style="border-bottom: 1px solid #cbd5e1;">
+          <td style="padding: 12px; color: #000000; font-weight: bold">Vận Niên Thần Số</td>
+          <td style="padding: 12px;"><span style="color: #fff; background: #7c3aed; padding: 4px 10px; border-radius: 4px; font-size: 12px; display: inline-block; letter-spacing: 0.5px;">Năm Số ${namCaNhan}</span></td>
+          <td style="padding: 12px; color: #000000;"><b>${namCaNhanChon.ten}:</b> ${namCaNhanChon.heQua} ${namCaNhanChon.hanhDong}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #cbd5e1;">
+          <td style="padding: 12px; color: #000000; font-weight: bold">Hạn Tam Tai</td>
+          <td style="padding: 12px;"><span style="color: #fff; background: ${bgTamTai}; padding: 4px 10px; border-radius: 4px; font-size: 12px; display: inline-block;">${txtTamTaiText}</span></td>
+          <td style="padding: 12px; color: #000000;">${oTamTai.isPham ? "Giai đoạn thử thách chu kỳ, cần cẩn trọng đầu tư mạo hiểm." : "Trường khí bình ổn."}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #cbd5e1;">
+          <td style="padding: 12px; color: #000000; font-weight: bold">Hạn Kim Lâu</td>
+          <td style="padding: 12px;"><span style="color: #fff; background: ${bgKimLau}; padding: 4px 10px; border-radius: 4px; font-size: 12px; display: inline-block;">${txtKimLauStatusPure}</span></td>
+          <td style="padding: 12px; color: #000000;">${oKimLau.resultFull || "Không phạm Kim Lâu."}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #cbd5e1;">
+          <td style="padding: 12px; color: #000000; font-weight: bold">Hạn Hoang Ốc</td>
+          <td style="padding: 12px;"><span style="color: #fff; background: ${bgHoangOc}; padding: 4px 10px; border-radius: 4px; font-size: 12px; display: inline-block;">${txtHoangOcStatusPure}</span></td>
+          <td style="padding: 12px; color: #000000;">${oHoangOc.obj ? oHoangOc.obj.moTa : "Trường khí bình ổn."}</td>
+        </tr>
+      </table>`;
+
+      // Đổ bảng vào vùng chứa tổng
+      if (document.getElementById('txtVanHanChiTiet')) {
+        document.getElementById('txtVanHanChiTiet').innerHTML = htmlVanHan;
+      }
+
+      // Ma Trận chiến lược
+      let isTamTai = (data.tamTai && typeof data.tamTai === 'object') ? data.tamTai.isPham : !!data.tamTai;
+      let isKimLau = false;
+      if (data.kimLau) {
+        if (typeof data.kimLau === 'object') {
+          isKimLau = data.kimLau.isPham || (data.kimLau.statusHTML && data.kimLau.statusHTML.includes("Phạm")) ? true : false;
+        } else if (typeof data.kimLau === 'string') {
+          isKimLau = data.kimLau.includes("Phạm") ? true : false;
+        }
+      }
+      let isHoangOc = data.hoangOc ? (data.hoangOc.statusHTML || data.hoangOc.txtHoangOcStatus || "Nhất Cát") : "Nhất Cát";
+      hoanThienMucHanhDongThucTe(namCaNhan, namXemHan, isTamTai, isKimLau, dungThan, isHoangOc);
+
+      // Huyền Không + Cung Phi
+      sinhHuyenKhongPhiTinh(huyenKhong, cungPhiLaSo);
+
+      // List tháng theo năm Âm chọn
+      sinhTodoListThang(namCaNhan, dungThan, hyThan);
+
+      // Sự đồng điệu
+      sinhGiaoDienNhanSuDoiTac(dungThan,hyThan);
+
+      // Đại vận
+      sinhGiaoDienDaiVanTimeline(lichDuong.nam, data.tuoiKhoiDaiVanThucTe, data.danhSachCanChiDaiVan, dungThan);
+
+      // Vẽ biểu đồ Radar
+      veBieuDoRadar(phanTramNguHanhMang);
+
+      // Vẽ La Bàn
+      khoiTaoLaBanSoduBatTrach(cungPhiLaSo);
+      tuDongQuetCamBienLaBan();
+
+      // Vẽ biểu đồ
+      window.globalData = data;
+
+      // Hiệu ứng cuộn
+      if (!window.__khongCuon) document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Hàm chuyển đổi Tabs
+    function openTab(tabId, btn) {
+      // Ẩn tất cả nội dung
+      let contents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+        contents[i].classList.remove("active");
+      }
+      // Bỏ highlight tất cả các nút
+      let buttons = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      // Hiển thị Tab được chọn
+      document.getElementById(tabId).style.display = "block";
+      document.getElementById(tabId).classList.add("active");
+      if (btn) btn.classList.add("active");   // (trước đây dùng biến toàn cục `event`)
+    }
+
+    // Hàm tạo bảng màu
+    function taoBangMau(chuoiMau) {
+      if (!chuoiMau) return "";
+      
+      // Cắt chuỗi màu theo dấu phẩy thành mảng và duyệt qua từng màu để tạo HTML
+      let mauArr = [];
+  
+      if (Array.isArray(chuoiMau)) {
+        mauArr = chuoiMau.map(c => String(c).trim());
+      } else if (typeof chuoiMau === "string") {
+        mauArr = chuoiMau.split(",").map(c => c.trim());
+      }
+ 
+      return mauArr.map(c => {
+        let maxHexMau = MA_HEX_MAU[c];
+        
+        return `
+          <div style="display:inline-flex; align-items:center; margin-right:12px; margin-bottom:4px; vertical-align:middle;">
+            <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color:${maxHexMau}; border:1px solid #cbd5e1; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin-right:6px;"></span>
+            <span style="font-weight:bold; font-size:13px; color:#334155;">${c}</span>
+          </div>`;
+      }).join("");
+    }
+
+    // Hàm lượng toán vẽ sóng hình Sin 9 năm chu kỳ cá nhân chuyên nghiệp
+    function drawSVG() {
+      if (!window.globalData || !window.globalData.thanSo) {
+        return; 
+      }
+
+      let ts = window.globalData.thanSo;
+      let currentYear = new Date().getFullYear();
+      let namSinhGoc = parseInt(window.globalData.lichDuong.nam, 10);
+      let tuoiDoiThuc = currentYear - namSinhGoc;
+
+      // Lấy đỉnh được click chọn (Mặc định ban đầu là Đỉnh 1)
+      let selectedPeak = window.currentSelectedPeak || { index: 1, ageLimit: ts.pyramid[0].tuoi, val: ts.pyramid[0].index };
+      if (!selectedPeak) return;
+
+      let idxDinh = selectedPeak.index; // 1, 2, 3, 4
+      let ageEnd = selectedPeak.ageLimit + 1; // Ví dụ: Đỉnh 1 là mốc tuổi 33
+      
+      // CHUẨN HÓA MỐC TUỔI: Chu kỳ 9 năm thực tế chạy từ (ageEnd - 9) đến (ageEnd - 1)
+      let ageStart = ageEnd - 9; 
+
+      // Lấy giá trị Thần số (Số Đỉnh) của đỉnh hiện tại để tính độ cao Y động
+      let soNangLuongDinh = parseInt(selectedPeak.val, 10) || 5;
+
+      let widthCanvas = 750;
+      let heightCanvas = 220;
+      let buocNgangX = Math.floor(widthCanvas / 10); // Chia đều 10 khoảng cho 9 điểm nút phẳng
+
+      let pathSongSin = "M ";
+      let circleText = "";
+
+      // Vòng lặp vẽ tịnh tiến trục tọa độ đồ thị từ năm số 1 đến năm số 9
+      for (let i = 1; i <= 9; i++) {
+        let x = i * buocNgangX;
+
+        // Ma trận định vị Y hình sin chuẩn hóa: Năm 9 nhô cao nhất phụ thuộc vào số Đỉnh, Năm 4 và 7 rơi đáy trũng
+        const trucY_NangLuong = {
+          1: 130, // Khởi đầu
+          2: 110, // Tiến bước
+          3: 80,  // Mở mang
+          4: 160, // ĐÁY TRŨNG 1
+          5: 100, // Đột phá
+          6: Math.max(40, 120 - (soNangLuongDinh * 6)), // Đỉnh phụ thuộc vào số năng lượng đỉnh đó
+          7: 170, // ĐÁY TRŨNG 2
+          8: Math.max(40, 100 - (soNangLuongDinh * 6)),
+          9: Math.max(25, 90 - (soNangLuongDinh * 7))   // ĐỈNH ĐẠI CÁT CAO NHẤT
+        };
+        let y = trucY_NangLuong[i];
+
+        // Tạo đường nối cong uốn lượn mượt mà (S Path)
+        if (i === 1) {
+          pathSongSin += `${x} ${y} `;
+        } else {
+          pathSongSin += `S ${x - buocNgangX / 2} ${y}, ${x} ${y} `;
+        }
+
+        let khoangCachNam = i - 1; 
+        let tuoiMoc = ageStart + khoangCachNam;
+        let namDuongLichMoc = namSinhGoc + tuoiMoc;
+
+        // Đánh dấu năm tuổi hiện tại của User (Nếu tuổi thực của họ rơi trúng vào chu kỳ đỉnh này)
+        let laNamHienTai = (tuoiDoiThuc === tuoiMoc);
+        let mauCham = laNamHienTai ? "#ef4444" : (i === 4 || i === 7) ? "#dc2626" : (i === 8 || i === 9) ? "#10b981" : "#3b82f6";
+        let banKinh  = laNamHienTai ? 7.5 : 4.5;
+
+        let laNamTrung = (i === 4 || i === 7);
+        let toaDoY_ChuNam = laNamTrung ? (y + 18) : (y - 12);
+
+        circleText += `
+          <circle cx="${x}" cy="${y}" r="${banKinh}" fill="${mauCham}" stroke="${laNamHienTai ? '#ffffff' : 'none'}" stroke-width="2" />
+          ${laNamHienTai ? `<circle cx="${x}" cy="${y}" r="13" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2" />` : ''}
+
+          <text x="${x}" y="${toaDoY_ChuNam}" fill="${mauCham}" font-size="10" text-anchor="middle" font-weight="${laNamHienTai ? 'bold' : '600'}">
+            T.${tuoiMoc} - ${namDuongLichMoc} ${laNamHienTai ? '★' : ''}
+          </text>
+
+          <text x="${x}" y="202" fill="${laNamHienTai ? '#1e293b' : '#94a3b8'}" font-size="10" text-anchor="middle" font-weight="${laNamHienTai ? 'bold' : 'normal'}">
+            Năm ${i}
+          </text>
+        `;
+      }
+
+      // Xuất HTML tích hợp khung cuộn ngang siêu mượt cho App di động
+      let htmlBieuDoTongHop = `
+        <svg style="width:100%; height:${heightCanvas}px; display:block; background:#ffffff;" viewBox="0 0 ${widthCanvas} ${heightCanvas}">
+          <line x1="${buocNgangX}" y1="30" x2="${buocNgangX * 9}" y2="30" stroke="#dcfce7" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="${buocNgangX - 10}" y="34" fill="#16a34a" font-size="11" font-weight="bold" text-anchor="end">Đỉnh</text>
+
+          <line x1="${buocNgangX}" y1="165" x2="${buocNgangX * 9}" y2="165" stroke="#fee2e2" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="${buocNgangX - 10}" y="169" fill="#ef4444" font-size="11" font-weight="bold" text-anchor="end">Trũng</text>
+
+          <line x1="${buocNgangX}" y1="188" x2="${buocNgangX * 9}" y2="188" stroke="#cbd5e1" stroke-width="1.2" />
+          
+          <path d="${pathSongSin}" fill="none" stroke="#e2e8f0" stroke-width="4.5" stroke-linecap="round" opacity="0.6" />
+          <path d="${pathSongSin}" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" />
+
+          ${circleText}
+        </svg>
+    `;
+
+      // Bắn trực tiếp khối đồ họa SVG phẳng vào vùng chứa wrapper trong Modal của bạn
+      let wrapper = document.getElementById("canvasChartWrapper");
+      if (wrapper) wrapper.innerHTML = htmlBieuDoTongHop;
+    }
+
+    // Hàm mở Modal và kích hoạt vẽ biểu đồ
+    function moModalBieuDo(indexDinh, tuoiDatDinh, soNangLuong) {
+      let titleElement = document.getElementById("titleModalDinhCao");
+      if (titleElement) {
+        titleElement.innerHTML = `📊 <b>Biểu đồ tiến trình chu kỳ 9 năm — Đỉnh cao lần ${indexDinh} (Năm ${tuoiDatDinh} tuổi - Số ${soNangLuong})</b>`;
+      }
+
+      window.currentSelectedPeak = {
+        index: indexDinh,
+        ageLimit: tuoiDatDinh,
+        val: soNangLuong
+      };
+      
+      let modal = document.getElementById("modalBieuDoDinhCao");
+      if (modal) {
+        modal.style.display = "flex";
+        drawSVG(); // Gọi hàm tự động vẽ đồ họa SVG hình sin
+      }
+    }
+
+    // Hàm đóng Modal găm nút ✕
+    function dongModalBieuDo() {
+      let modal = document.getElementById("modalBieuDoDinhCao");
+      if (modal) modal.style.display = "none";
+    }
+
+    let myRadarChart = null;
+    // Hàm Vẽ Biểu đồ Radar Ngũ Hành
+    function veBieuDoRadar(fullData) {
+      const ctx = document.getElementById('radarChart').getContext('2d');
+      
+      const dataValues = (fullData && Array.isArray(fullData)) ? fullData : [0, 0, 0, 0, 0];
+
+      // Xóa biểu đồ cũ nếu đã vẽ trước đó (tránh lỗi đè hình)
+      if (myRadarChart !== null) {
+        myRadarChart.destroy();
+      }
+
+      myRadarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Mộc (Sáng tạo) 🌳', 'Hỏa (Nhiệt huyết) 🔥', 'Thổ (Kiên định) ⛰️', 'Kim (Kỷ luật) ⚔️', 'Thủy (Linh hoạt) 🌊'],
+          datasets: [{
+            label: 'Trường khí chiếm tỉ lệ',
+            data: dataValues,
+            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+            borderColor: 'rgba(59, 130, 246, 1)',
+            pointBackgroundColor: ['#10b981', '#ef4444', '#f59e0b', '#94a3b8', '#3b82f6'],
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(59, 130, 246, 1)',
+            borderWidth: 2,
+          }]
+        },
+        options: {
+          scales: {
+            r: {
+              angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+              grid: { color: 'rgba(0, 0, 0, 0.1)' },
+              pointLabels: { font: { size: 12, weight: 'bold' }, color: '#334155' },
+              ticks: { display: false }, // Ẩn các con số chia vạch cho đẹp
+              min: 0, // Gốc tọa độ
+              beginAtZero: true, // Bắt đầu từ 0
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    // Hàm Ma Trận chiến lược
+    function hoanThienMucHanhDongThucTe(namCaNhan, namXemHan, tamTai, kimLau, dungThan, hoangOc) {
+      let strategyHTML = "";
+      
+      // Thần Số Học: 1, 3, 5, 8 là năm có lực đẩy mạnh
+      let isTayTot = [1, 3, 5, 8].includes(namCaNhan);
+      // Bát Tự
+      let hoangOcXau = false;
+      if (hoangOc) {
+        let checkText = hoangOc.replace(/<[^>]*>/g, '').trim(); // Lọc sạch thẻ HTML nếu có
+        if (checkText.includes("Sát") || checkText.includes("Tử") || checkText.includes("Hoang") || checkText.includes("Xấu")) {
+          hoangOcXau = true;
+        }
+      }
+      // Bát Tự: Không phạm Tam Tai và Kim Lâu mới thực sự an toàn
+      let isDongTot = !tamTai && !kimLau && !hoangOcXau;
+
+      let matrixStatus, matrixAction, badgeStyle;
+
+      if (isTayTot && isDongTot) {
+        matrixStatus = "🌟 THIÊN THỜI ĐỊA LỢI (Tây Tốt + Đông Tốt)";
+        matrixAction = "<b>KÍCH HOẠT TỐI ĐA:</b> Vận thế đỉnh cao, tiến trình cá nhân thúc đẩy mạnh mà không bị cản trở bởi bất kì mốc hạn vĩ mô nào. Hãy mạnh dạn đầu tư, khởi sự kinh doanh, mở rộng quy mô. Cơ hội trúng quả lớn.";
+        badgeStyle = "background: #10b981; color: white;";
+      } else if (isTayTot && !isDongTot) {
+        matrixStatus = "⚠️ THỜI CƠ ẨN RỦI RO (Tây Tốt + Đông Xấu)";
+        matrixAction = "<b>TIẾN CÔNG DU KÍCH:</b> Năm cá nhân thôi thúc hành động mở mang nhưng lại vướng mốc hạn Bát tự (Thái Tuế/Tam Tai/Kim Lâu). Vẫn có thể mở rộng nhưng tuyệt đối chia nhỏ rủi ro, không tự đứng tên pháp lý, tránh ký kết giấy tờ lớn.";
+        badgeStyle = "background: #f59e0b; color: white;";
+      } else if (!isTayTot && isDongTot) {
+        matrixStatus = "🛡️ TÍCH LŨY CHỜ THỜI (Tây Chậm + Đông Tốt)";
+        matrixAction = "<b>TÁI CẤU TRÚC VỮNG CHẮC:</b> Trường năng lượng Đông phương bình ổn bảo vệ bạn, nhưng Thần số báo hiệu chu kỳ phát triển chậm lại. Đừng bung tiền đầu tư vội, hãy dùng dòng vốn để đi học, xây dựng quy trình, đào tạo nhân sự cốt lõi.";
+        badgeStyle = "background: #3b82f6; color: white;";
+      } else {
+        matrixStatus = "⛔ GIĂNG BUỒM TRONG BÃO (Tây Xấu + Đông Xấu)";
+        matrixAction = "<b>PHÒNG THỦ TUYỆT ĐỐI:</b> Chu kỳ Thần số trũng xuống cộng hưởng với mốc hạn hung hiểm của Bát Tự. Án binh bất động, giữ chặt dòng tiền mặt, nhẫn nhịn thị phi, tuyệt đối không vay mượn hay thay đổi công việc.";
+        badgeStyle = "background: #ef4444; color: white;";
+      }
+
+      let textViDuThang = "";
+      if (dungThan === "Thủy") textViDuThang = "các tháng Thân, Dậu, Hợi, Tý (tháng 7, 8, 10, 11 âm lịch)";
+      else if (dungThan === "Mộc") textViDuThang = "các tháng Hợi, Tý, Dần, Mão (tháng 10, 11, 1, 2 âm lịch)";
+      else if (dungThan === "Hỏa") textViDuThang = "các tháng Dần, Mão, Tỵ, Ngọ (tháng 1, 2, 4, 5 âm lịch)";
+      else if (dungThan === "Thổ") textViDuThang = "các tháng Tỵ, Ngọ, Thìn, Tuất, Sửu, Mùi (tháng 4, 5, 3, 9, 12, 6 âm lịch)";
+      else if (dungThan === "Kim") textViDuThang = "các tháng Thìn, Tuất, Sửu, Mùi, Thân, Dậu (tháng 3, 9, 12, 6, 7, 8 âm lịch)";
+
+      strategyHTML += `
+      <div style="font-weight:bold; margin-bottom:10px; color:#0d47a1; font-size:14px; -webkit-font-smoothing: antialiased;">📈 Ma Trận Chiến Lược Lưu Niên (Giao Thoa Đông Tây):</div>
+      <div style="border: 1px solid #94a3b8; border-radius: 8px; padding: 15px; background: #fff; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); -webkit-font-smoothing: antialiased;">
+        <div style="font-size: 14px; margin-bottom: 12px;">
+            <span style="padding: 5px 10px; border-radius: 4px; font-size:12px; letter-spacing:0.5px; font-weight:bold; ${badgeStyle}">${matrixStatus}</span>
+        </div>
+        <div style="font-size: 14px; color: #000000; line-height: 1.6; padding-left: 5px;">${matrixAction}</div>
+      </div>
+      
+      <div style="font-weight:bold; margin-top:15px; margin-bottom:8px; color:#0d47a1; font-size:14px; -webkit-font-smoothing: antialiased;">⚡ Thời điểm kích hoạt cát khí tối ưu trong năm:</div>
+      <p style="font-size:14px; margin:0 0 10px 0; color:#000000; line-height:1.6; font-weight: 500; -webkit-font-smoothing: antialiased;">Để tiến hành đại sự như khai trương, ký kết hợp đồng, mua sắm tài sản lớn, hãy ưu tiên lựa chọn các khung tháng âm lịch mang năng lượng bổ trợ trực tiếp cho Dụng thần <b style="color:#b91c1c; font-size:15px;">${dungThan}</b> của bạn:</p>
+      <ul style="font-size:14px; margin-top:5px; padding-left:20px; color:#000000; line-height:1.6; font-weight: 500; -webkit-font-smoothing: antialiased;">
+        <li style="margin-bottom:6px;"><b>Tháng vượng năng lượng Dụng thần:</b> Các tháng có địa chi thuộc nhóm sinh trợ hoặc đồng hành mạnh với hành <b style="color:#b91c1c;">${dungThan}</b>. (<span style="color:#2563eb; font-weight:bold;">Ví dụ thực tế lá số:</span> Ưu tiên chọn ${textViDuThang}).</li>
+        <li><b>Hành động thực tế:</b> Chọn ngày hoàng đạo trong các tháng này để thực hiện giao dịch cốt lõi nhằm trung hòa các xung sát vĩ mô.</li>
+      </ul>`;
+
+      const oBoxContent = document.getElementById("contentHanhDongThucTe");
+      if (oBoxContent) {
+        oBoxContent.innerHTML = strategyHTML;
+      }
+    }
+
+    function sinhTodoListThang(personalYear, dungThanTruyenVao, hyThanTruyenVao) {
+      let listHTML = "<h5 style='color:#0d47a1; margin-bottom:15px; text-transform: uppercase; font-size:15px; -webkit-font-smoothing: antialiased;'>📋 KẾ HOẠCH HÀNH ĐỘNG 12 THÁNG (Giao Thoa Thần Số & Bát Tự)</h5>";
+      listHTML += "<div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:15px; -webkit-font-smoothing: antialiased;'>";
+        
+      // Quy chuẩn 12 tháng Âm lịch / Tiết khí theo Địa Chi và Ngũ Hành của bạn
+      const hanhChiThang = ["Mộc", "Mộc", "Thổ", "Hỏa", "Hỏa", "Thổ", "Kim", "Kim", "Thổ", "Thủy", "Thủy", "Thổ"];
+      const tenChiThang = ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu"];
+      
+      // ÉP GIÁ TRỊ AN TOÀN CHỐNG LỖI BIẾN MỒ CÔI
+      let dungThanXuLy = dungThanTruyenVao || "Thủy";
+      let hyThanXuLy = hyThanTruyenVao || "Mộc";
+
+      // Khắc tinh của Dụng Thần (Kỵ Thần cơ bản)
+      const hanhKhac = { "Kim": "Hỏa", "Mộc": "Kim", "Thủy": "Thổ", "Hỏa": "Thủy", "Thổ": "Mộc" };
+      let kyThan = hanhKhac[dungThanXuLy];
+
+      for(let m = 1; m <= 12; m++) {
+        // 1. Dữ liệu Thần Số Học (Thuật toán rút gọn số từ 1 đến 9 nội bộ an toàn, không lo thiếu hàm phụ)
+        let tongThangTho = parseInt(personalYear, 10) + m;
+        let personalMonth = tongThangTho;
+        while (personalMonth > 9) {
+          let subTong = 0;
+          let chuoi = personalMonth.toString();
+          for (let i = 0; i < chuoi.length; i++) {
+            subTong += parseInt(chuoi[i], 10);
+          }
+          personalMonth = subTong;
+        }
+
+        let action = "";
+        switch(personalMonth) {
+          case 1: action = "Lên kế hoạch mới, bắt đầu dự án, quyết đoán khởi sự."; break;
+          case 2: action = "Ngoại giao, chờ đợi thời cơ, củng cố các mối quan hệ."; break;
+          case 3: action = "Hành động sáng tạo, giao tiếp, tiệc tùng xã giao."; break;
+          case 4: action = "Siết chặt kỷ luật, kiểm tra tài chính, dọn dẹp hệ thống."; break;
+          case 5: action = "Linh hoạt thay đổi, du lịch, thử thách điều mới lạ."; break;
+          case 6: action = "Chăm lo gia đình, xử lý chuyện nhà cửa, kết nối tình cảm."; break;
+          case 7: action = "Học hỏi, rút lui chiến lược, chăm sóc sức khỏe tinh thần."; break;
+          case 8: action = "Thu hoạch tài chính, ký kết hợp đồng, mua bán tài sản lớn."; break;
+          case 9: action = "Dọn dẹp quá khứ, kết thúc dự án cũ, hoạt động từ thiện."; break;
+        }
+            
+        // 2. Dữ liệu Bát Tự (Phương Đông)
+        let hanhThang = hanhChiThang[m-1];
+        let chiThang = tenChiThang[m-1];
+        let phongThuyStatus, phongThuyBg, loiKhuyenDongTay;
+
+        // A. TRƯỜNG HỢP THÁNG ĐẠI CÁT / CÁT (Hành tháng trùng Dụng Thần hoặc Hỷ Thần)
+        if (hanhThang === dungThanXuLy || hanhThang === hyThanXuLy) {
+            phongThuyStatus = `🌟 ĐẠI CÁT (Vượng ${hanhThang})`;
+            phongThuyBg = "background: #dcfce7; color: #15803d; border: 1px solid #4ade80;";
+            
+            // Tự động khớp lời khuyên theo bản chất hành động Thần số học
+            if ([1, 3, 5, 8].includes(personalMonth)) {
+              loiKhuyenDongTay = "<b>THỜI CƠ VÀNG:</b> Khí tháng Đông phương trợ lực tối cao cộng hưởng với lực đẩy mạnh mẽ của Tây phương. Hãy quyết đoán bung lụa triển khai kế hoạch lớn, cơ hội trúng quả đậm.";
+            } else {
+              loiKhuyenDongTay = "<b>CÁT KHÍ BÌNH ỔN:</b> Bản mệnh nhận được sinh lực lớn từ vũ trụ, tinh thần sáng suốt. Thích hợp để củng cố nội lực, ngoại giao xây dựng đồng minh bền vững.";
+            }
+        } 
+        // B. TRƯỜNG HỢP THÁNG HUNG / ĐẠI HUNG (Tháng Hỏa thiêu đốt hoặc Tháng Thổ chặn Thủy)
+        else if (hanhThang === kyThan || [4, 5].includes(m)) { 
+            // Ép tháng 4, 5 (Tỵ, Ngọ) thuộc hành Hỏa chuyển sang cảnh báo Hung do làm tiêu hao Mộc
+            phongThuyStatus = `⛔ HUNG HẠN (Khắc Bản Mệnh)`;
+            phongThuyBg = "background: #fee2e2; color: #b91c1c; border: 1px solid #f87171;";
+            
+            if ([1, 3, 5, 8].includes(personalMonth)) {
+              loiKhuyenDongTay = "<b>TIẾN CÔNG DU KÍCH:</b> Thần số thôi thúc hành động nhưng khí tháng phong thủy xung khắc nặng. Tuyệt đối không tự đứng tên khởi công, chia nhỏ dòng vốn, làm việc gì cũng phải có phương án phòng hờ.";
+            } else {
+              loiKhuyenDongTay = "<b>PHÒNG THỦ TUYỆT ĐỐI:</b> Khí tháng kìm hãm nguyên khí. Án binh bất động, thủ thế giữ chặt tiền mặt, nhẫn nhịn thị phi công sở, tập trung chăm sóc sức khỏe bản thân.";
+            }
+        } 
+        // C. TRƯỜNG HỢP CÁC THÁNG BÌNH HÒA CÒN LẠI (Hành Kim sinh Thủy - Rất tốt cho bạn)
+        else {
+            // Vì Kim sinh Thủy (Dụng thần của bạn) nên tháng Kim (Thân, Dậu - tháng 7, 8) thực chất là tháng Cát tinh cứu viện
+            if (hanhThang === "Kim") {
+              phongThuyStatus = `🌟 CÁT TINH (Kim sinh ${dungThanXuLy})`;
+              phongThuyBg = "background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd;";
+              loiKhuyenDongTay = "<b>QUÝ NHÂN TRỢ LỰC:</b> Khí tháng Kim sinh Thủy bơm nguồn sinh khí dồi dào giải vây tai ách. Tinh thần hanh thông, thích hợp ký kết hợp đồng, mua bán tài sản lớn.";
+            } else {
+              phongThuyStatus = `⚖️ BÌNH HÒA (${hanhThang})`;
+              phongThuyBg = "background: #f1f5f9; color: #000000; border: 1px solid #cbd5e1;";
+              loiKhuyenDongTay = "Trường khí tháng bình ổn, không xung không khắc. Mọi thành bại phụ thuộc 100% vào nỗ lực tự thân của bạn.";
+            }
+        }
+
+        // 3. HIỂN THỊ UI SẮC NÉT (Ép cứng màu chữ đen kịt #000000, tăng line-height lên 1.6)
+        listHTML += `
+          <div style='background:#fff; border: 1px solid #94a3b8; border-left: 4px solid #1d4ed8; padding:15px; border-radius:8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);'>
+            <div style='display:flex; justify-content:space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;'>
+              <b style='color:#000000; font-size:14px;'>Tháng ${m} ÂL (${chiThang})</b>
+              <span style='font-size:11px; padding: 4px 8px; border-radius: 4px; font-weight:bold; ${phongThuyBg} '>${phongThuyStatus}</span>
+            </div>
+            <div style='font-size:14px; color:#000000; margin-bottom: 10px; line-height:1.6;'>
+              <b style='color:#7c3aed; '>🎯 Số ${personalMonth} (Tây):</b> ${action}
+            </div>
+            <div style='font-size:13.5px; color:#000000; background: #f8fafc; padding: 10px; border-radius: 4px; border:1px solid #e2e8f0; line-height:1.6; '>
+              <b style="color:#0f172a;">☯️ Hợp nhất Đông Tây:</b> ${loiKhuyenDongTay}
+            </div>
+          </div>`;
+      }
+      listHTML += "</div>";
+      
+      let todoContainer = document.getElementById("todoThang");
+      todoContainer.innerHTML = listHTML;
+    }
+
+    function sinhHuyenKhongPhiTinh(huyenKhongData, cungPhiCuaBan) {
+      if (!huyenKhongData || !huyenKhongData.mangSaoPhuongVi) return;
+
+      // 1. CHUYỂN ĐỔI MẢNG PHẲNG TỪ SERVER THÀNH ĐỐI TƯỢNG PHITINH KHÓA HƯỚNG THEO CẤU TRÚC CŨ
+      const mangSao = huyenKhongData.mangSaoPhuongVi;
+      const phiTinh = {
+        "Đông Nam": mangSao[0], "Nam": mangSao[1], "Tây Nam": mangSao[2],
+        "Đông": mangSao[3],     "Trung Cung": mangSao[4], "Tây": mangSao[5],
+        "Đông Bắc": mangSao[6], "Bắc": mangSao[7],     "Tây Bắc": mangSao[8]
+      };
+
+      // Thứ tự phân bổ chuẩn theo lưới ma trận Lạc Thư 3x3 của bạn
+      const huongGrid = ["Đông Nam", "Nam", "Tây Nam", "Đông", "Trung Cung", "Tây", "Đông Bắc", "Bắc", "Tây Bắc"];
+      const huongXet = ["Trung Cung", "Đông", "Tây", "Nam", "Bắc", "Đông Nam", "Tây Nam", "Đông Bắc", "Tây Bắc"];
+
+      let saoVuong = 9; 
+      let saoSinh  = 1; 
+      let saoTien  = 2;
+      let namXemHanDONG = parseInt(huyenKhongData.nam, 10);
+      let tenVanChuan;
+
+      // Tam Nguyên Cửu Vận: mỗi vận 20 năm, Vận 1 bắt đầu từ 1864 (Vận 9: 2024–2043)
+      let van = (((Math.floor((namXemHanDONG - 1864) / 20)) % 9) + 9) % 9 + 1;
+      saoVuong = van; saoSinh = van % 9 + 1; saoTien = saoSinh % 9 + 1;
+      tenVanChuan = "Đại Vận " + van;
+
+      let dictionary = {
+        1: { ten: "Nhất Bạch (Thủy)", type: "Cát", yNghia: "Đào hoa, nhân duyên, học hành và cơ hội thăng tiến nhẹ.", nguyenLy: "Thủy cần Kim sinh trợ hoặc Thủy đồng hành để kích hoạt.", giaiPhap: "Đặt vật phẩm bằng kim loại (đồng hồ cơ, chuông gió) hoặc hồ nước nhỏ, phong thủy luân." },
+        2: { ten: "Nhị Hắc (Thổ)", type: "Hung", yNghia: "Bệnh phù, tai ách, sức khỏe suy giảm (Tuy nhiên sang Vận 9 khí xấu đã bắt đầu suy giảm).", nguyenLy: "Dùng Kim để xì hơi (rút bớt) năng lượng xấu của Thổ (Thổ sinh Kim).", giaiPhap: "Đặt tiền xu đồng, hồ lô bằng đồng hoặc thảm màu xám/trắng. Tuyệt đối tránh màu Đỏ (Hỏa)." },
+        3: { ten: "Tam Bích (Mộc)", type: "Hung", yNghia: "Thị phi, tranh chấp, rắc rối pháp lý, cãi vã o ép.", nguyenLy: "Dùng Hỏa để tiết chế năng lượng Mộc (Mộc sinh Hỏa).", giaiPhap: "Đặt đèn sáng, thảm màu đỏ, hồng hoặc các vật phẩm có hình tam giác/nhọn." },
+        4: { ten: "Tứ Lục (Mộc)", type: "Bình", yNghia: "Văn xương, thi cử, nghệ thuật (tuy nhiên Vận 9 hơi thoái khí nhẹ).", nguyenLy: "Mộc cần Thủy dưỡng hoặc Mộc đồng hành để duy trì năng lượng.", giaiPhap: "Đặt 4 cành trúc phú quý trồng trong nước hoặc thảm màu xanh lá." },
+        5: { ten: "Ngũ Hoàng (Thổ)", type: "Đại Hung", yNghia: "Đại Sát - Tai họa lớn, phá tài, rủi ro biến động mọi mặt.", nguyenLy: "Hung tinh mạnh nhất, cần tĩnh không cần động. Dùng Kim mạnh để tiết chế Thổ.", giaiPhap: "Treo chuông gió kim loại 6 ống. KHÔNG động thổ, đập phá hay bật nhạc ồn ào tại đây." },
+        6: { ten: "Lục Bạch (Kim)", type: "Cát", yNghia: "Quyền lực, sự nghiệp, quý nhân đại cát phù trợ.", nguyenLy: "Kim cần Thổ dưỡng hoặc Kim đồng hành để vượng khí.", giaiPhap: "Đặt vật phẩm bằng gốm sứ, đá phong thủy tự nhiên (Thổ) hoặc quả cầu thạch anh vàng." },
+        7: { ten: "Thất Xích (Kim)", type: "Hung", yNghia: "Phá tài, thất thoát của cải, trộm cắp, tổn thương bằng kim loại.", nguyenLy: "Dùng Thủy để tiết chế tính sát phạt của Kim (Kim sinh Thủy).", giaiPhap: "Đặt một ly nước tĩnh (thay nước sạch hàng ngày) hoặc vật phẩm/thảm màu xanh dương, đen." },
+        8: { ten: "Bát Bạch (Thổ)", type: "Cát", yNghia: "Tài lộc, thịnh vượng (Thoái khí nhẹ ở Vận 9 nhưng bản chất vẫn tốt).", nguyenLy: "Thổ cần Hỏa sinh trợ để gia tăng vượng khí.", giaiPhap: "Đặt đèn sáng ấm, đồ gốm sứ màu đỏ/tím, hoặc tỳ hưu/thiềm thừ bằng ngọc." },
+        9: { ten: "Cửu Tử (Hỏa)", type: "Đại Cát", yNghia: "Đương vượng Tài Tinh - Hỷ khánh, bùng nổ tài lộc, đón nhận tin vui.", nguyenLy: "Hỏa cần Mộc sinh trợ để ngọn lửa cháy rực rỡ nhất.", giaiPhap: "Tuyệt đối giữ sạch sẽ. Đặt cây xanh tươi tốt (Mộc) hoặc đèn sáng (Hỏa) để thúc đẩy dòng tiền." }
+      };
+
+      // 2. THIẾT LẬP NĂM VÀ BẢN ĐỒ NGŨ HÀNH GIAO THOA CUNG PHI
+      let hanhBanMenh = HANH_CUNG_PHI[cungPhiCuaBan];
+      
+      // 3. TỰ ĐỘNG XÂY DỰNG MẢNG LUẬN GIẢI CÁ NHÂN HÓA LẬP TRÌNH ĐỘNG ĐA PHƯƠNG VỊ
+      let luanGiaiCungPhiDong = {};
+      for (let s = 1; s <= 9; s++) {
+        let saoGoc = dictionary[s];
+        let hanhSao = HANH_CUA_SAO[s];
+        let nguyenLyText = "";
+        let typeMoi = saoGoc.type;
+
+        if (hanhSao === hanhBanMenh) {
+          nguyenLyText = `Sao hành ${hanhSao} gặp Cung Phi ${cungPhiCuaBan} đạt thế [Tỷ Hòa] - Đồng hành trợ khí, giữ trường khí ổn định.`;
+        } else if (QUY_LUAT_SINH[hanhSao] === hanhBanMenh) {
+          nguyenLyText = `Sao hành ${hanhSao} gặp Cung Phi ${cungPhiCuaBan} đạt thế [Sinh Nhập] - Khí của sao bồi bổ sinh lực trọn vẹn cho bạn.`;
+        } else if (QUY_LUAT_SINH[hanhBanMenh] === hanhSao) {
+          nguyenLyText = `Sao hành ${hanhSao} gặp Cung Phi ${cungPhiCuaBan} đạt thế [Sinh Xuất] - Bản mệnh phải tiết khí nuôi sao, dễ gây lao lực.`;
+        } else if (QUY_LUAT_KHAC[hanhSao] === hanhBanMenh) {
+          nguyenLyText = `Sao hành ${hanhSao} gặp Cung Phi ${cungPhiCuaBan} đạt thế [Khắc Nhập - NGUY HIỂM] - Sát khí từ sao xung khắc trực diện cung mệnh ${hanhBanMenh}.`;
+        } else if (QUY_LUAT_KHAC[hanhBanMenh] === hanhSao) {
+          nguyenLyText = `Sao hành ${hanhSao} gặp Cung Phi ${cungPhiCuaBan} đạt thế [Khắc Xuất] - Bạn lao lực gánh vác mới chế ngự được khí sao.`;
+        }
+
+        if (s === 5) {
+          typeMoi = "Đại Hung (Sát Khí)"; // Ngũ Hoàng luôn luôn khóa chặt Đại Hung tối cao
+        } 
+        else if (s === saoVuong) {
+          typeMoi = "Đại Cát (Đương Vượng)"; // Sao Đương Vượng đắc thời tối thượng
+        } 
+        else if (s === saoSinh) {
+          typeMoi = "Cát Tinh (Sinh Khí)"; // Sao Sinh Khí cát tường tương lai
+        } 
+        else if (s === saoTien) {
+          // Sao Tiến Khí nếu bị khắc nhập thì hạ bậc xuống Hung nhẹ, nếu không thì giữ Cát
+          if (QUY_LUAT_KHAC[hanhSao] === hanhBanMenh) {
+            typeMoi = "Hung Tinh (Suy Khí)"; 
+          } else {
+            typeMoi = "Cát Tinh (Tiến Khí)";
+          }
+        } 
+        else if (s === 2) {
+          typeMoi = "Hung Tinh (Bệnh Phù)"; // Nhị Hắc khi không đắc thời vận luôn là Bệnh Phù
+        } 
+        else if (QUY_LUAT_KHAC[hanhSao] === hanhBanMenh) {
+          typeMoi = "Đại Hung (Xung Khắc)"; // Các sao suy tử khác lao vào khắc bản mệnh
+        } 
+        else if (QUY_LUAT_SINH[hanhSao] === hanhBanMenh) {
+          typeMoi = "Cát Tinh (Tương Sinh)"; // Sao bình thường nhưng sinh trợ cho Cung Phi
+        } 
+        else {
+          typeMoi = "Bình Hòa / Tiết Khí"; // Các phương vị trung tính, an toàn ổn định
+        }
+
+        let tieuDeGiaiPhap = (typeMoi.includes("Hung") || s === 5 || s === 2) 
+          ? `🚨 <b>BIỆN PHÁP HÓA GIẢI:</b> ` 
+          : `🔥 <b>PHƯƠNG PHÁP KÍCH HOẠT:</b> `;
+
+        luanGiaiCungPhiDong[s] = {
+          ten: saoGoc.ten,
+          type: typeMoi,
+          yNghia: saoGoc.yNghia,
+          nguyenLy: nguyenLyText,
+          giaiPhap: tieuDeGiaiPhap + saoGoc.giaiPhap
+        };
+      }
+
+      // 4. HÀM TẠO ĐỊNH DẠNG MÀU BADGE ĐẬM ĐÀ, KHÔNG MỜ SƯƠNG
+      function getStyleByStatus(type) {
+        let t = type || "Bình Hòa";
+        if (t.includes("Đại Cát") || t.includes("Đương Vượng")) {
+          return { border: "#059669", bg: "#ecfdf5", text: "#047857", badgeBg: "#a7f3d0", tag: t };
+        }
+        if (t.includes("Cát Tinh") || t.includes("Cát")) {
+          return { border: "#10b981", bg: "#f0fdf4", text: "#15803d", badgeBg: "#bbf7d0", tag: t };
+        }
+        if (t.includes("Đại Hung") || t.includes("Sát Khí")) {
+          return { border: "#dc2626", bg: "#fef2f2", text: "#991b1b", badgeBg: "#fee2e2", tag: t };
+        }
+        if (t.includes("Hung Tinh") || t.includes("Hung") || t.includes("Suy Khí")) {
+          return { border: "#ea580c", bg: "#fff7ed", text: "#c2410c", badgeBg: "#ffedd5", tag: t };
+        }
+        return { border: "#94a3b8", bg: "#f8fafc", text: "#000000", badgeBg: "#e2e8f0", tag: "Bình Hòa" };
+      }
+
+      // 5. VẼ LƯỚI MA TRẬN 9 Ô KHUNG Ô THẺ SẮC NÉT (MÀU CHỮ #000000 ĐẬM ĐÀ)
+      let gridHTML = "";
+      huongGrid.forEach(huong => {
+        let sao = phiTinh[huong];
+        let info = luanGiaiCungPhiDong[sao];
+        let st = getStyleByStatus(info.type);
+        
+        gridHTML += `
+          <div class="hk-cell" style="border: 1px solid ${st.border}; background: ${st.bg};">
+            <div class="hk-direction">${huong}</div>
+            <div class="hk-star" style="color: ${st.text};">${sao}</div>
+            <div class="hk-status" style="background: ${st.badgeBg}; color: ${st.text};">${st.tag}</div>
+          </div>
+        `;
+      });
+      document.getElementById("gridPhiTinh").innerHTML = gridHTML;
+
+      // 6. TẠO DANH SÁCH CHI TIẾT DẠNG THẺ ĐA CỘT CỰC ĐẸP (TỐI ƯU TƯƠNG PHẢN CHỐNG MỜ CHỮ)
+      let phiTinhDetails = `<b style='color:#0d47a1; font-size:14.5px; display:block; margin-bottom:12px; -webkit-font-smoothing: antialiased;'>🧭 Ma trận phân tích phương vị và Cung Phi [${cungPhiCuaBan} - Hành ${hanhBanMenh}] năm ${huyenKhongData.nam}:</b>`;
+      phiTinhDetails += "<div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 12px; -webkit-font-smoothing: antialiased;'>";
+      
+      huongXet.forEach(huong => {
+        let sao = phiTinh[huong];
+        let info = luanGiaiCungPhiDong[sao];
+        let st = getStyleByStatus(info.type);
+
+        // ÉP MÀU CHỮ VỀ ĐEN TUYỆT ĐỐI #000000, TÁCH BIỆT Ý NGHĨA - NGUYÊN LÝ - GIẢI PHÁP
+        phiTinhDetails += `
+          <div style='background: ${st.bg}; border-left: 5px solid ${st.border}; padding: 12px; border-radius: 6px; border-top: 1px solid #94a3b8; border-right: 1px solid #94a3b8; border-bottom: 1px solid #94a3b8; box-shadow: 0 2px 4px rgba(0,0,0,0.01);'>
+            <div style='font-size: 14px; font-weight: bold; color: #000000; margin-bottom: 8px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px;'>
+              📍 Góc ${huong} (Sao ${info.ten} - <span style="color: ${st.text};">${info.type}</span>)
+            </div>
+            <div style='font-size: 14px; color: #000000; margin-bottom: 6px; line-height:1.6;'><b>Ý nghĩa:</b> ${info.yNghia}</div>
+            <div style='font-size: 13.5px; color: #000000; margin-bottom: 8px; font-style: italic; line-height:1.6; background: rgba(255,255,255,0.4); padding: 4px; border-radius:4px;'><b>Nguyên lý:</b> ${info.nguyenLy}</div>
+            <div style='font-size: 14px; color: #000000; background: #ffffff; padding: 6px 8px; border-radius: 4px; border: 1px dashed ${st.border}; line-height:1.6; '>${info.giaiPhap}</div>
+          </div>
+        `;
+      });
+      phiTinhDetails += "</div>";
+      
+      document.getElementById("txtLuanPhiTinh").innerHTML = phiTinhDetails;
+    }
+
+    function sinhGiaoDienNhanSuDoiTac(dungThan, hyThan) {
+      let textDoiTacTot = "";
+      let textKyThan = "";
+
+      let quyTacData = MA_TRAN_QUY_TAC_NHAN_SU[dungThan] || MA_TRAN_QUY_TAC_NHAN_SU["Thủy"];
+
+      let nhansuHTML = `
+        <div style="color: #000000; font-size: 14px; line-height: 1.6; font-weight: 500; -webkit-font-smoothing: antialiased;">
+          <p style="margin: 0 0 10px 0;">Nguyên tắc phối hợp đối tác dựa trên sa bàn Ngũ hành Nhật Chủ thực tế:</p>
+          <div style="margin-bottom: 8px; background: #f0fdf4; border-left: 4px solid #16a34a; padding: 10px; border-radius: 0 6px 6px 0;">
+            <span style="color: #15803d; font-weight: 800; display: block; margin-bottom: 2px;">🟢 Nhóm Đối Tác Cộng Hưởng (Cát Lành):</span>
+            <span style="color: #000000;">${quyTacData.tot} Trường khí này giúp thông suốt bế tắc tài chính.</span>
+          </div>
+          <div style="background: #fef2f2; border-left: 4px solid #dc2626; padding: 10px; border-radius: 0 6px 6px 0;">
+            <span style="color: #b91c1c; font-weight: 800; display: block; margin-bottom: 2px;">🔴 Nhóm Nhân Sự Xung Xát (Cần Sàng Lọc):</span>
+            <span style="color: #000000;">${quyTacData.ky} Cần thiết lập cơ chế giám sát điều khoản giấy tờ pháp lý chặt chẽ.</span>
+          </div>
+        </div>
+      `;
+      if (document.getElementById("contentDongDieuNhanSu")) {
+        document.getElementById("contentDongDieuNhanSu").innerHTML = nhansuHTML;
+      }
+    }
+
+    function sinhGiaoDienDaiVanTimeline(namSinhUser, tuoiKhoiVanChuanServer, mangDaiVanServer, dungThanLaSo) {
+      let yBirth = parseInt(namSinhUser, 10);
+      
+      // ÉP CON SỐ TUỔI KHỞI ĐẠI VẬN ĐỘNG TRUYỀN TỪ SERVER SANG
+      let tuoiKhoiVan = parseInt(tuoiKhoiVanChuanServer, 10);
+      let dungThanXuLy = dungThanLaSo;
+
+
+      let currentYear = new Date().getFullYear();
+      let timelineHTML = `<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px; -webkit-font-smoothing: antialiased;">`;
+
+      for (let i = 0; i < 6; i++) {
+        let tuoiBatDau = tuoiKhoiVan + (i * 10);
+        let tuoiKetThuc = tuoiBatDau + 9;
+        
+        // Thuật toán tịnh tiến dải năm Dương lịch bám theo mốc tuổi động
+        let namBatDau = yBirth + tuoiBatDau - 1;
+        let namKetThuc = namBatDau + 9;
+
+        let isCurrent = (currentYear >= namBatDau && currentYear <= namKetThuc);
+
+        let canChiGiaoThoa = mangDaiVanServer[i].canChi;
+        let hanhDaiVanGoc = mangDaiVanServer[i].hanh;
+
+        let nhanXetMenhVan = "";
+        if (hanhDaiVanGoc === dungThanXuLy) {
+          nhanXetMenhVan = `<span style="color:#16a34a; font-weight:bold;">🌟 ĐẮC THỜI (Vượng Dụng Thần)</span> - Chu kỳ 10 năm đắc địa, bản mệnh nhận được trường khí trợ lực tối cao từ vũ trụ. Thuận lợi triển khai các kế hoạch vĩ mô, danh tài lưỡng đắc.`;
+        } else if (QUY_LUAT_SINH[hanhDaiVanGoc] === dungThanXuLy) {
+          nhanXetMenhVan = `<span style="color:#2563eb; font-weight:bold;">🌟 TƯƠNG SINH (${hanhDaiVanGoc} sinh ${dungThanXuLy})</span> - Đại vận cát lành, có quý nhân ẩn danh nâng đỡ sau rèm. Khai thông hoàn toàn các bế tắc tiền tài cũ, sức khỏe dồi dào, gia đạo an yên.`;
+        } else if (QUY_LUAT_KHAC[hanhDaiVanGoc] === dungThanXuLy) {
+          nhanXetMenhVan = `<span style="color:#dc2626; font-weight:bold;">⚠️ HUNG KHẮC (${hanhDaiVanGoc} khắc ${dungThanXuLy})</span> - Trường khí của vận kìm hãm mạch nước Dụng thần cứu mạng. Khuyên đương số cần thủ thế phòng thủ, siết chặt kỷ luật tài chính, bảo toàn lực lượng.`;
+        } else {
+          nhanXetMenhVan = `Trường khí đại vận bình ổn, không xung không khắc. Mọi thành bại lớn nhỏ phụ thuộc hoàn toàn vào nỗ lực thực chiến kiên trì của tự thân đương số.`;
+        }
+
+        timelineHTML += `
+        <div style="display: flex; border: 1px solid ${isCurrent ? "var(--primary)" : "#cbd5e1"}; border-left: 5px solid ${isCurrent ? "var(--primary)" : "#64748b"}; border-radius: 6px; background: ${isCurrent ? "#f0f7ff" : "#ffffff"}; padding: 12px; box-shadow: ${isCurrent ? "0 4px 6px rgba(0,0,0,0.02)" : "none"}; transition: all 0.2s;">
+          <div style="width: 125px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center;">
+            <b style="font-size: 14px; color: #000000;">Năm ${namBatDau}-${namKetThuc}</b>
+            <span style="font-size: 11.5px; color: #475569; margin-top: 2px; font-weight: bold;">(${tuoiBatDau} - ${tuoiKetThuc} tuổi)</span>
+            ${isCurrent ? `<span style="font-size: 10px; background: var(--primary); color: #fff; padding: 2px 5px; border-radius: 3px; font-weight: bold; width: fit-content; margin-top: 5px; letter-spacing:0.3px;">ĐƯƠNG ĐẠI VẬN</span>` : ""}
+          </div>
+          
+          <!-- Khối ruột mô tả chi tiết chứa Can Chi Mệnh Đại vận độc quyền của bạn -->
+          <div style="flex-grow: 1; padding-left: 12px; border-left: 1px dashed #cbd5e1;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px; margin-bottom: 4px;">
+              <b style="font-size: 14.5px; color: #000000; font-weight: bold;">${i + 1}. ${NOI_DUNG_VAN[i].title}</b>
+              <span style="font-size:11px; background:#f1f5f9; color:#0f172a; padding:2px 6px; border-radius:4px; border:1px solid #cbd5e1; font-weight:bold;">Vận: ${canChiGiaoThoa} (${hanhDaiVanGoc})</span>
+            </div>
+            <p style="font-size: 13.5px; color: #000000; margin: 0 0 6px 0; line-height: 1.5; font-weight: bold;">${NOI_DUNG_VAN[i].desc}</p>
+            <div style="font-size: 12.5px; color: #000000; background: rgba(255,255,255,0.5); padding: 4px 6px; border-radius:4px; border:1px dashed #cbd5e1; font-weight: bold;">
+              <b>☯️ Bản mệnh tương tác:</b> ${nhanXetMenhVan}
+            </div>
+          </div>
+        </div>
+      `;
+      }
+
+      timelineHTML += `</div>`;
+      document.getElementById("listDaiVan").innerHTML = timelineHTML;
+    }
+
+    // Vẽ La Bàn 2D
+    // Biến toàn cục lưu giữ trạng thái Cát/Hung của 8 hướng để thuật toán AI quét độ
+    let MA_TRAN_QUET_LA_BAN_HIEN_TAI = {};
+
+    // 1. Hàm nhuộm màu đĩa và nạp text Bát Trạch (Gọi chạy từ hàm loadAllData)
+    function khoiTaoLaBanSoduBatTrach(cungPhiCuaBan) {
+      let cung = cungPhiCuaBan || "Khảm";
+      let saoBao = MA_TRAN_BAT_TRACH_QUY_CHUAN[cung] || MA_TRAN_BAT_TRACH_QUY_CHUAN["Khảm"];
+      MA_TRAN_QUET_LA_BAN_HIEN_TAI = {}; // Reset
+
+      for (let hKey in saoBao) {
+        let nameSao = saoBao[hKey];
+        let txtElement = document.getElementById("lbl-" + hKey);
+        let pathElement = document.getElementById("arc-" + hKey);
+
+        if (txtElement) txtElement.textContent = nameSao;
+
+        // Phân định nhãn Tốt (true) / Xấu (false) phục vụ hệ thống điều hướng
+        let isGoodHuong = nameSao.includes("Sinh Khí") || nameSao.includes("Diên Niên") || nameSao.includes("Thiên Y") || nameSao.includes("Phục Vị");
+        MA_TRAN_QUET_LA_BAN_HIEN_TAI[hKey] = isGoodHuong;
+
+        if (pathElement) {
+          if (isGoodHuong) {
+            pathElement.setAttribute("fill", "#ecfdf5"); // Hướng Cát nhuộm xanh dịu hiện đại
+            pathElement.setAttribute("stroke", "#10b981");
+          } else {
+            pathElement.setAttribute("fill", "#fef2f2"); // Hướng Hung nhuộm đỏ dịu hiện đại
+            pathElement.setAttribute("stroke", "#f87171");
+          }
+        }
+      }
+    }
+
+    function tuDongQuetCamBienLaBan() {
+      let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      
+      if (isIOS) {
+        // Nếu là thiết bị iPhone/iOS: Hiện chiếc nút siêu nhỏ "KÍCH HOẠT" nằm nép ở bảng trạng thái để người dùng chạm nhẹ xin quyền
+        let btnIOs = document.getElementById("btnKichHoatiOS");
+        if (btnIOs) btnIOs.style.display = "inline-block";
+      } else {
+        // Nếu là thiết bị Android hoặc máy tính Laptop thông thường: AUTO TỰ ĐỘNG CẤP QUYỀN VÀ CHẠY LUÔN
+        dangKyLaBan();
+      }
+    }
+
+    // 2. KÍCH HOẠT CẢM BIẾN PHẦN CỨNG MOBILE (iOS / Android)
+    function kichHoatCamBienLaBanMobile() {
+      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+          .then(permissionState => {
+            if (permissionState === 'granted') {
+              window.addEventListener('deviceorientation', handleCompassRotate, true);
+              // Ẩn chiếc nút nhỏ đi sau khi đã được cấp quyền thành công trên iPhone
+              let btnIOs = document.getElementById("btnKichHoatiOS");
+              if (btnIOs) btnIOs.style.display = "none";
+            } else {
+              alert("🚨 Cần cấp quyền cảm biến để đĩa la bàn tự động xoay.");
+            }
+          })
+          .catch(console.error);
+      } else {
+        dangKyLaBan();
+      }
+    }
+
+    // Android: sự kiện 'absolute' cho góc so với hướng Bắc thật; 'deviceorientation' thường chỉ là góc tương đối
+    function dangKyLaBan() {
+      window.removeEventListener('deviceorientationabsolute', handleCompassRotate, true);
+      window.removeEventListener('deviceorientation', handleCompassRotate, true);
+      if ('ondeviceorientationabsolute' in window) window.addEventListener('deviceorientationabsolute', handleCompassRotate, true);
+      else window.addEventListener('deviceorientation', handleCompassRotate, true);
+    }
+
+    // 3. THUẬT TOÁN ĐÓN ĐẦU GÓC QUAY TRÁI ĐẤT & ĐIỀU HƯỚNG DẮT NGƯỜI DÙNG VÀO MÀU XANH
+    function handleCompassRotate(event) {
+      let heading = 0;
+      if (event.webkitCompassHeading !== undefined) {
+        heading = event.webkitCompassHeading; // Cảm biến cao cấp độc quyền của Apple iPhone
+      } else if (event.alpha !== null) {
+        heading = 360 - event.alpha; // Công thức đảo chiều bù góc cho Android
+      }
+
+      let roundedHeading = Math.round(heading);
+      if (roundedHeading >= 360) roundedHeading = 0;
+
+      // Hiển thị số độ thô lên màn hình
+      if (document.getElementById("txtGocLaBanThuc")) {
+        document.getElementById("txtGocLaBanThuc").innerText = roundedHeading;
+      }
+
+      // Khớp khít dải độ ±22.5° chuẩn quốc tế của bạn để tìm hướng trước mặt
+      let currentHuongKey = "Bac";
+      let txtHuong = "BẮC";
+
+      if (roundedHeading >= 22.5 && roundedHeading < 67.5) { txtHuong = "ĐÔNG BẮC"; currentHuongKey = "DongBac"; }
+      else if (roundedHeading >= 67.5 && roundedHeading < 112.5) { txtHuong = "ĐÔNG"; currentHuongKey = "Dong"; }
+      else if (roundedHeading >= 112.5 && roundedHeading < 157.5) { txtHuong = "ĐÔNG NAM"; currentHuongKey = "DongNam"; }
+      else if (roundedHeading >= 157.5 && roundedHeading < 202.5) { txtHuong = "NAM"; currentHuongKey = "Nam"; }
+      else if (roundedHeading >= 202.5 && roundedHeading < 247.5) { txtHuong = "TÂY NAM"; currentHuongKey = "TayNam"; }
+      else if (roundedHeading >= 247.5 && roundedHeading < 292.5) { txtHuong = "TÂY"; currentHuongKey = "Tay"; }
+      else if (roundedHeading >= 292.5 && roundedHeading < 337.5) { txtHuong = "TÂY BẮC"; currentHuongKey = "TayBac"; }
+
+      if (document.getElementById("txtTenHuongThuc")) {
+        document.getElementById("txtTenHuongThuc").innerText = `(${txtHuong})`;
+      }
+
+      // Quét đối chiếu trạng thái Cát/Hung trước mặt để nhuộm màu nhãn LED táp lô
+      let isCurrentGood = MA_TRAN_QUET_LA_BAN_HIEN_TAI[currentHuongKey] || false;
+      let oTxtStatus = document.getElementById("txtTrangThaiGocThuc");
+      
+      if (oTxtStatus) {
+        if (isCurrentGood) {
+          oTxtStatus.innerText = "CÁT LÀNH";
+          oTxtStatus.style.background = "#16a34a"; // Đèn LED màu xanh an toàn
+        } else {
+          oTxtStatus.innerText = "HUNG HẠN";
+          oTxtStatus.style.background = "#dc2626"; // Đèn LED màu đỏ sát khí
+        }
+      }
+
+      // =========================================================================
+      // THUẬT TOÁN AI BẺ LÁI MŨI TÊN: TÌM ĐƯỜNG ĐẾN Ô XANH NGẮN NHẤT ĐỘNG
+      // =========================================================================
+      let btnL = document.getElementById("arrow-Left");
+      let btnR = document.getElementById("arrow-Right");
+
+      if (btnL && btnR) {
+        if (isCurrentGood) {
+          // Nếu mũi tên đỏ cố định đã lọt vào vùng Xanh (Cát), tắt hoàn toàn các mũi tên điều hướng
+          btnL.style.display = "none";
+          btnR.style.display = "none";
+        } else {
+          // Nếu đang kẹt ở vùng Đỏ (Hung), tính toán khoảng cách góc ngắn nhất đến ô Xanh để bẻ lái
+          const DANH_SACH_GÓC_TÂM_CUNG = { "Bac": 0, "DongBac": 45, "Dong": 90, "DongNam": 135, "Nam": 180, "TayNam": 225, "Tay": 270, "TayBac": 315 };
+          let gocHienTai = roundedHeading;
+          let khoangCachMin = 999;
+
+          for (let hK in MA_TRAN_QUET_LA_BAN_HIEN_TAI) {
+            if (MA_TRAN_QUET_LA_BAN_HIEN_TAI[hK] === true) { // Chỉ quét các cung tốt
+              let diff = DANH_SACH_GÓC_TÂM_CUNG[hK] - gocHienTai;
+              while (diff < -180) diff += 360;
+              while (diff > 180) diff -= 360;
+              
+              if (Math.abs(diff) < Math.abs(khoangCachMin)) {
+                khoangCachMin = diff;
+              }
+            }
+          }
+
+          // Nếu khoảng cách > 0 nghĩa là ô xanh ở bên phải -> Nhắc quay phải, ngược lại nhắc quay trái
+          if (khoangCachMin > 0) {
+            btnL.style.display = "none";
+            btnR.style.display = "inline-flex";
+          } else {
+            btnL.style.display = "inline-flex";
+            btnR.style.display = "none";
+          }
+        }
+      }
+
+      // ÉP ĐĨA XOAY TRÒN MƯỢT MÀ THEO ĐÚNG TỪ TRƯỜNG TRÁI ĐẤT
+      let oSvgLaBan = document.getElementById("svgLaBan");
+      if (oSvgLaBan) {
+        oSvgLaBan.style.transform = `rotate(${-roundedHeading}deg)`;
+      }
+    }
+
+  </script>
+  <div id="modalBieuDoDinhCao" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center; padding: 16px;">
+    <div style="background: white; border-radius: 12px; max-width: 850px; width: 100%; padding: 20px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); position: relative;">
+      <button onclick="dongModalBieuDo()" style="position: absolute; top: 12px; right: 12px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-weight: bold; font-size: 14px; padding: 0px">✕</button>
+      <h3 id="titleModalDinhCao" style="margin-top: 0; font-size: 16px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">Biểu đồ tiến trình chu kỳ</h3>
+      
+      <div id="canvasChartWrapper" style="margin: 20px 0; background: #f8fafc; border-radius: 8px; padding: 10px; overflow-x: auto; text-align: center">
+        </div>
+      
+      <div style="font-size: 12.5px; color: #475569; line-height: 1.6; background: #f8fafc; padding: 12px 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 15px;">
+        <div style="font-weight: bold; color: #1e293b; margin-bottom: 6px;">💡 Hướng dẫn đọc biểu đồ năng lượng:</div>
+        <div style="display: grid; gap: 6px;">
+          <div><span style="color:#10b981; font-weight:bold;">• Điểm nhô cao (Năm #8, #9):</span> Thời kỳ bộc phát năng lượng, cơ hội lớn để thu hoạch tài chính và gặt hái thành công lớn.</div>
+          <div><span style="color:#ef4444; font-weight:bold;">• Điểm đáy trũng (Năm #4, #7):</span> Vùng trũng thanh lọc. Chịu nhiều áp lực, cần thu mình tích lũy, học hỏi, cẩn trọng tiền bạc và sức khỏe.</div>
+          <div><span style="color:#3b82f6; font-weight:bold;">• Sườn dốc chuyển tiếp (Các năm còn lại):</span> Sườn đi lên báo hiệu thời điểm gieo hạt, bồi đắp và mở rộng. Sườn đi xuống là tín hiệu cần chậm lại, rà soát hệ thống để chuẩn bị đón bão.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="margin-top: 50px; border-top: 1px solid var(--border); padding: 24px 16px; text-align: center; background-color: #ffffff; color: #64748b;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; font-size: 13px;">
+
+      <div style="font-weight: 600; color: var(--primary);">
+        © <span id="footerYear">2026</span> Hệ Thống Phân Tích Thiên Văn Tổng Hợp Đông Tây Toàn Diện. All Rights Reserved.
+      </div>
+
+      <div style="color: #94a3b8; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+        <span>Chương trình phát triển & sản xuất: <b>2026</b></span>
+        <span>•</span>
+        <span>Người thiết kế: <b>Vũ Nguyễn Hoàng Phúc</b></span>
+        <span>•</span>
+        <span>Nền tảng học thuật: <b>Bát Tự Tứ Trụ & Thần Số Học Học Thuật</b></span>
+      </div>
+
+      <div style="max-width: 700px; font-size: 11px; color: #cbd5e1; line-height: 1.4; margin-top: 4px;">
+        * Các thông tin phân tích trên hệ thống mang tính chất tham khảo, định hướng năng lượng và hỗ trợ phát triển bản thân theo khoa học huyền học phương Đông & phương Tây.
+      </div>
+
+    </div>
+  </footer>
+  <script>
+    if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+  </script>
+</body>
+
+</html>
