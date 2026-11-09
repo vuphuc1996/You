@@ -26,38 +26,31 @@ details.dn-fold > summary::-webkit-details-marker { display: none; }
 details.dn-fold > summary::after { content: '▾'; color: #8a6d2b; } details.dn-fold[open] > summary::after { content: '▴'; }
 details.dn-fold > .dn-extra { margin: 0; padding: 0 12px 14px; }
 
-/* ---- ĐIỆN THOẠI < 600px: thanh tab dưới đáy (dễ chạm bằng ngón cái) ---- */
-@media (max-width: 599px) {
-  .container { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
-  .tab-container { position: fixed; left: 0; right: 0; top: auto; bottom: 0; z-index: 80; margin: 0; padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); gap: 2px;
-    grid-template-columns: repeat(4, 1fr); background: rgba(255,253,248,.96); border-top: 1px solid var(--border); border-bottom: 0; box-shadow: 0 -6px 20px rgba(15,23,42,.1); }
-  .tab-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; padding: 6px 2px; background: transparent; box-shadow: none !important; font-size: 10px; line-height: 1.15; text-transform: none; color: #5b6475; border-radius: 12px; }
-  .tab-btn::before { font-size: 20px; line-height: 1; }
-  .tab-btn:nth-child(1)::before { content: '🏠'; } .tab-btn:nth-child(2)::before { content: '🔢'; } .tab-btn:nth-child(3)::before { content: '☯️'; } .tab-btn:nth-child(4)::before { content: '🧭'; }
-  .tab-btn.active { background: var(--gold-soft); color: var(--primary); }
-  .app-header span { display: none; }
-  .gon-tools span { display: none; } .gon-tools { justify-content: flex-end; }
-}
+/* ---- THANH MENU CỐ ĐỊNH Ở ĐẦU TRANG (mọi thiết bị) ----
+   menu-top.js chuyển #mainTabs ra thẳng <body> để không phụ thuộc bất kỳ khung cha nào → luôn bám đầu màn hình ở MỌI tab. */
+#mainTabs { display: none; }
+body.has-menu { padding-top: var(--menu-h, 64px); }
+html { scroll-padding-top: calc(var(--menu-h, 64px) + 8px); }
+body.has-menu #mainTabs { display: grid; position: fixed; top: 0; left: 0; right: 0; z-index: 500; margin: 0; gap: 6px; grid-template-columns: repeat(4, 1fr);
+  padding: calc(6px + env(safe-area-inset-top)) max(8px, calc((100vw - 1240px) / 2), env(safe-area-inset-right)) 6px max(8px, calc((100vw - 1240px) / 2), env(safe-area-inset-left));
+  background: rgba(255,253,248,.97); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); box-shadow: 0 4px 18px rgba(15,23,42,.1); }
+body.has-menu #mainTabs .tab-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px; padding: 5px 3px; margin: 0; border-radius: 12px;
+  background: transparent; color: #5b6475; box-shadow: none; font-size: 10px; line-height: 1.15; text-align: center; text-transform: none; white-space: normal; }
+body.has-menu #mainTabs .tab-btn::before { font-size: 19px; line-height: 1; margin: 0; }
+#mainTabs .tab-btn:nth-child(1)::before { content: '🏠'; } #mainTabs .tab-btn:nth-child(2)::before { content: '🔢'; }
+#mainTabs .tab-btn:nth-child(3)::before { content: '☯️'; } #mainTabs .tab-btn:nth-child(4)::before { content: '🧭'; }
+body.has-menu #mainTabs .tab-btn.active { background: var(--gold-soft, #f3e3bb); color: var(--primary, #14213d); font-weight: 700; box-shadow: inset 0 -3px 0 var(--gold, #c8962e); }
+@media (hover: hover) { body.has-menu #mainTabs .tab-btn:hover { background: #f1ead6; } }
+.app-header span { display: block; }
+@media (max-width: 599px) { .app-header span, .gon-tools span { display: none; } .gon-tools { justify-content: flex-end; } }
 
-/* ---- TABLET / iPAD DỌC 600–1023px ---- */
-@media (min-width: 600px) and (max-width: 1023px) {
-  .container { max-width: 860px; }
-  .tab-container { grid-template-columns: repeat(4, 1fr); top: 0; }
-  .tab-btn { font-size: 13px; min-height: 50px; }
-  .battu-grid { grid-template-columns: repeat(2, 1fr); }
+/* Tablet / iPad dọc & ngang, laptop: chữ nhãn lớn hơn, icon cạnh chữ */
+@media (min-width: 600px) {
+  body.has-menu #mainTabs .tab-btn { flex-direction: row; gap: 8px; min-height: 46px; font-size: 13px; padding: 8px 10px; }
+  body.has-menu #mainTabs .tab-btn::before { font-size: 17px; }
+  .container { max-width: 900px; }
   .direction-container, .num-layout { grid-template-columns: 1fr 1fr; }
 }
+@media (min-width: 1024px) { .container { max-width: 1240px; } .battu-grid { grid-template-columns: repeat(4, 1fr); } body.has-menu #mainTabs .tab-btn { font-size: 13.5px; } }
 
-/* ---- LAPTOP / PC / iPAD NGANG ≥1024px: điều hướng dọc bên trái ---- */
-@media (min-width: 1024px) {
-  .container { max-width: 1240px; }
-  #resultSection[style*="display: block"] { display: grid !important; grid-template-columns: 230px minmax(0, 1fr); column-gap: 28px; align-items: start; }
-  #resultSection > * { grid-column: 2; min-width: 0; }
-  #resultSection > .tab-container { grid-column: 1; grid-row: 1 / span 60; position: sticky; top: 18px; display: flex; flex-direction: column; gap: 6px; padding: 12px; margin: 0;
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .tab-btn { justify-content: flex-start; text-align: left; min-height: 48px; padding: 10px 14px; font-size: 13px; }
-  .tab-btn::before { margin-right: 8px; }
-  .tab-btn:nth-child(1)::before { content: '🏠'; } .tab-btn:nth-child(2)::before { content: '🔢'; } .tab-btn:nth-child(3)::before { content: '☯️'; } .tab-btn:nth-child(4)::before { content: '🧭'; }
-  .battu-grid { grid-template-columns: repeat(4, 1fr); }
-}
-@media print { .tab-container { display: none !important; } details.gon > * { display: block; } .gon-cta, .gon-tools { display: none; } }
+@media print { #mainTabs, body.has-menu #mainTabs { display: none !important; } body.has-menu { padding-top: 0; } details.gon > * { display: block; } .gon-cta, .gon-tools { display: none; } }
