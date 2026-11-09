@@ -1,0 +1,45 @@
+/* bien-dong.js — mở rộng "Điểm nhấn riêng": cùng ngày sinh nhưng khác giờ/phút vẫn ra lời đọc khác nhau.
+   Mỗi ô lấy ý từ một yếu tố riêng (Chi giờ, nửa giờ, Can Nhật Chủ, Cung Mọc, Mặt Trăng, hành) rồi chọn cách nói bằng hạt giống khác nhau. */
+(function () {
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function prng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function pick(a, r) { return a[Math.floor(r() * a.length)]; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+  var GIO = { 'Tý': ['giờ của mầm mới và trực giác, bạn hay nghĩ sâu khi mọi người đã yên', 'giờ nước lặng mà sâu, bạn nhìn ra điều người khác bỏ sót'], 'Sửu': ['giờ bền bỉ, bạn quen âm thầm làm đến nơi đến chốn', 'giờ của trâu cày, ít nói nhưng đã nhận là làm tới cùng'], 'Dần': ['giờ bình minh, bạn dễ là người mở đầu và dẫn dắt', 'giờ hổ thức giấc, bạn có sức bật mạnh khi gặp việc mình tin'], 'Mão': ['giờ nhẹ nhàng, bạn khéo léo và giàu thẩm mỹ', 'giờ hoa nở, bạn dễ mến và biết làm dịu không khí'], 'Thìn': ['giờ nhiều biến động, bạn chứa nhiều tham vọng lớn', 'giờ rồng, bạn thích việc có quy mô và dấu ấn'], 'Tỵ': ['giờ sáng rõ, bạn nghĩ nhanh và nhìn thấu chi tiết', 'giờ rắn, bạn kín đáo, quan sát kỹ rồi mới ra tay'], 'Ngọ': ['giờ đỉnh nắng, bạn nhiệt thành và muốn được thấy kết quả', 'giờ ngựa phi, bạn thích tự do và tốc độ'], 'Mùi': ['giờ dịu, bạn chu đáo và để tâm đến người thân', 'giờ dê hiền, bạn nghĩ cho tập thể trước khi nghĩ cho mình'], 'Thân': ['giờ linh hoạt, bạn xoay xở giỏi và học rất nhanh', 'giờ khỉ lanh lợi, bạn giỏi tìm lối đi mới khi bị chặn'], 'Dậu': ['giờ tinh tế, bạn cầu toàn và có gu riêng', 'giờ gà gáy, bạn rạch ròi, thích mọi thứ đâu ra đó'], 'Tuất': ['giờ trung thành, bạn đã quý ai thì quý lâu', 'giờ chó giữ nhà, bạn đáng tin và bảo vệ người mình thương'], 'Hợi': ['giờ lắng lại, bạn giàu cảm xúc và rộng lượng', 'giờ heo no đủ, bạn hưởng thụ cuộc sống nhưng cũng hào phóng'] };
+  var NUA = ['Sinh ở nửa đầu của giờ này, năng lượng còn "mới", bạn thiên về khởi xướng.', 'Rơi vào khoảng một phần tư thứ hai của giờ, bạn khởi động chậm hơn một nhịp nhưng ổn định.', 'Ở khoảng giữa-cuối giờ, bạn cân bằng tốt giữa nghĩ và làm.', 'Gần cuối giờ, bạn mang sẵn tinh thần chuyển tiếp: hay làm cầu nối giữa hai giai đoạn.'];
+  var CAN = { 'Giáp': ['như cây cổ thụ: thẳng, thích dẫn đầu', 'như thân gỗ lớn: muốn vươn cao và che chở'], 'Ất': ['như dây leo: mềm mà bền, khéo thích nghi', 'như hoa cỏ: nhẹ nhàng nhưng sống dai'], 'Bính': ['như mặt trời: rộng rãi, thích soi sáng', 'như nắng sớm: tươi và dễ lan tỏa'], 'Đinh': ['như ngọn đèn: ấm, tập trung và tinh tế', 'như lửa nến: kín đáo mà soi rất rõ'], 'Mậu': ['như núi lớn: vững, ít khi nao núng', 'như đại địa: bao dung và chịu tải giỏi'], 'Kỷ': ['như ruộng vườn: nuôi dưỡng, kiên nhẫn', 'như đất mềm: khéo gom góp và vun đắp'], 'Canh': ['như thanh kiếm: dứt khoát, trọng nghĩa', 'như sắt thép: cứng cỏi, thích rạch ròi'], 'Tân': ['như ngọc: tinh tế, tự trọng cao', 'như trang sức: đẹp, kén chọn và cầu toàn'], 'Nhâm': ['như sông lớn: phóng khoáng, tầm nhìn rộng', 'như biển cả: sâu và nhiều ý tưởng'], 'Quý': ['như mưa sương: nhạy bén, giàu trực giác', 'như suối nguồn: lặng lẽ mà bền dòng'] };
+  var MOC = { 'Bạch Dương': 'thẳng và nhanh', 'Kim Ngưu': 'chậm rãi, đáng tin', 'Song Tử': 'lanh lợi, nói chuyện duyên', 'Cự Giải': 'dịu dàng, hay quan tâm', 'Sư Tử': 'nổi bật, tự tin', 'Xử Nữ': 'gọn gàng, kỹ tính', 'Thiên Bình': 'hòa nhã, chú trọng vẻ ngoài', 'Bọ Cạp': 'kín đáo, ánh nhìn sâu', 'Nhân Mã': 'cởi mở, thích phiêu lưu', 'Ma Kết': 'nghiêm túc, chững chạc', 'Bảo Bình': 'độc đáo, hơi khác biệt', 'Song Ngư': 'mơ màng, dễ cảm' };
+  var TRAN = { 'Bạch Dương': 'nội tâm nóng, cần hành động để nhẹ lòng', 'Kim Ngưu': 'nội tâm cần cảm giác an toàn và thoải mái', 'Song Tử': 'nội tâm hay nghĩ nhiều, cần được trò chuyện', 'Cự Giải': 'nội tâm nhạy cảm, cần mái ấm tinh thần', 'Sư Tử': 'nội tâm muốn được trân trọng', 'Xử Nữ': 'nội tâm hay tự soi xét, dễ lo xa', 'Thiên Bình': 'nội tâm cần hài hòa, ngại xung đột', 'Bọ Cạp': 'nội tâm mãnh liệt, yêu hận phân minh', 'Nhân Mã': 'nội tâm cần không gian và ý nghĩa lớn', 'Ma Kết': 'nội tâm tự đặt kỷ luật cao cho mình', 'Bảo Bình': 'nội tâm cần tự do suy nghĩ', 'Song Ngư': 'nội tâm giàu mơ mộng và thương cảm' };
+  var QH = { 'Mộc': ['Trong quan hệ, bạn hay nâng đỡ người khác lớn lên; chỉ cần nhớ giữ ranh giới cho mình.', 'Bạn thương người theo kiểu vun trồng: kiên nhẫn, ít đòi hỏi, nhưng dễ tủi nếu không được ghi nhận.', 'Bạn cởi mở và thích nhóm bạn rộng; hãy chọn lọc để năng lượng không bị chia nhỏ.'],
+    'Hỏa': ['Bạn bày tỏ cảm xúc thẳng và nồng; nói chậm lại một nhịp sẽ giúp người nghe tiếp nhận tốt hơn.', 'Bạn truyền năng lượng cho người đối diện; đôi khi cần để họ có không gian riêng.', 'Bạn yêu ghét rõ ràng và nhớ lâu cảm giác được tôn trọng.'],
+    'Thổ': ['Bạn là chỗ dựa; hãy tập nói ra nhu cầu của mình thay vì chỉ lặng lẽ gánh.', 'Bạn chậm nhưng bền trong tình cảm; sự ổn định là món quà lớn nhất bạn trao cho người khác.', 'Bạn coi trọng cam kết; đừng ngại nhờ người khác giúp khi quá tải.'],
+    'Kim': ['Bạn rạch ròi trong quan hệ; thêm một chút mềm mỏng sẽ khiến bạn gần gũi hơn rất nhiều.', 'Bạn ít nói lời hoa mỹ nhưng làm là giữ; hãy thử nói điều tử tế ra miệng nhiều hơn.', 'Bạn chọn bạn rất kỹ, nên vòng tròn nhỏ nhưng chất lượng.'],
+    'Thủy': ['Bạn đọc cảm xúc người khác rất nhanh; nhớ dành thời gian đọc cả cảm xúc của chính mình.', 'Bạn linh hoạt trong giao tiếp nhưng đôi lúc giấu thật lòng; hãy chọn một người đủ an toàn để nói thật.', 'Bạn cần khoảng lặng riêng để nạp lại năng lượng sau những cuộc gặp dài.'] };
+  var VL = { 'Mộc': ['Làm việc tốt nhất khi được tự do sáng tạo và có mục tiêu lớn dần theo thời gian.', 'Bạn hợp việc có sự phát triển, học hỏi và con người.', 'Hãy tránh môi trường lặp lại cứng nhắc quá lâu.'],
+    'Hỏa': ['Bạn bứt phá khi có sân khấu và phản hồi nhanh; đặt mốc ngắn hạn để duy trì lửa.', 'Hợp vai trò truyền cảm hứng, dẫn dắt, thuyết phục.', 'Nên chia việc dài thành chặng nhỏ để tránh cháy nhanh rồi nguội.'],
+    'Thổ': ['Bạn mạnh ở vai trò quản lý, nền tảng và hậu cần; sự đều đặn của bạn là tài sản.', 'Hợp việc cần độ tin cậy và tích lũy dài hạn.', 'Đừng ngại thử thay đổi nhỏ để tránh ngại đổi mới.'],
+    'Kim': ['Bạn xuất sắc ở việc cần tiêu chuẩn, phân tích và hoàn thiện chi tiết.', 'Hợp vai trò kiểm soát chất lượng, tài chính, pháp lý hoặc kỹ thuật.', 'Hãy cho phép bản thân "đủ tốt" để không kiệt sức vì cầu toàn.'],
+    'Thủy': ['Bạn hợp việc cần thích nghi, nghiên cứu, giao tiếp hoặc làm việc độc lập.', 'Linh hoạt là lợi thế; hãy chốt rõ ưu tiên để không bị cuốn theo nhiều hướng.', 'Hợp môi trường thay đổi và có không gian riêng tư để suy nghĩ.'] };
+  var CHOT = ['Đọc để hiểu mình hơn, không phải để bị định đoạt.', 'Lá số là bản đồ; con đường vẫn do bạn chọn.', 'Điểm mạnh dùng đúng chỗ, điểm yếu biết trước thì bớt thành điểm mù.', 'Mỗi người một nhịp riêng; hãy dùng những gợi ý nào hợp với mình.', 'Thứ thay đổi lá số của bạn nhiều nhất vẫn là thói quen hằng ngày.'];
+
+  var base = window.dungDiemNhanRieng;
+  window.dungDiemNhanRieng = function (d) {
+    var html = base(d);
+    try {
+      var bt = d.batTu || {}, chiGio = String(bt.canChiGio || '').split(' ')[1], canNgay = String(d.nhatChu || '').split(' ')[0];
+      var gio = d.lichDuong ? d.lichDuong.gio : 12, phut = d.lichDuong ? d.lichDuong.phut : 0;
+      var trongGio = (((gio + 1) % 2) * 60 + phut), tuLe = Math.min(3, Math.floor(trongGio / 30));
+      var seed = hash([bt.canChiGio, bt.canChiNgay, tuLe, d.ascendant, d.moonSign, d.gioiTinhChuan, d.nhatChu, d.soChuDao, trongGio].join('~'));
+      var r = prng(seed), hanh = d.nguHanh;
+      var g = GIO[chiGio] ? pick(GIO[chiGio], r) : 'giờ sinh mang sắc thái riêng', c = CAN[canNgay] ? pick(CAN[canNgay], r) : '';
+      var t1 = '<article><h4>🕰️ Dấu ấn giờ sinh</h4><p>Bạn sinh vào <b>giờ ' + esc(chiGio) + '</b> — ' + esc(g) + '. ' + NUA[tuLe] + '</p></article>';
+      var t2 = '<article><h4>🎭 Bên ngoài – bên trong</h4><p>Nhật Chủ <b>' + esc(canNgay) + '</b> ' + esc(c) + '. Vẻ ngoài ' + esc(MOC[d.ascendant] || '') + '; ' + esc(TRAN[d.moonSign] || '') + '.</p></article>';
+      var t3 = '<article><h4>🤝 Trong các mối quan hệ</h4><p>' + esc(pick(QH[hanh] || QH['Thổ'], r)) + '</p></article>';
+      var t4 = '<article><h4>💼 Phong cách làm việc</h4><p>' + esc(pick(VL[hanh] || VL['Thổ'], r)) + '</p></article>';
+      var extra = '<div class="dn-extra">' + t1 + t2 + t3 + t4 + '</div><p class="dn-quote">' + esc(pick(CHOT, r)) + '</p>';
+      html = html.replace(/<\/section>\s*$/, extra + '</section>');
+    } catch (e) { console.error(e); }
+    return html;
+  };
+})();

@@ -1,0 +1,68 @@
+/* theme.css — lớp giao diện mới (đặt SAU style.css). Phông, màu, thẻ, và khối "Điểm nhấn riêng". */
+:root { --bg: #f6f3ec; --card-bg: #fffdf8; --text: #2b3445; --border: #e7dfcf; --primary: #14213d; --gold: #c8962e; --gold-soft: #f3e3bb;
+  --font-body: 'Be Vietnam Pro', system-ui, 'Segoe UI', sans-serif; --font-head: 'Noto Serif', Georgia, serif; }
+body { font-family: var(--font-body); background: radial-gradient(900px 340px at 50% -80px, #efe4c8, transparent 70%), var(--bg); }
+h2, h3, .app-header strong { font-family: var(--font-head); }
+h2 { color: var(--primary); border-bottom: 0; position: relative; padding-bottom: 14px; letter-spacing: .01em; }
+h2::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 72px; height: 3px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+h3 { border-bottom: 0; padding-left: 12px; border-left: 4px solid var(--gold); text-transform: none; font-size: clamp(16px, 2.6vw, 19px); }
+.card { background: var(--card-bg); border: 1px solid var(--border); }
+.app-header { background: linear-gradient(135deg, #0b1630, #1c2b52); border-bottom: 3px solid var(--gold); }
+.tab-btn.active { background: linear-gradient(135deg, #14213d, #243b6b); color: #f3d98b; }
+button:not(.tab-btn) { background: linear-gradient(135deg, #14213d, #243b6b); }
+.interpretation-box, .summary-box { border-left-color: var(--gold); background: #fffaf0; }
+.battu-card { background: #fffaf0; border-color: var(--border); }
+
+/* ---- Điểm nhấn riêng ---- */
+.dn-card { margin: 0 0 20px; padding: clamp(16px, 3vw, 26px); border-radius: 18px; border: 1px solid var(--gold-soft);
+  background: linear-gradient(160deg, #fffaf0, #fff 55%, #fdf3da); box-shadow: 0 10px 28px rgba(200,150,46,.12); }
+.dn-card h3 { margin: 0 0 8px; border: 0; padding: 0; }
+.dn-top { display: flex; gap: 14px; align-items: flex-start; justify-content: space-between; }
+.dn-head { margin: 0; font-size: clamp(15px, 2.4vw, 17px); line-height: 1.65; }
+.dn-code { flex: none; text-align: center; font-size: 11px; color: #8a6d2b; background: var(--gold-soft); border-radius: 12px; padding: 8px 12px; line-height: 1.4; }
+.dn-code b { font-size: 16px; letter-spacing: .08em; color: var(--primary); }
+.dn-bars { display: grid; gap: 8px; margin: 16px 0 8px; grid-template-columns: 1fr; }
+.dn-chip { display: grid; grid-template-columns: 84px 1fr 48px; align-items: center; gap: 10px; font-size: 13.5px; }
+.dn-chip i { height: 9px; border-radius: 9px; background: linear-gradient(90deg, #cbd5e1 var(--w), #eee7d7 var(--w)); }
+.dn-chip.top i { background: linear-gradient(90deg, var(--gold) var(--w), #eee7d7 var(--w)); }
+.dn-chip.low i { background: linear-gradient(90deg, #ef4444 var(--w), #eee7d7 var(--w)); }
+.dn-chip b { text-align: right; font-variant-numeric: tabular-nums; }
+.dn-note { margin: 8px 0 16px; font-size: 14px; color: #6b5a2c; }
+.dn-grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.dn-grid article { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+.dn-grid h4 { margin: 0 0 6px; font-size: 14px; color: var(--primary); }
+.dn-grid p, .dn-grid li { margin: 0; font-size: 14px; line-height: 1.6; }
+.dn-grid ul { margin: 0; padding-left: 18px; } .dn-grid small { display: block; margin-top: 8px; color: #7a6a3a; }
+@media (min-width: 720px) { .dn-bars { grid-template-columns: 1fr 1fr; gap: 10px 28px; } .dn-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .dn-top { flex-direction: column; } .dn-chip { grid-template-columns: 76px 1fr 44px; } }
+@media print { .dn-card { break-inside: avoid; box-shadow: none; } }
+
+/* ---- Bổ sung nội dung biến động ---- */
+.dn-extra { display: grid; gap: 12px; margin-top: 12px; grid-template-columns: 1fr; }
+.dn-extra article { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 14px; padding: 14px 16px; }
+.dn-extra h4 { margin: 0 0 6px; font-size: 14px; color: var(--primary); }
+.dn-extra p { margin: 0; font-size: 14px; line-height: 1.65; }
+.dn-quote { margin: 14px 0 0; text-align: center; font-family: var(--font-head); font-style: italic; color: #8a6d2b; font-size: 14px; }
+@media (min-width: 720px) { .dn-extra { grid-template-columns: 1fr 1fr; } }
+
+/* ===================== LA BÀN BÁT TRẠCH — giao diện mới ===================== */
+.card:has(#svgLaBan) { background: linear-gradient(160deg, #0b1630, #1c2b52) !important; border: 1px solid var(--gold) !important; color: #f5efe0; border-radius: 20px !important; max-width: 520px; margin-left: auto; margin-right: auto; padding: 22px 14px !important; }
+.card:has(#svgLaBan) h4 { color: #f3d98b !important; font-family: var(--font-head); text-transform: none !important; font-size: 17px !important; letter-spacing: .02em; }
+.card:has(#svgLaBan) > p { color: #cfc8b4 !important; font-weight: 400 !important; }
+div:has(> #svgLaBan) { max-width: min(360px, 92%) !important; border: 0 !important; background: radial-gradient(circle at 50% 40%, #1b2d5c, #0a1330 70%) !important;
+  box-shadow: 0 0 0 3px #e8b44a, 0 0 0 9px #14213d, 0 0 0 11px rgba(232,180,74,.55), 0 18px 44px rgba(0,0,0,.45), inset 0 0 28px rgba(0,0,0,.55) !important; overflow: hidden; }
+#svgLaBan > circle:first-child { fill: #0e1a3d; stroke: #e8b44a; stroke-width: 1.5; }
+#svgLaBan path[id^="arc-"] { fill: rgba(255,255,255,.035); stroke: rgba(232,180,74,.35); stroke-width: .8; transition: fill .3s; }
+#svgLaBan path[id^="arc-"][fill="#ecfdf5"] { fill: rgba(16,185,129,.26); stroke: #34d399; }
+#svgLaBan path[id^="arc-"][fill="#fef2f2"] { fill: rgba(239,68,68,.17); stroke: #f87171; }
+#svgLaBan text { fill: #f5efe0 !important; font-family: var(--font-body); }
+#svgLaBan text[id^="lbl-"] { fill: #f3d98b !important; font-size: 9px; }
+#svgLaBan .la-ban-tam { fill: #e8b44a; stroke: #0b1630; stroke-width: 3; }
+div:has(> #svgLaBan) > div[style*="#dc2626"] { background: linear-gradient(#ff7a6e, #dc2626) !important; box-shadow: 0 0 12px rgba(255,90,79,.8); }
+div:has(> #svgLaBan) > div[style*="#dc2626"] > div { background: #ff5a4f !important; }
+.card:has(#svgLaBan) div[style*="#f8fafc"] { background: rgba(255,255,255,.06) !important; border: 1px dashed rgba(232,180,74,.5) !important; color: #f5efe0 !important; border-radius: 12px !important; flex-wrap: wrap; }
+#txtGocLaBanThuc { font-size: 24px !important; color: #ff8a80 !important; font-variant-numeric: tabular-nums; }
+#txtTenHuongThuc { color: #9ec1ff !important; }
+#txtTrangThaiGocThuc { padding: 4px 10px !important; border-radius: 999px !important; font-size: 12px !important; letter-spacing: .04em; }
+#btnKichHoatiOS { padding: 6px 12px !important; font-size: 12px !important; border-radius: 999px !important; background: #e8b44a !important; color: #0b1630 !important; min-height: 0 !important; }
+#arrow-Left, #arrow-Right { color: #4ade80 !important; letter-spacing: .03em; }

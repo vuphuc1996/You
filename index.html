@@ -16,7 +16,10 @@
   <meta name="apple-mobile-web-app-title" content="Mệnh Lý">
   <meta property="og:title" content="Phân Tích Mệnh Lý Đông Tây">
   <meta property="og:image" content="icons/logo-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:wght@600;700&display=swap&subset=vietnamese" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
   <title>Phân Tích Mệnh Lý Đông Tây</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
@@ -25,6 +28,10 @@
 <body>
   <div id="loadingOverlay" role="status" aria-live="polite"><div class="spinner"></div><div>Đang lập lá số…</div></div>
   <div id="errorBox" class="error-box" role="alert" style="display:none"></div>
+  <header class="app-header no-print">
+    <img src="icons/logo-512.png" alt="" width="48" height="48">
+    <div><strong>Mệnh Lý Đông Tây</strong><span>Bát Tự · Thần số học · Bát Trạch · Cung Hoàng Đạo</span></div>
+  </header>
   <div class="container">
     <div class="card">
       <h2>Hệ Thống Phân Tích Bát Tự & Thiên Văn Học Toàn Cầu</h2>
@@ -454,6 +461,10 @@
       
   </div>
   <script src="engine.js"></script>
+  <script src="diem-nhan.js"></script>
+  <script src="bien-dong.js"></script>
+  <script src="kho-mo-rong.js"></script>
+  <script src="la-ban-dep.js"></script>
   <script>
     // Data local app
     const DIEN_GIAI_SO_THAN_SO = {
@@ -2260,6 +2271,30 @@
     </div>
   </footer>
   <script>
+    // Sau khi vẽ kết quả: chèn khối "Điểm nhấn riêng" lên đầu tab Tổng quan
+    (function () {
+      var goc = loadAllData;
+      loadAllData = function (data) {
+        goc(data);
+        try {
+          if (!data || data.success === false) return;
+          var tab = document.getElementById('tab-tongquan'), cu = document.getElementById('diemNhanRieng');
+          if (cu) cu.remove();
+          if (tab) tab.insertAdjacentHTML('afterbegin', dungDiemNhanRieng(data));
+        } catch (e) { console.error(e); }
+      };
+    })();
+    // Chuyển tab: cuộn về đầu nội dung tab mới (thanh tab dính phía trên)
+    (function () {
+      var goc = openTab;
+      openTab = function (id, btn) {
+        goc(id, btn);
+        var bar = document.getElementById('mainTabs'), c = document.getElementById(id);
+        if (!bar || !c) return;
+        var y = c.getBoundingClientRect().top + window.scrollY - bar.offsetHeight - 10;
+        if (y < window.scrollY) window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      };
+    })();
     if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
   </script>
 </body>
