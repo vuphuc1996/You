@@ -49,7 +49,7 @@
       if (segs.length === 1 && !segs[0].tu) return;
       var f = document.createDocumentFragment();
       segs.forEach(function (s) {
-        if (s.tu) { var sp = document.createElement('span'); sp.className = 'tu-ngu'; sp.setAttribute('data-tu', s.tu); sp.setAttribute('tabindex', '0'); sp.setAttribute('role', 'button'); sp.textContent = s.t; f.appendChild(sp); }
+        if (s.tu) { var sp = document.createElement('span'); sp.className = 'tu-ngu'; sp.setAttribute('data-tu', s.tu); sp.setAttribute('data-gt', String(TU[s.tu] || '').split(/[.;—]/)[0].slice(0, 80)); sp.setAttribute('tabindex', '0'); sp.setAttribute('role', 'button'); sp.textContent = s.t; f.appendChild(sp); }
         else f.appendChild(document.createTextNode(s.t));
       });
       node.parentNode.replaceChild(f, node);

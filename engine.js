@@ -2982,6 +2982,59 @@ function tinhCungMatTroiThienVan_(ngay, thang, nam, gioThap, gmt) {
   return { tenCung: TEN[i], nguyenTo: NT[i % 4] };   // Bạch Dương Lửa, Kim Ngưu Đất, Song Tử Khí, Cự Giải Nước, Sư Tử Lửa…
 }
 
+
+// =====================================================================
+// MINH BẠCH + VẬN HẠN THÁNG
+// =====================================================================
+var TEN_TIET_ = ["Lập Xuân", "Kinh Trập", "Thanh Minh", "Lập Hạ", "Mang Chủng", "Tiểu Thử", "Lập Thu", "Bạch Lộ", "Hàn Lộ", "Lập Đông", "Đại Tuyết", "Tiểu Hàn"];   // k=0..11, kinh độ 315°+30°k
+function jdVeGioDiaPhuong_(jd, gmt) { var t = new Date((jd - 2440587.5) * 86400000 + (gmt === undefined ? 7 : gmt) * 3600000); return { ngay: t.getUTCDate(), thang: t.getUTCMonth() + 1, nam: t.getUTCFullYear(), gio: t.getUTCHours(), phut: t.getUTCMinutes() }; }
+function dinhDangGio_(o) { return (o.gio < 10 ? "0" : "") + o.gio + ":" + (o.phut < 10 ? "0" : "") + o.phut + " ngày " + o.ngay + "/" + o.thang + "/" + o.nam; }
+// Tìm thời điểm (JD UT) Mặt Trời đạt kinh độ target, quanh jdGuess ± 22 ngày
+function timJdKinhDo_(target, jdGuess) {
+  var diff = function (jd) { var d = kinhDoMatTroiJD(jd) - target; return ((d + 540) % 360) - 180; };
+  var a = jdGuess - 22, da = diff(a);
+  for (var i = 1; i <= 176; i++) {
+    var b = jdGuess - 22 + i * 0.25, db = diff(b);
+    if (da < 0 && db >= 0) { var lo = a, hi = b; for (var j = 0; j < 40; j++) { var m = (lo + hi) / 2; if (diff(m) < 0) lo = m; else hi = m; } return (lo + hi) / 2; }
+    a = b; da = db;
+  }
+  return null;
+}
+function tietKhiQuanhNgaySinh_(kq, gmt) {
+  var jd0 = jdUTTuNgayGio(kq.ngay, kq.thang, kq.nam, kq.gio, kq.phut, 7), lon = kinhDoMatTroiJD(jd0);
+  var k = Math.floor((((lon - 315) % 360) + 360) % 360 / 30);                 // tiết đang chạy
+  var tr = timJdKinhDo_(((315 + 30 * k) % 360), jd0), sau = timJdKinhDo_(((315 + 30 * (k + 1)) % 360), jd0 + 20);
+  var namBT = (kq.thang <= 2 && lon >= 270 && lon < 315) ? kq.nam - 1 : kq.nam;
+  var lapXuan = timJdKinhDo_(315, jdUTTuNgayGio(4, 2, namBT, 12, 0, 7));
+  return { truoc: tr ? { ten: TEN_TIET_[k], gio: dinhDangGio_(jdVeGioDiaPhuong_(tr, 7)) } : null, sau: sau ? { ten: TEN_TIET_[(k + 1) % 12], gio: dinhDangGio_(jdVeGioDiaPhuong_(sau, 7)) } : null,
+           lapXuan: lapXuan ? dinhDangGio_(jdVeGioDiaPhuong_(lapXuan, 7)) : null, namBatTu: namBT };
+}
+// Quy ước tính vận tháng — CHỈNH Ở ĐÂY nếu bạn theo trường phái khác
+var QUY_UOC_THANG_ = { chiLaDungThan: 2, chiLaHyThan: 1, canLaDungThan: 1, canLaHyThan: 0.5, chiLaHanhKy: -2, canLaHanhKy: -1, chiXungChiNgay: -1, chiHopChiNgay: 1, nguongThuan: 2, nguongCanTrong: -2 };
+var CHI_HANH_ = { "Tý": "Thủy", "Sửu": "Thổ", "Dần": "Mộc", "Mão": "Mộc", "Thìn": "Thổ", "Tỵ": "Hỏa", "Ngọ": "Hỏa", "Mùi": "Thổ", "Thân": "Kim", "Dậu": "Kim", "Tuất": "Thổ", "Hợi": "Thủy" };
+var CAN_HANH_ = { "Giáp": "Mộc", "Ất": "Mộc", "Bính": "Hỏa", "Đinh": "Hỏa", "Mậu": "Thổ", "Kỷ": "Thổ", "Canh": "Kim", "Tân": "Kim", "Nhâm": "Thủy", "Quý": "Thủy" };
+var XUNG_ = { "Tý": "Ngọ", "Ngọ": "Tý", "Sửu": "Mùi", "Mùi": "Sửu", "Dần": "Thân", "Thân": "Dần", "Mão": "Dậu", "Dậu": "Mão", "Thìn": "Tuất", "Tuất": "Thìn", "Tỵ": "Hợi", "Hợi": "Tỵ" };
+var HOP_ = { "Tý": "Sửu", "Sửu": "Tý", "Dần": "Hợi", "Hợi": "Dần", "Mão": "Tuất", "Tuất": "Mão", "Thìn": "Dậu", "Dậu": "Thìn", "Tỵ": "Thân", "Thân": "Tỵ", "Ngọ": "Mùi", "Mùi": "Ngọ" };
+function tinhLichThang_(namXem, batTu, dungThan, hyThan, namCaNhan) {
+  var KHAC = { "Kim": "Mộc", "Mộc": "Thổ", "Thổ": "Thủy", "Thủy": "Hỏa", "Hỏa": "Kim" }, ky = null, h;
+  for (h in KHAC) if (KHAC[h] === dungThan) ky = h;                         // hành khắc Dụng Thần = hành kỵ (quy ước tạm, xem QUY_UOC_THANG_)
+  var canNamIdx = (((namXem - 4) % 10) + 10) % 10, kq = [], Q = QUY_UOC_THANG_;
+  for (var k = 0; k < 12; k++) {
+    var canIdx = ((canNamIdx % 5) * 2 + 2 + k) % 10, chiIdx = (k + 2) % 12, can = CANS[canIdx], chi = CHIS[chiIdx];
+    var hCan = CAN_HANH_[can], hChi = CHI_HANH_[chi], diem = 0;
+    if (hChi === dungThan) diem += Q.chiLaDungThan; else if (hChi === hyThan) diem += Q.chiLaHyThan; else if (hChi === ky) diem += Q.chiLaHanhKy;
+    if (hCan === dungThan) diem += Q.canLaDungThan; else if (hCan === hyThan) diem += Q.canLaHyThan; else if (hCan === ky) diem += Q.canLaHanhKy;
+    if (XUNG_[chi] === batTu.chiNgay) diem += Q.chiXungChiNgay; else if (HOP_[chi] === batTu.chiNgay) diem += Q.chiHopChiNgay;
+    var jdBd = timJdKinhDo_((315 + 30 * k) % 360, jdUTTuNgayGio(4, 2, namXem, 12, 0, 7) + 30.44 * k), jdKt = timJdKinhDo_((315 + 30 * (k + 1)) % 360, jdUTTuNgayGio(4, 2, namXem, 12, 0, 7) + 30.44 * (k + 1));
+    var bd = jdBd ? jdVeGioDiaPhuong_(jdBd, 7) : null, kt = jdKt ? jdVeGioDiaPhuong_(jdKt - 0.01, 7) : null;
+    var giua = jdBd && jdKt ? jdVeGioDiaPhuong_((jdBd + jdKt) / 2, 7) : null;
+    kq.push({ k: k, tiet: TEN_TIET_[k], chi: chi, canChi: can + " " + chi, hanhCan: hCan, hanhChi: hChi, diem: diem,
+      muc: diem >= Q.nguongThuan ? "thuan" : (diem <= Q.nguongCanTrong ? "canTrong" : "binhOn"),
+      tu: bd ? bd.ngay + "/" + bd.thang : "", den: kt ? kt.ngay + "/" + kt.thang : "", soThang: giua ? rutGonSo(namCaNhan + giua.thang) : null });
+  }
+  return kq;
+}
+
 // ================= Code.gs (lõi) =================
 // Giao diện gọi hàm này. Mọi lỗi được trả về dạng {success:false, error} để UI hiển thị rõ ràng
 function getAllData(dataInput) {
@@ -3190,6 +3243,14 @@ function xuLyTatCa_(dataInput) {
 
     // Huyền Không
     huyenKhong: { nam: namHienTai, saoTrungCung: hk.saoTrungCung, mangSaoPhuongVi: hk.mangSaoPhuongVi },
+    // Minh bạch phương pháp + vận hạn 12 tháng
+    minhBach: {
+      gioDongHo: ("0" + (parseInt(dataInput.gio, 10) || 0)).slice(-2) + ":" + ("0" + (parseInt(dataInput.phut, 10) || 0)).slice(-2), viTri: viTri.key || "(không khớp — dùng GMT+7, lệch 0 phút)", phutLech: viTri.mins,
+      gioDaBu: ("0" + kqDuongLich.gio).slice(-2) + ":" + ("0" + kqDuongLich.phut).slice(-2), ngayDaBu: kqDuongLich.ngay + "/" + kqDuongLich.thang + "/" + kqDuongLich.nam,
+      kinhDoMatTroi: batTu.kinhDoMatTroi, tiet: tietKhiQuanhNgaySinh_(kqDuongLich, 7), namBatTu: batTu.namBatTu, thuan: khoiVan.thuan, soNgayToiTiet: khoiVan.soNgay,
+      cungMatTroi: kqCungTay.tenCung, quyUocThang: QUY_UOC_THANG_
+    },
+    lichThang: tinhLichThang_(namHienTai, batTu, kqTongQuan.dungThan, kqTongQuan.hyThan, kqTinhNamCaNhan),
 
     // Đại Vận
     tuoiKhoiDaiVanThucTe: khoiVan.tuoi,

@@ -1,6 +1,6 @@
 // Service worker: mở nhanh + dùng được khi mất mạng. Tăng PHIEN_BAN mỗi lần bạn cập nhật code để máy người dùng tải bản mới.
-const PHIEN_BAN = 'menh-ly-v13';
-const LOI = ['./', 'index.html', 'engine.js', 'style.css', 'theme.css', 'layout.css', 'bo-sung.css', 'diem-nhan.js', 'bien-dong.js', 'kho-mo-rong.js', 'la-ban-dep.js', 'gon-gon.js', 'menu-top.js', 'tu-dien.js', 'noi-dung-tab.js', 'hieu-ung.js', 'tro-ly.js', 'manifest.webmanifest', 'favicon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/logo-512.png'];
+const PHIEN_BAN = 'menh-ly-v14';
+const LOI = ['./', 'index.html', 'engine.js', 'style.css', 'theme.css', 'layout.css', 'bo-sung.css', 'diem-nhan.js', 'bien-dong.js', 'kho-mo-rong.js', 'la-ban-dep.js', 'gon-gon.js', 'menu-top.js', 'tu-dien.js', 'noi-dung-tab.js', 'hieu-ung.js', 'tro-ly.js', 'bo-sung-2.js', 'manifest.webmanifest', 'favicon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/logo-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(PHIEN_BAN).then(c => c.addAll(LOI)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== PHIEN_BAN).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 // Ưu tiên bản mới từ mạng, rơi về bản đã lưu khi offline (kể cả Chart.js từ CDN)
