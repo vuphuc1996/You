@@ -2923,6 +2923,54 @@ function tinhHanPhuongDong(namXemHan, tuoiMu, chiNamSinh, gioiTinh) {
     };
 }
 
+
+// =====================================================================
+// Đồng bộ Dụng Thần: Dụng Thần HIỂN THỊ (kèm bảng màu/hướng) là kết quả của tinhTongQuan (có xét mùa sinh).
+// Khối "phân tích chi tiết" trước đây tự chọn Dụng Thần theo % riêng nên ~63% lá số bị hai nơi nói hai hành khác nhau.
+// Nay: lời giải thích luôn bám đúng Dụng Thần đang hiển thị; hành mà phép tính % chọn (nếu hợp lý và khác) hiện là "Dụng Thần phụ".
+// =====================================================================
+function vaiTroHanh_(me, h) {
+  var SINH = { "Kim": "Thủy", "Thủy": "Mộc", "Mộc": "Hỏa", "Hỏa": "Thổ", "Thổ": "Kim" };   // x sinh SINH[x]
+  var KHAC = { "Kim": "Mộc", "Mộc": "Thổ", "Thổ": "Thủy", "Thủy": "Hỏa", "Hỏa": "Kim" };   // x khắc KHAC[x]
+  if (h === me) return "ty";
+  if (SINH[h] === me) return "an";
+  if (SINH[me] === h) return "thuc";
+  if (KHAC[me] === h) return "tai";
+  return "quan";
+}
+var TEN_VAI_TRO_ = { an: "Ấn Tinh", ty: "Tỷ Kiếp", thuc: "Thực Thương", tai: "Tài Tinh", quan: "Quan Sát" };
+var Y_VAI_TRO_ = {
+  an: "giống một <b>nguồn nuôi dưỡng</b>: học hỏi, nghỉ ngơi đúng lúc và có người che chở sẽ giúp bạn lấy lại sức.",
+  ty: "giống <b>đồng minh cùng hành</b>: bạn bè, đồng đội và môi trường quen thuộc tiếp thêm sự tự tin, giúp bạn đứng vững.",
+  thuc: "giống một <b>van xả</b>: dùng sáng tạo, trình bày, làm ra sản phẩm để tiết bớt nội lực dư thay vì dồn nén.",
+  tai: "giống việc <b>biến nội lực thành thành quả</b>: công việc có kết quả đo được, biết quản lý tiền bạc và nguồn lực.",
+  quan: "giống một <b>khung kỷ luật</b>: mục tiêu rõ, nguyên tắc và thử thách vừa sức giúp bạn rèn luyện và trưởng thành."
+};
+function dongBoDungThan_(ct, tq) {
+  var me = tq.nguHanh, dt = tq.dungThan, hy = tq.hyThan;
+  if (!dt || !me) return ct;
+  var ketQua = String(tq.ketQuaThanVuongNhuoc || "");
+  var tt = /Vượng/i.test(ketQua) ? "THÂN VƯỢNG" : (/Nhược/i.test(ketQua) ? "THÂN NHƯỢC" : ct.trangThai);
+  var rDt = vaiTroHanh_(me, dt), rHy = hy ? vaiTroHanh_(me, hy) : null;
+  var ttThuong = tt === "THÂN VƯỢNG" ? "Thân Vượng" : (tt === "THÂN NHƯỢC" ? "Thân Nhược" : "cân bằng");
+  var mo = tt === "THÂN VƯỢNG"
+    ? "Nội lực bản mệnh dồi dào, nên cần chỗ để <b>tiêu bớt và hướng năng lượng đi đúng đường</b>."
+    : (tt === "THÂN NHƯỢC" ? "Nội lực bản mệnh còn mỏng, nên cần được <b>nâng đỡ và bồi đắp</b>." : "Lá số khá cân bằng, chỉ cần giữ nhịp.");
+  var gt = "Bạn thuộc mẫu <b>" + ttThuong + "</b>. " + mo + " Lá số chọn hành <b>" + dt + " (" + TEN_VAI_TRO_[rDt] + ")</b> làm <b>Dụng Thần</b> — " + Y_VAI_TRO_[rDt] +
+    (hy ? " <b>Hỷ Thần</b> là hành <b>" + hy + (rHy ? " (" + TEN_VAI_TRO_[rHy] + ")" : "") + "</b>, hỗ trợ thêm cho Dụng Thần." : "");
+  // Trường hợp ưu tiên điều hậu: Dụng Thần không thuộc nhóm "nâng đỡ" (khi Nhược) hay "tiêu bớt" (khi Vượng)
+  var hopVaiTro = (tt === "THÂN NHƯỢC" && (rDt === "an" || rDt === "ty")) || (tt === "THÂN VƯỢNG" && (rDt === "thuc" || rDt === "quan" || rDt === "tai")) || tt === ct.trangThai && tt !== "THÂN VƯỢNG" && tt !== "THÂN NHƯỢC";
+  if (!hopVaiTro) gt += " <br><span style=\"color:#475569\">Lưu ý: trường hợp này lá số <b>ưu tiên cân bằng nóng–lạnh theo mùa sinh</b> (gọi là <b>điều hậu</b>) hơn là chỉ xét mạnh–yếu, nên hành được chọn có thể khác với quy tắc thông thường.</span>";
+  // Dụng Thần phụ: lựa chọn của phép tính theo tỷ lệ %, chỉ nêu khi khác và hợp với kết luận Vượng/Nhược
+  var phu = null;
+  if (ct.dungThan && ct.dungThan !== dt && ct.dungThan !== hy) {
+    var rp = vaiTroHanh_(me, ct.dungThan);
+    var hopLe = tt === "THÂN NHƯỢC" ? (rp === "an" || rp === "ty") : (tt === "THÂN VƯỢNG" ? (rp === "thuc" || rp === "quan" || rp === "tai") : true);
+    if (hopLe) { phu = ct.dungThan; gt += " <br><span style=\"color:#475569\">Ngoài ra, nếu chỉ xét tỷ lệ phần trăm các hành thì <b>" + phu + " (" + TEN_VAI_TRO_[rp] + ")</b> cũng là hướng bổ trợ tốt — bạn có thể xem như <b>Dụng Thần phụ</b>.</span>"; }
+  }
+  return { trangThai: tt, giaiThich: gt, phanTichSau: ct.phanTichSau, dungThan: dt, hyThan: hy, dungThanPhu: phu, sinh: ct.sinh, khac: ct.khac };
+}
+
 // ================= Code.gs (lõi) =================
 // Giao diện gọi hàm này. Mọi lỗi được trả về dạng {success:false, error} để UI hiển thị rõ ràng
 function getAllData(dataInput) {
@@ -2988,6 +3036,7 @@ function xuLyTatCa_(dataInput) {
   // ---- Bát Tự ----
   var kqTongQuan = tinhTongQuan(dataInput, gioiTinhChuan, kqDuongLich, batTu);
   var chiTietDanhGia = danhGiaThanVuongNhuoc(kqTongQuan.nguHanh, kqTongQuan.phanTramNguHanhMang);
+  chiTietDanhGia = dongBoDungThan_(chiTietDanhGia, kqTongQuan);   // một Dụng Thần duy nhất cho toàn bộ trang
 
   // ---- Thần số học ----
   var tongChuSo = 0, chuoiNgaySinh = String(parseInt(dataInput.ngay, 10)) + String(parseInt(dataInput.thang, 10)) + String(parseInt(dataInput.nam, 10));

@@ -17,6 +17,7 @@
       ['📅', 'Vận hạn năm ' + (hk.nam || ''), 'Năm ' + (hk.nam || '') + ', tôi ' + (t.isPham ? 'phạm' : 'không phạm') + ' Tam Tai, Kim Lâu: ' + (k.isPham ? 'phạm' : 'không phạm') + ', sao hạn ' + (cd.sao || '') + ' (' + (cd.han || '') + '), năm cá nhân Thần số học ' + d.namCaNhan + '. Hãy giải thích từng khái niệm ngắn gọn và đưa 5 lời khuyên trung lập cho năm này. ' + tien],
       ['🔢', 'Thần số học: số chủ đạo ' + d.soChuDao, 'Giải thích ý nghĩa Số chủ đạo ' + d.soChuDao + ' và Năm cá nhân ' + d.namCaNhan + ' trong Thần số học Pythagoras: điểm mạnh, thử thách, lời khuyên cho năm này. ' + tien],
       ['🏠', 'Hướng nhà/bàn làm việc theo Bát Trạch', 'Tôi thuộc cung phi ' + bz.cungPhi + ' (' + bz.nhomHuong + '). Hãy giải thích Bát Trạch là gì và gợi ý cách bố trí hướng giường, bàn làm việc, bếp theo cung phi này, kèm cách xử lý khi không thể đổi hướng. ' + tien],
+      ['💞', 'Xem mức bổ trợ với một người khác (nhập thông tin người đó bên AI)', nen + 'Tôi muốn xem hai người bổ trợ cho nhau thế nào. Hãy hỏi tôi lần lượt ngày, tháng, năm, giờ sinh, giới tính và tỉnh/thành Việt Nam của người kia, rồi so sánh theo Bát Tự (ngũ hành, Dụng Thần), Thần số học, cung hoàng đạo và Bát Trạch. Chỉ ra điểm hợp, điểm cần lưu ý và gợi ý cách giao tiếp, cách hai người bù đắp cho nhau. Không đưa ra phán quyết "hợp" hay "không hợp để kết hôn" và không dọa dẫm; đây chỉ là góc nhìn tham khảo, các quyết định quan trọng phải dựa trên sự hiểu nhau thực tế. ' + tien],
       ['🌟', 'Bộ ba Mặt Trời–Mặt Trăng–Cung Mọc', 'Cung Mặt Trời ' + d.zodiacSign + ', Mặt Trăng ' + d.moonSign + ', Cung Mọc ' + d.ascendant + '. Hãy giải thích ý nghĩa từng vị trí và cách chúng kết hợp, bằng lời dễ hiểu. ' + tien]
     ];
   }
@@ -32,7 +33,7 @@
     var ds = xayLoiNhac(lastData);
     panel = document.createElement('div'); panel.className = 'tro-ly-panel';
     panel.innerHTML = '<div class="tlp-head"><b>🤖 Tra cứu thêm với Google AI</b><button type="button" class="tlp-x" aria-label="Đóng">✕</button></div>' +
-      '<p class="tlp-note">Chọn một mục: lời nhắc đã được điền sẵn. Khi bấm, nội dung (chỉ gồm đặc điểm lá số, không có họ tên hay ngày sinh) sẽ được gửi sang Google.</p><ul>' +
+      '<p class="tlp-note">Chọn một mục: lời nhắc đã được điền sẵn (mục "người khác" sẽ hỏi bạn thông tin ngay bên AI, app không lưu thông tin đó). Khi bấm, nội dung (chỉ gồm đặc điểm lá số, không có họ tên hay ngày sinh) sẽ được gửi sang Google.</p><ul>' +
       ds.map(function (x, i) { return '<li><button type="button" data-i="' + i + '"><span>' + x[0] + '</span><em>' + esc(x[1]) + '</em><i>↗</i></button></li>'; }).join('') +
       '</ul><button type="button" class="tlp-copy">📋 Sao chép lời nhắc (dán vào Gemini, ChatGPT…)</button>';
     document.body.appendChild(panel);
