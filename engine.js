@@ -2971,6 +2971,17 @@ function dongBoDungThan_(ct, tq) {
   return { trangThai: tt, giaiThich: gt, phanTichSau: ct.phanTichSau, dungThan: dt, hyThan: hy, dungThanPhu: phu, sinh: ct.sinh, khac: ct.khac };
 }
 
+
+// Cung Mặt Trời theo KINH ĐỘ THỰC của Mặt Trời tại thời điểm sinh (bảng ngày cố định cũ lệch ~2% ngày sinh, nhất là người sinh sát ngày chuyển cung)
+function tinhCungMatTroiThienVan_(ngay, thang, nam, gioThap, gmt) {
+  var TEN = ["Bạch Dương", "Kim Ngưu", "Song Tử", "Cự Giải", "Sư Tử", "Xử Nữ", "Thiên Bình", "Bọ Cạp", "Nhân Mã", "Ma Kết", "Bảo Bình", "Song Ngư"];
+  var NT = ["Lửa", "Đất", "Khí", "Nước"];
+  var g = isFinite(gioThap) ? gioThap : 12;
+  var lon = kinhDoMatTroiJD(jdUTTuNgayGio(parseInt(ngay, 10), parseInt(thang, 10), parseInt(nam, 10), Math.floor(g), Math.round((g - Math.floor(g)) * 60), gmt === undefined ? 7 : gmt));
+  var i = Math.floor(lon / 30) % 12;
+  return { tenCung: TEN[i], nguyenTo: NT[i % 4] };   // Bạch Dương Lửa, Kim Ngưu Đất, Song Tử Khí, Cự Giải Nước, Sư Tử Lửa…
+}
+
 // ================= Code.gs (lõi) =================
 // Giao diện gọi hàm này. Mọi lỗi được trả về dạng {success:false, error} để UI hiển thị rõ ràng
 function getAllData(dataInput) {
@@ -3064,7 +3075,7 @@ function xuLyTatCa_(dataInput) {
 
   // ---- Chiêm tinh phương Tây (dùng giờ đồng hồ gốc, không dùng giờ đã bù kinh độ) ----
   var gioThapPhan = (parseInt(dataInput.gio, 10) || 0) + (parseInt(dataInput.phut, 10) || 0) / 60;
-  var kqCungTay = tinhCungHoangDaoHeTay(dataInput.ngay, dataInput.thang);
+  var kqCungTay = tinhCungMatTroiThienVan_(dataInput.ngay, dataInput.thang, dataInput.nam, gioThapPhan, viTri.gmt);   // theo kinh độ thực của Mặt Trời tại giờ sinh
   var moonSign = tinhMoonSignChuanThienVan(dataInput.ngay, dataInput.thang, dataInput.nam, gioThapPhan, viTri.gmt);
   var ascendant = tinhCungMocThienVan(dataInput.ngay, dataInput.thang, dataInput.nam, gioThapPhan, viTri.key || dataInput.vitri);
   var kqGiaoThoa = tinhGiaoThoaDongTay(kqCungTay.nguyenTo, kqTongQuan.dungThan, kqTongQuan.nguHanh);

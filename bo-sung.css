@@ -68,3 +68,18 @@ div:has(> #svgLaBan) { animation: anhLaBan 4s ease-in-out infinite; }
 .nd-den { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; text-align: center; font-size: 13px; font-weight: 600; } .nd-den > div { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px 6px; }
 .nd-dot { display: block; margin-top: 6px; padding: 3px 6px; border-radius: 999px; font-size: 11.5px; color: #fff; } .nd-dot.xanh { background: #10b981; } .nd-dot.do { background: #ef4444; }
 @media (min-width: 720px) { .nd-tru-grid { grid-template-columns: repeat(4, 1fr); } .nd-2col { grid-template-columns: 1fr 1fr; } }
+
+/* ---- Sơ đồ & biểu đồ Đỉnh cao (Thần số học) ---- */
+button[onclick="dongModalBieuDo()"] { position: absolute; top: 10px !important; right: 10px !important; width: 36px !important; height: 36px !important; min-height: 0 !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important;
+  border-radius: 50% !important; display: grid !important; place-items: center; line-height: 1 !important; font-size: 16px !important; background: #ef4444 !important; box-shadow: 0 2px 8px rgba(239,68,68,.45); transition: transform .15s, background .2s; }
+button[onclick="dongModalBieuDo()"]:hover { background: #dc2626 !important; transform: rotate(90deg); }
+#titleModalDinhCao { padding-right: 48px; line-height: 1.4; }
+#modalBieuDoDinhCao > div { max-height: 92vh; overflow: auto; }
+#canvasChartWrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+#canvasChartWrapper svg { min-width: 640px; }
+#canvasChartWrapper svg text { paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+.bd-nhan { letter-spacing: .01em; }
+.pyramid-tier .peak-box, #pyramidVisual [onclick] { cursor: pointer; border-radius: 14px; padding: 14px 24px; min-width: 112px; line-height: 1.35; transition: transform .18s, box-shadow .2s; }
+@media (hover: hover) { .pyramid-tier .peak-box:hover, #pyramidVisual [onclick]:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(15,23,42,.25); } }
+.peak-num { line-height: 1.1; margin: 2px 0; } .peak-age { margin-top: 4px; }
+@media (max-width: 480px) { .pyramid-tier .peak-box, #pyramidVisual [onclick] { padding: 12px 14px; min-width: 96px; } }
