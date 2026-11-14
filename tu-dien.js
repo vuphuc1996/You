@@ -25,6 +25,19 @@
     'Thập Thần': 'Mười mối quan hệ giữa Nhật Chủ và các yếu tố khác (tài, quan, ấn, thực thương, tỷ kiếp…), nói về tiền, công việc, học vấn, bạn bè.',
     'Thân Vượng': 'Nhật Chủ có nhiều năng lượng hỗ trợ (mạnh). Khi đó thường cần "tiêu bớt" để cân bằng.',
     'Thân Nhược': 'Nhật Chủ ít năng lượng hỗ trợ (yếu). Khi đó thường cần được "nâng đỡ" thêm.',
+    'Thiên Can': 'Mười chữ Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý. Chữ Can của ngày sinh chính là "bạn" trong lá số.',
+    'Địa Chi': 'Mười hai con giáp Tý, Sửu, Dần… Mỗi Chi mang một hành và một mùa, và đi cùng Can tạo thành một cặp như "Giáp Ngọ".',
+    'Can Chi': 'Một cặp gồm Can (chữ trên) và Chi (chữ dưới), ví dụ "Giáp Ngọ". Mỗi trụ trong lá số là một cặp Can Chi.',
+    'Ấn Tinh': 'Hành sinh ra bạn, giống "người nuôi dưỡng": học hỏi, nghỉ ngơi, người che chở.',
+    'Tỷ Kiếp': 'Hành cùng hành với bạn, giống "bạn bè, đồng đội" cùng tính chất với bạn.',
+    'Thực Thương': 'Hành do bạn sinh ra, giống "sản phẩm bạn tạo ra": sáng tạo, trình bày, biểu đạt.',
+    'Tài Tinh': 'Hành bạn khắc chế, giống "thứ bạn kiểm soát và thu về": công việc có kết quả, tiền bạc, nguồn lực.',
+    'Quan Sát': 'Hành khắc chế bạn, giống "khung kỷ luật": quy tắc, áp lực, thử thách giúp bạn rèn luyện.',
+    'Phe Ta': 'Các hành đang hỗ trợ bản thân bạn (cùng hành với bạn hoặc sinh ra bạn).',
+    'Trợ Lực': 'Phần sức mạnh hỗ trợ bạn trong lá số.',
+    'Tiêu Hao': 'Phần sức mạnh làm bạn hao sức hoặc bị kìm chế trong lá số.',
+    'điều hậu': 'Cân bằng nóng–lạnh theo mùa sinh: sinh mùa đông thường cần thêm "ấm", sinh mùa hè cần thêm "mát".',
+    'Dụng Thần phụ': 'Hành bổ trợ thứ hai, khi cách tính theo tỷ lệ % chọn một hành khác với Dụng Thần chính.',
     'Tiết Khí': 'Các mốc 24 tiết trong năm theo vị trí Mặt Trời (như Lập Xuân, Kinh Trập). Bát Tự chia tháng theo các mốc này, không theo tháng dương lịch.'
   };
   var KEYS = Object.keys(TU).sort(function (a, b) { return b.length - a.length; });

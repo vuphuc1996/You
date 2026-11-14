@@ -2968,7 +2968,7 @@ function dongBoDungThan_(ct, tq) {
     var hopLe = tt === "THÂN NHƯỢC" ? (rp === "an" || rp === "ty") : (tt === "THÂN VƯỢNG" ? (rp === "thuc" || rp === "quan" || rp === "tai") : true);
     if (hopLe) { phu = ct.dungThan; gt += " <br><span style=\"color:#475569\">Ngoài ra, nếu chỉ xét tỷ lệ phần trăm các hành thì <b>" + phu + " (" + TEN_VAI_TRO_[rp] + ")</b> cũng là hướng bổ trợ tốt — bạn có thể xem như <b>Dụng Thần phụ</b>.</span>"; }
   }
-  return { trangThai: tt, giaiThich: gt, phanTichSau: ct.phanTichSau, dungThan: dt, hyThan: hy, dungThanPhu: phu, sinh: ct.sinh, khac: ct.khac };
+  return { trangThai: tt, giaiThich: gt, phanTichSau: phanTichDeHieu_(me, tq.phanTramNguHanhMang, tt), dungThan: dt, hyThan: hy, dungThanPhu: phu, sinh: ct.sinh, khac: ct.khac };
 }
 
 
@@ -3033,6 +3033,19 @@ function tinhLichThang_(namXem, batTu, dungThan, hyThan, namCaNhan) {
       tu: bd ? bd.ngay + "/" + bd.thang : "", den: kt ? kt.ngay + "/" + kt.thang : "", soThang: giua ? rutGonSo(namCaNhan + giua.thang) : null });
   }
   return kq;
+}
+
+
+// Phân tích lực lượng bằng lời thường (thay cho cách viết "Phe Ta / Trợ Lực / Phe Địch / Tiêu Hao")
+function phanTichDeHieu_(me, pc, tt) {
+  var H = ["Mộc", "Hỏa", "Thổ", "Kim", "Thủy"], SINH = { "Kim": "Thủy", "Thủy": "Mộc", "Mộc": "Hỏa", "Hỏa": "Thổ", "Thổ": "Kim" }, an = null, h;
+  for (h in SINH) if (SINH[h] === me) an = h;
+  var v = function (x) { var i = H.indexOf(x); return i < 0 ? 0 : pc[i]; };
+  var ho = Math.round((v(me) + v(an)) * 10) / 10, con = Math.round((100 - ho) * 10) / 10;
+  var khac = H.filter(function (x) { return x !== me && x !== an; }).map(function (x) { return x + " " + v(x) + "%"; }).join(", ");
+  var ket = tt === "THÂN VƯỢNG" ? "Lực hỗ trợ lớn hơn, nên bạn dư sức và cần chỗ để dùng bớt năng lượng (sáng tạo, vận động, làm việc)." : (tt === "THÂN NHƯỢC" ? "Lực hỗ trợ nhỏ hơn, nên bạn cần được bồi đắp (nghỉ ngơi, học hỏi, người đồng hành)." : "Hai bên khá cân bằng.");
+  return "<div class=\"pt-de-hieu\"><p>🟢 <b>Lực hỗ trợ bạn: " + ho + "%</b> — gồm chính hành " + me + " của bạn (" + v(me) + "%) và hành " + an + " (" + v(an) + "%), là hành sinh ra bạn.</p>" +
+    "<p>🔴 <b>Lực làm bạn hao sức hoặc bị kìm chế: " + con + "%</b> — gồm các hành còn lại: " + khac + ".</p><p>👉 " + ket + "</p></div>";
 }
 
 // ================= Code.gs (lõi) =================
@@ -3243,6 +3256,7 @@ function xuLyTatCa_(dataInput) {
 
     // Huyền Không
     huyenKhong: { nam: namHienTai, saoTrungCung: hk.saoTrungCung, mangSaoPhuongVi: hk.mangSaoPhuongVi },
+    nhapGoc: { ngay: parseInt(dataInput.ngay, 10), thang: parseInt(dataInput.thang, 10), nam: parseInt(dataInput.nam, 10), gio: parseInt(dataInput.gio, 10) || 0, phut: parseInt(dataInput.phut, 10) || 0, gioitinh: gioiTinhChuan, vitri: dataInput.vitri, namXemHan: namHienTai },
     // Minh bạch phương pháp + vận hạn 12 tháng
     minhBach: {
       gioDongHo: ("0" + (parseInt(dataInput.gio, 10) || 0)).slice(-2) + ":" + ("0" + (parseInt(dataInput.phut, 10) || 0)).slice(-2), viTri: viTri.key || "(không khớp — dùng GMT+7, lệch 0 phút)", phutLech: viTri.mins,
